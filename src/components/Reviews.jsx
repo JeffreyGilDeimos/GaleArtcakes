@@ -12,7 +12,6 @@ import feedback9 from "./img/feedback9.png";
 export default function Reviews() {
   return (
     <div>
-      {/* // <!-- ---- FB Review ---- --> */}
       <section id="fb_review" class="bg-danger bg-opacity-10">
         <div class="text-center py-5">
           <h4 class="text-dark">

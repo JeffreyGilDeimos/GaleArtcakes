@@ -7,7 +7,6 @@ import number1 from "./img/number1.png";
 
 export default function Featured() {
   return (
-    // <!-- ---- Featured Selection ---- -->
     <section class="py-5">
       <div class="container">
         <div class="text-center pb-5">

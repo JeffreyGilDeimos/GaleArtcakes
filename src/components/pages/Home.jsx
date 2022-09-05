@@ -1,12 +1,12 @@
 import React from "react";
-import Carousel from "../Carousel";
+import Hero from "../Hero";
 import Featured from "../Featured";
 import Reviews from "../Reviews";
 
 export default function Home() {
   return (
     <div>
-      <Carousel />
+      <Hero />
       <Featured />
       <Reviews />
     </div>

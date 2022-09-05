@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
-    // <!-- ---- Footer---- -->
     <footer class="p-4 bg-danger position-relative shadow-lg">
       <div class="container">
         <div class="d-flex align-items-center flex-column text-light">
