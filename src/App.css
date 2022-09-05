@@ -24,8 +24,17 @@
          padding-top: 243px;
      }
  }
+
+ .nav-bg-color {
+   background-color: #D57A43;
+ }
+
+ .nav-link {
+   color: #6A2101 !important;
+ }
+
  .nav-link:hover {
-   color: rgba(255,255,255,.5)!important;
+   color: #A74C1D !important;
  }
 
  /* <!-- ---- Featured Selection ---- --> */
