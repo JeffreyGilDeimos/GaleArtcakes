@@ -1,0 +1,110 @@
+.bgred {
+  background-color: var(--red) !important;
+}
+
+/* <!-- ---- Header ---- --> */
+@media(min-width: 992px) {
+   #hero,
+   #selection,
+   #about {
+        padding-top: 106px;
+    }
+}
+@media(max-width: 991px) {
+    #hero,
+    #selection,
+    #about {     
+         padding-top: 179px;
+     }
+ }
+ @media(max-width: 396px) {
+    #hero,
+    #selection,
+    #about {
+         padding-top: 243px;
+     }
+ }
+ .nav-link:hover {
+   color: rgba(255,255,255,.5)!important;
+ }
+
+ /* <!-- ---- Featured Selection ---- --> */
+ .selection-img {
+    height: 150px;
+    width: 150px;
+    border-radius: 90px;
+    border: 3px solid #e05d5d;
+    margin-left: auto;
+    margin-right: auto;
+ }
+ .selected-img {
+   height: 150px;
+   width: 150px;
+   border-radius: 90px;
+   border: 3px solid #e05d5d;
+   margin-left: auto;
+   margin-right: auto;
+}
+ .selection-img:hover {
+    border-color:chartreuse;  
+ }
+ .selected-img {
+   border-color:chartreuse;  
+}
+ .selection-img:hover img {
+    transform: scale(1.2);
+ }
+ .selection-img img {
+    height: 140px;
+    width: 110px;    
+ }
+ .selected-img img {
+   height: 150px;
+   width: 120px;    
+}
+ .selection-img img,
+ .selection-img {
+    transition: all 0.4s ease;
+ }
+ .selection-text {
+    opacity: 0;
+ }
+ .selection-item:hover .selection-text {
+    opacity: 1;
+ }
+ 
+ /* <!-- ---- FB Feedback ---- --> */
+ .fb-img:hover {
+    transform: scale(1.2);
+ }
+ .fb-img {
+    transition: all 0.4s ease;
+ }
+ 
+ /* ----- Selected Selection-----  */
+ .card-img {
+   width: 250px;
+ }
+ .card-img {
+   border-radius: 10px;
+   border: 5px solid #e05d5d;
+ }
+ .card-img:hover {
+   cursor: pointer;
+   border:5px solid chartreuse ;
+ }
+ .card-img:hover img {
+   transform: scale(1.1);
+   transition: all 0.4s ease;
+ }
+ /* ----- Modals ----- */
+ .modal-img img {
+  height: 350px;
+ }
+  /* ----- About section-----  */
+  .hisstory {
+   top: 40px;
+  right: 50px;
+  }
+
+ 
