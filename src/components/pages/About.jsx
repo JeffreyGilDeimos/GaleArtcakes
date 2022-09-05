@@ -4,14 +4,13 @@ import about from "../img/about.png";
 export default function About() {
   return (
     <div>
-      {/* <!-- ---- About Section ---- --> */}
       <section id="about" class="">
         <div class="container bg-danger rounded-bottom shadow-lg">
           <div class="row align-items-center">
             <div class="col-md-6 my-4">
               <img src={about} alt="about" class="img-fluid w-100 rounded" />
             </div>
-            <div class="history col-md-6 p-5 text-light">
+            <div class="col-md-6 p-5 text-light">
               <h4>Our Story</h4>
               <p>
                 In 2020, we started making cakes as a pastime just to satisfy
@@ -49,7 +48,14 @@ export default function About() {
                 </li>
                 <li class="list-group-item">
                   <span class="fw-bold">Facebook: </span>
-                  https://www.facebook.com/sweetnhory
+                  <a
+                    href="https://www.facebook.com/sweetnhory"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-decoration-none"
+                  >
+                    https://www.facebook.com/sweetnhory
+                  </a>
                 </li>
                 <li class="list-group-item">
                   <span class="fw-bold">Inqury Email: </span>

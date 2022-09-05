@@ -16,7 +16,7 @@ export default function Featured() {
           <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
             <div class="selection-item text-center">
               <div class="selection-img overflow-hidden">
-                <NavLink to="/Menu#varities">
+                <NavLink to="/Menu">
                   <img src={choco1} alt="Choco" />
                 </NavLink>
               </div>
@@ -28,7 +28,7 @@ export default function Featured() {
           <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
             <div class="selection-item text-center">
               <div class="selection-img overflow-hidden">
-                <NavLink to="/Menu#varities">
+                <NavLink to="/Menu">
                   <img src={theme1} alt="Theme Cakes" />
                 </NavLink>
               </div>
@@ -40,7 +40,7 @@ export default function Featured() {
           <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
             <div class="selection-item text-center">
               <div class="selection-img overflow-hidden">
-                <NavLink to="/Menu#varities">
+                <NavLink to="/Menu">
                   <img src={character1} alt="Choco" />
                 </NavLink>
               </div>
@@ -52,7 +52,7 @@ export default function Featured() {
           <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
             <div class="selection-item text-center">
               <div class="selection-img overflow-hidden">
-                <NavLink to="/Menu#varities">
+                <NavLink to="/Menu">
                   <img src={number1} alt="Choco" />
                 </NavLink>
               </div>

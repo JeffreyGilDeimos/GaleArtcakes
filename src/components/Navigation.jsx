@@ -39,7 +39,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/About#about" className="nav-link text-white">
+                <NavLink to="/About" className="nav-link text-white">
                   <i class="bi bi-people d-block d-flex justify-content-center mb-1 fs-5"></i>
                   ABOUT
                 </NavLink>

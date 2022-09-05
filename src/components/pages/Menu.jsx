@@ -41,7 +41,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
               <div class="selection-item text-center">
                 <div class="selected-img overflow-hidden">
-                  <NavLink to="/Menu#varities">
+                  <NavLink to="/Menu">
                     <img src={choco1} alt="Choco drip cakes" />
                   </NavLink>
                 </div>
@@ -53,7 +53,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
               <div class="selection-item text-center">
                 <div class="selection-img overflow-hidden">
-                  <NavLink to="/Menu#varities">
+                  <NavLink to="/Menu">
                     <img src={theme1} alt="Themed Cakes" />
                   </NavLink>
                 </div>
@@ -65,7 +65,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
               <div class="selection-item text-center">
                 <div class="selection-img overflow-hidden">
-                  <NavLink to="/Menu#varities">
+                  <NavLink to="/Menu">
                     <img src={character1} alt="Character Cakes" />
                   </NavLink>
                 </div>
@@ -77,7 +77,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-2 pb-3">
               <div class="selection-item text-center">
                 <div class="selection-img overflow-hidden">
-                  <NavLink to="/Menu#varities">
+                  <NavLink to="/Menu">
                     <img src={number1} alt="Number Cakes" />
                   </NavLink>
                 </div>
