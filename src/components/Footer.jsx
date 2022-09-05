@@ -1,5 +1,4 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -7,9 +6,14 @@ export default function Footer() {
       <div class="container">
         <div class="d-flex align-items-center flex-column text-light">
           <p class="m-0 fs-6">Follow Gale ArtCakes at</p>
-          <NavLink to="">
+          <a
+            href="https://www.facebook.com/sweetnhory"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-decoration-none"
+          >
             <i class="bi bi-facebook text-light fs-5"></i>
-          </NavLink>
+          </a>
           <p class="text-light fs-6 lead pt-2">
             &copy;2022 Gale ArtCakes. All Rights Reserved.
           </p>
