@@ -51,6 +51,16 @@
        display: none;
    }
  }
+ @media(max-width: 280px){
+   #hero,
+   #selection,
+   #about {
+        padding-top: 200px;
+    }
+   .nav-label{
+       display: none;
+   }
+ }
  .nav-bg-color {
    background-color: #D57A43;
  }
