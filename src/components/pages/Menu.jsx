@@ -1,20 +1,5 @@
 import React from "react";
 import { NavHashLink as NavLink } from "react-router-hash-link";
-import choco1 from "../img/choco1.png";
-import choco2 from "../img/choco2.png";
-import choco3 from "../img/choco3.png";
-import choco4 from "../img/choco4.png";
-import choco5 from "../img/choco5.png";
-import choco6 from "../img/choco6.png";
-import choco7 from "../img/choco7.png";
-import choco8 from "../img/choco8.png";
-import choco9 from "../img/choco9.png";
-import choco10 from "../img/choco10.png";
-import choco11 from "../img/choco11.png";
-import choco12 from "../img/choco12.png";
-import theme1 from "../img/theme1.png";
-import character1 from "../img/character1.png";
-import number1 from "../img/number1.png";
 
 export default function Menu() {
   return (
@@ -42,7 +27,7 @@ export default function Menu() {
               <div class="selection-item text-center">
                 <div class="selected-img overflow-hidden">
                   <NavLink to="/Menu">
-                    <img src={choco1} alt="Choco drip cakes" />
+                    <img src="images/choco1.png" alt="Choco drip cakes" />
                   </NavLink>
                 </div>
                 <div class="selected-text">
@@ -54,7 +39,7 @@ export default function Menu() {
               <div class="selection-item text-center">
                 <div class="selection-img overflow-hidden">
                   <NavLink to="/Menu">
-                    <img src={theme1} alt="Themed Cakes" />
+                    <img src="images/theme1.png" alt="Themed Cakes" />
                   </NavLink>
                 </div>
                 <div class="selection-text">
@@ -66,7 +51,7 @@ export default function Menu() {
               <div class="selection-item text-center">
                 <div class="selection-img overflow-hidden">
                   <NavLink to="/Menu">
-                    <img src={character1} alt="Character Cakes" />
+                    <img src="images/character1.png" alt="Character Cakes" />
                   </NavLink>
                 </div>
                 <div class="selection-text">
@@ -78,7 +63,7 @@ export default function Menu() {
               <div class="selection-item text-center">
                 <div class="selection-img overflow-hidden">
                   <NavLink to="/Menu">
-                    <img src={number1} alt="Number Cakes" />
+                    <img src="images/number1.png" alt="Number Cakes" />
                   </NavLink>
                 </div>
                 <div class="selection-text">
@@ -102,7 +87,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco1}
+                  src="images/choco1.png"
                   alt="choco 1"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -114,7 +99,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco2}
+                  src="images/choco2.png"
                   alt="choco 2"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -126,7 +111,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco3}
+                  src="images/choco3.png"
                   alt="choco 3"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -138,7 +123,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco4}
+                  src="images/choco4.png"
                   alt="choco 4"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -149,7 +134,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco5}
+                  src="images/choco5.png"
                   alt="choco 5"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -160,7 +145,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco6}
+                  src="images/choco6.png"
                   alt="choco 6"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -171,7 +156,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco7}
+                  src="images/choco7.png"
                   alt="choco 7"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -182,7 +167,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco8}
+                  src="images/choco8.png"
                   alt="choco 8"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -193,7 +178,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco9}
+                  src="images/choco9.png"
                   alt="choco 9"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -204,7 +189,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco10}
+                  src="images/choco10.png"
                   alt="choco 10"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -215,7 +200,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco11}
+                  src="images/choco11.png"
                   alt="choco 11"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -226,7 +211,7 @@ export default function Menu() {
             <div class="col-sm-6 col-md-4 col-lg-3 pb-4 d-flex justify-content-center">
               <div class="card-img overflow-hidden">
                 <img
-                  src={choco12}
+                  src="images/choco12.png"
                   alt="choco 12"
                   class="img-fluid rounded shadow-lg"
                   data-bs-toggle="modal"
@@ -252,7 +237,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco1} alt="Choco 1" />
+                <img src="images/choco1.png" alt="Choco 1" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -291,7 +276,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco2} alt="Choco 2" />
+                <img src="images/choco2.png" alt="Choco 2" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -330,7 +315,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco3} alt="Choco 3" />
+                <img src="images/choco3.png" alt="Choco 3" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -369,7 +354,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco4} alt="Choco 4" />
+                <img src="images/choco4.png" alt="Choco 4" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -408,7 +393,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco5} alt="Choco 5" />
+                <img src="images/choco5.png" alt="Choco 5" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -447,7 +432,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco6} alt="Choco 6" />
+                <img src="images/choco6.png" alt="Choco 6" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -486,7 +471,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco7} alt="Choco 7" />
+                <img src="images/choco7.png" alt="Choco 7" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -525,7 +510,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco8} alt="Choco 8" />
+                <img src="images/choco8.png" alt="Choco 8" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -564,7 +549,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco9} alt="Choco 9" />
+                <img src="images/choco9.png" alt="Choco 9" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -603,7 +588,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco10} alt="Choco 10" />
+                <img src="images/choco10.png" alt="Choco 10" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -642,7 +627,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco11} alt="Choco 11" />
+                <img src="images/choco11.png" alt="Choco 11" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">
@@ -681,7 +666,7 @@ export default function Menu() {
             </div>
             <div class="modal-body">
               <div class="modal-img d-flex justify-content-center">
-                <img src={choco12} alt="Choco 12" />
+                <img src="images/choco12.png" alt="Choco 12" />
               </div>
               <div>
                 <ul class="lead fs-6 mb-0">

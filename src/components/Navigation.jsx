@@ -1,6 +1,5 @@
 import React from "react";
 import { NavHashLink as NavLink } from "react-router-hash-link";
-import myLogo from "./img/GaleLogo_png2.png";
 
 export default function Navigation() {
   return (
@@ -13,7 +12,12 @@ export default function Navigation() {
               className="d-flex align-items-center my-1
               my-lg-0 me-lg-auto text-white text-decoration-none"
             >
-              <img src={myLogo} width="180" height="75" alt="Gale Logo" />
+              <img
+                src="images/GaleLogo_png2.png"
+                width="180"
+                height="75"
+                alt="Gale Logo"
+              />
             </NavLink>
             <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-lg-1 text-small fw-bold">
               <li>

@@ -1,5 +1,4 @@
 import React from "react";
-import about from "../img/about.png";
 
 export default function About() {
   return (
@@ -8,7 +7,11 @@ export default function About() {
         <div class="container bg-danger rounded-bottom shadow-lg">
           <div class="row align-items-center">
             <div class="col-md-6 my-4">
-              <img src={about} alt="about" class="img-fluid w-100 rounded" />
+              <img
+                src="images/about.png"
+                alt="about"
+                class="img-fluid w-100 rounded"
+              />
             </div>
             <div class="col-md-6 p-5 text-light">
               <h4>Our Story</h4>
