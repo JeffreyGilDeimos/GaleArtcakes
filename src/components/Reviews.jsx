@@ -3,10 +3,10 @@ import React from "react";
 export default function Reviews() {
   return (
     <div>
-      <section id="fb_review" className="bg-danger bg-opacity-10">
-        <div className="text-center py-5">
-          <h4 className="text-dark">
-            <i className="bi bi-facebook me-4 fs-2"></i>FACEBOOK REVIEWS
+      <section id="fb_review" class="bg-warning bg-opacity-10">
+        <div class="text-center py-5">
+          <h4 class="text-dark">
+            <i class="bi bi-facebook me-4 fs-2"></i>FACEBOOK REVIEWS
           </h4>
         </div>
         <div className="container pb-5">
