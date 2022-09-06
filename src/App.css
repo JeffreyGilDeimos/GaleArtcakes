@@ -23,28 +23,32 @@
 @media(min-width: 992px) {
    #hero,
    #selection,
-   #about {
+   #about,
+   #buyMenu {
         padding-top: 110px;
     }
 }
 @media(max-width: 991px) {
     #hero,
     #selection,
-    #about {     
+    #about,
+    #buyMenu {     
          padding-top: 186px;
      }
  }
 @media(max-width: 767px){
    #hero,
    #selection,
-   #about {
+   #about,
+   #buyMenu {
         padding-top: 232px;
     }
 }
  @media(max-width: 459px){
    #hero,
    #selection,
-   #about {
+   #about,
+   #buyMenu {
         padding-top: 207px;
     }
    .nav-label{
@@ -54,7 +58,8 @@
  @media(max-width: 280px){
    #hero,
    #selection,
-   #about {
+   #about,
+   #buyMenu {
         padding-top: 200px;
     }
    .nav-label{
@@ -151,4 +156,20 @@
  .modal-img img {
   height: 350px;
  }
+ /* ----- Buy Cake ----- */
+ .product {
+   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+ }
 
+ .product img {
+   transition: all 0.3s ease-in-out;
+ }
+
+ @media(min-width: 768px) {
+   .product {
+      width: 400px;
+    }
+ }
+ .product:hover img {
+   transform: scale(1.05);
+ }
