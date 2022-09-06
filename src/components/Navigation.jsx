@@ -65,7 +65,7 @@ export default function Navigation() {
                 <NavLink to="/login" className="nav-link text-white d-flex align-items-center btn-login  rounded-pill">
                 <FontAwesomeIcon
                     icon={faRightToBracket} className="bi bi-people mx-auto fs-5 me-2" />
-                  LOGOUT
+                  REGISTER
                 </NavLink>
               </li>
             </ul>
