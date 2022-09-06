@@ -1,13 +1,4 @@
 import React from "react";
-import feedback1 from "./img/feedback1.PNG";
-import feedback2 from "./img/feedback2.PNG";
-import feedback3 from "./img/feedback3.PNG";
-import feedback4 from "./img/feedback4.PNG";
-import feedback5 from "./img/feedback5.PNG";
-import feedback6 from "./img/feedback6.PNG";
-import feedback7 from "./img/feedback7.PNG";
-import feedback8 from "./img/feedback8.PNG";
-import feedback9 from "./img/feedback9.png";
 
 export default function Reviews() {
   return (
@@ -22,63 +13,63 @@ export default function Reviews() {
           <div className="row g-4 justify-content-center">
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback1}
+                src="images/feedback1.PNG"
                 alt="feedback 1"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback2}
+                src="images/feedback2.PNG"
                 alt="feedback 2"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback3}
+                src="images/feedback3.PNG"
                 alt="feedback 3"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback4}
+                src="images/feedback4.PNG"
                 alt="feedback 4"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback5}
+                src="images/feedback5.PNG"
                 alt="feedback 5"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback6}
+                src="images/feedback6.PNG"
                 alt="feedback 6"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback7}
+                src="images/feedback7.PNG"
                 alt="feedback 7"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback8}
+                src="images/feedback8.PNG"
                 alt="feedback 8"
                 className="fb-img img-fluid rounded shadow-lg"
               />
             </div>
             <div className="col-sm-10 col-md-6 col-lg-4 py-1">
               <img
-                src={feedback9}
+                src="images/feedback9.PNG"
                 alt="feedback 9"
                 className="fb-img img-fluid rounded shadow-lg"
               />

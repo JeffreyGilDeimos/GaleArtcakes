@@ -1,9 +1,5 @@
 import React from "react";
 import { NavHashLink as NavLink } from "react-router-hash-link";
-import choco1 from "./img/choco1.png";
-import theme1 from "./img/theme1.png";
-import character1 from "./img/character1.png";
-import number1 from "./img/number1.png";
 
 export default function Featured() {
   return (
@@ -17,7 +13,7 @@ export default function Featured() {
             <div className="selection-item text-center">
               <div className="selection-img overflow-hidden">
                 <NavLink to="/Menu">
-                  <img src={choco1} alt="Choco" />
+                  <img src="images/choco1.png" alt="Choco" />
                 </NavLink>
               </div>
               <div className="selection-text">
@@ -29,7 +25,7 @@ export default function Featured() {
             <div className="selection-item text-center">
               <div className="selection-img overflow-hidden">
                 <NavLink to="/Menu">
-                  <img src={theme1} alt="Theme Cakes" />
+                  <img src="images/theme1.png" alt="Theme Cakes" />
                 </NavLink>
               </div>
               <div className="selection-text">
@@ -41,7 +37,7 @@ export default function Featured() {
             <div className="selection-item text-center">
               <div className="selection-img overflow-hidden">
                 <NavLink to="/Menu">
-                  <img src={character1} alt="Choco" />
+                  <img src="images/character1.png" alt="Choco" />
                 </NavLink>
               </div>
               <div className="selection-text">
@@ -53,7 +49,7 @@ export default function Featured() {
             <div className="selection-item text-center">
               <div className="selection-img overflow-hidden">
                 <NavLink to="/Menu">
-                  <img src={number1} alt="Choco" />
+                  <img src="images/number1.png" alt="Choco" />
                 </NavLink>
               </div>
               <div className="selection-text">

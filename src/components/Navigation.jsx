@@ -2,8 +2,6 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHouse, faCake, faComments, faUserGroup, faCartShopping, faRightToBracket } from "@fortawesome/free-solid-svg-icons";
 import { NavHashLink as NavLink } from "react-router-hash-link";
-import layered from "./img/layered.png";
-import myLogo from "./img/GaleLogo_png2.png";
 
 export default function Navigation() {
   return (
@@ -16,7 +14,7 @@ export default function Navigation() {
               className="d-flex align-items-center my-1
               my-lg-0 me-lg-auto text-decoration-none"
             >
-              <img src={myLogo} width="180" height="75" alt="Gale Logo" />
+              <img src="images/GaleLogo_png2.png" width="180" height="75" alt="Gale Logo" />
             </NavLink>
             <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-lg-1 text-small fw-bold">
               <li>
@@ -73,7 +71,7 @@ export default function Navigation() {
             </ul>
           </div>
         </div>
-        <img src={layered} alt="layered" className="layered img-fluid w-100 position-absolute m-0" />
+        <img src="images/layered.png" alt="layered" className="layered img-fluid w-100 position-absolute m-0" />
       </div>
     </header>
   );
