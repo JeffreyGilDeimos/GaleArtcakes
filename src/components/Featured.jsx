@@ -3,7 +3,7 @@ import { NavHashLink as NavLink } from "react-router-hash-link";
 
 export default function Featured() {
   return (
-    <section className="py-5">
+    <section className="bg-danger bg-opacity-10 py-5">
       <div className="container">
         <div className="text-center pb-5">
           <h4>FEATURED SELECTIONS</h4>
