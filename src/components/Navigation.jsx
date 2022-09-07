@@ -84,7 +84,7 @@ export default function Navigation() {
               <li className="login">
                 <NavLink
                   to="/login"
-                  className="nav-link text-white d-flex align-items-center btn-login  rounded-pill"
+                  className="nav-link text-white d-flex align-items-center btn-login rounded-pill"
                 >
                   <FontAwesomeIcon
                     icon={faRightToBracket}

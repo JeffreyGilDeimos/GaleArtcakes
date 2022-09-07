@@ -3,7 +3,7 @@ import "./App.css";
 import Footer from "./components/Footer";
 import Navigation from "./components/Navigation";
 import About from "./components/pages/About";
-import BuyMenu from "./components/pages/BuyMenu";
+import Cake from "./components/pages/Cake";
 import Home from "./components/pages/Home";
 import Menu from "./components/pages/Menu";
 import Cart from "./components/pages/Cart";
@@ -16,7 +16,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Menu" element={<Menu />} />
         <Route path="/About" element={<About />} />
-        <Route path="/BuyMenu" element={<BuyMenu />} />
+        <Route path="/Cake" element={<Cake />} />
         <Route path="/Cart" element={<Cart />} />
       </Routes>
       <Footer />
