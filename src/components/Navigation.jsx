@@ -39,7 +39,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/Menu" className="nav-link">
+                <NavLink to="/cakes" className="nav-link">
                   <FontAwesomeIcon
                     icon={faCake}
                     className="bi bi-menu-button-wide-fill d-block d-flex justify-content-center mb-1 mx-auto fs-5"
@@ -61,7 +61,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/About" className="nav-link">
+                <NavLink to="/about" className="nav-link">
                   <FontAwesomeIcon
                     icon={faUserGroup}
                     className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"

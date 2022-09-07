@@ -13,8 +13,8 @@ export default function Cake() {
           <div className="col-lg-6">
             <div className="product p-4 m-auto rounded-4 bg-white">
               <img
-                src="images/choco1.png"
-                alt="Choco"
+                src="../images/choco1.png"
+                alt="Choco1"
                 className="d-block m-auto w-100 h-auto"
               />
             </div>
