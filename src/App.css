@@ -116,6 +116,7 @@ li:not(:last-child) .nav-link:hover {
 .selection-img {
   height: 150px;
   width: 150px;
+  background-color: white;
   border-radius: 90px;
   border: 3px solid #e05d5d;
   margin-left: auto;
