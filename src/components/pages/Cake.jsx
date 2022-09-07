@@ -11,7 +11,7 @@ export default function Cake() {
       <div className="container p-5">
         <div className="row py-md-5">
           <div className="col-lg-6">
-            <div className="product p-4 m-auto rounded-4">
+            <div className="product p-4 m-auto rounded-4 bg-white">
               <img
                 src="images/choco1.png"
                 alt="Choco"
