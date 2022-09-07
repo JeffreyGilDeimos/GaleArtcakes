@@ -38,7 +38,7 @@ export default function Cake() {
               <li>
                 <strong>
                   <em>Additional disclaimer:</em>
-                </strong>{" "}
+                </strong>
                 Actual food presentation may vary.
               </li>
             </ul>
