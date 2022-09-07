@@ -37,7 +37,7 @@ export default function Cake() {
               <li>Prices may change without any prior notice.</li>
               <li>
                 <strong>
-                  <em>Additional disclaimer:</em>
+                  <em>Additional disclaimer: </em>
                 </strong>
                 Actual food presentation may vary.
               </li>

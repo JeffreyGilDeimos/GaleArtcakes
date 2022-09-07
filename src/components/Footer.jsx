@@ -1,24 +1,45 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="p-4 bg-danger position-relative shadow-lg">
+    <footer id="footer" className="p-4 position-relative">
       <div className="container">
-        <div className="d-flex align-items-center flex-column text-light">
-          <p className="m-0 fs-6">Follow Gale ArtCakes at</p>
-          <a
-            href="https://www.facebook.com/sweetnhory"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-decoration-none"
-          >
-            <i className="bi bi-facebook text-light fs-5"></i>
-          </a>
-          <p className="text-light fs-6 lead pt-2">
-            &copy;2022 Gale ArtCakes. All Rights Reserved.
+        <div className="footer text-center d-lg-flex align-items-center justify-content-space-between">
+          <p className="m-0 fw-bold text-decoration-capitalize">
+            ©2022 GALE ARTCAKES. ALL RIGHTS RESERVED.
           </p>
+          <div className="d-lg-flex align-items-center">
+            <p className="my-3 my-lg-0 me-lg-3 fw-bold text-decoration-capitalize">
+              FOLLOW GALE ARTCAKES AT
+            </p>
+            <div className="text-center">
+              <a
+                href="https://www.facebook.com/sweetnhory"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FontAwesomeIcon icon={faFacebook} className="socials fs-5" />
+              </a>
+              <FontAwesomeIcon
+                icon={faInstagram}
+                className="socials fs-5 mx-3 mx-lg-2"
+              />
+              <FontAwesomeIcon icon={faTwitter} className="socials fs-5" />
+            </div>
+          </div>
         </div>
       </div>
+      <img
+        src="images/layered-footer.png"
+        alt="layered"
+        className="layered-footer img-fluid w-100 position-absolute m-0"
+      />
     </footer>
   );
 }
