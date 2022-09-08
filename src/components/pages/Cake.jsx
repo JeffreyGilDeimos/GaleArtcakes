@@ -16,7 +16,7 @@ export default function Cake() {
 
   const renderCake = () => {
     return cakes.map((item) => (
-      <div className="d-flex" key={item.id}>
+      <div className="row py-md-5" key={item.id}>
         <div className="col-lg-6">
           <div className="product p-4 m-auto rounded-4 bg-white">
             <img
@@ -49,7 +49,7 @@ export default function Cake() {
             Add to Cart
           </button>
           <Link
-            to="/Cart"
+            to="/cart"
             className="cake-btn-go text-decoration-none rounded-3 text-white m-0 text-uppercase fw-bold"
           >
             Go to Cart
@@ -81,7 +81,7 @@ export default function Cake() {
   return (
     <section id="cake">
       <div className="container p-5">
-        <div className="row py-md-5">{renderCake()}</div>
+        {renderCake()}
       </div>
     </section>
   );
