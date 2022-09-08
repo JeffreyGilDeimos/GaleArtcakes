@@ -310,6 +310,11 @@ li:not(:last-child) .nav-link:hover {
 
 .incart-cake {
   width: 75px;
+  transition: all 0.4s ease;
+}
+
+.incart-cake:hover {
+  transform: scale(1.05);
 }
 
 .incart-cake-lg, .cart-title-middle {

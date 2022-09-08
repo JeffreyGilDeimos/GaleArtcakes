@@ -1,6 +1,7 @@
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function Cart() {
   const [selected, setSelected] = useState("");
@@ -8,7 +9,6 @@ export default function Cart() {
     <section id="cart">
       <div className="container p-5">
         <div className="py-md-5">
-
           <div className="cart-mobile">
             <div className="m-0 cart-title d-flex align-items-center justify-content-between">
               <h5 className="fw-bolder text-uppercase m-0">
@@ -41,11 +41,13 @@ export default function Cart() {
               onClick={() => setSelected(selected ? "" : "-select")}
             />
             <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center">
-              <img
-                src="../images/choco1.png"
-                alt="cake"
-                className="incart-cake d-block m-auto m-lg-0"
-              />
+              <Link to="/cake/5">
+                <img
+                  src="../images/choco1.png"
+                  alt="cake"
+                  className="incart-cake d-block m-auto m-lg-0"
+                />
+              </Link>
               <h5 className="mt-2 mb-1 m-lg-0">Choco Drip Var1</h5>
               <p className="m-0">₱ 700.00</p>
             </div>
