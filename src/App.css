@@ -24,7 +24,8 @@
   #hero,
   #selection,
   #about,
-  #cake {
+  #cake,
+  #cart {
     padding-top: 110px;
   }
   .footer {
@@ -41,7 +42,8 @@
   #hero,
   #selection,
   #about,
-  #cake {
+  #cake,
+  #cart {
     padding-top: 186px;
   }
   .layered-footer {
@@ -50,12 +52,16 @@
   #footer {
     margin-top: 13px;
   }
+  .cart-mobile{
+    display: none;
+  }
 }
 @media (max-width: 767px) {
   #hero,
   #selection,
   #about,
-  #cake {
+  #cake,
+  #cart {
     padding-top: 232px;
   }
 }
@@ -63,7 +69,8 @@
   #hero,
   #selection,
   #about,
-  #cake {
+  #cake,
+  #cart {
     padding-top: 207px;
   }
   .nav-label {
@@ -82,7 +89,8 @@
   #hero,
   #selection,
   #about,
-  #cake {
+  #cake,
+  #cart {
     padding-top: 200px;
   }
   .nav-label {
@@ -233,10 +241,10 @@ li:not(:last-child) .nav-link:hover {
 }
 
 @media (max-width: 459px) {
-  .cake-btn-add, .cake-btn-go {
+  .cake-btn-add, .cake-btn-go, .cart-buy {
     display: block;
   }
-  .cake-btn-add {
+  .cake-btn-add,.cart-buy {
     width: 100%;
   }
   .cake-btn-go {
@@ -273,6 +281,88 @@ li:not(:last-child) .nav-link:hover {
   cursor: pointer;
   color: rgb(237, 73, 86);
   transition: all 0.4s ease;
+}
+
+
+/* ----- Cart ----- */
+#cart {
+  background-image: url(../public/images/cart-bg.png);
+  height: auto;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+.cart-input {
+  cursor: pointer;
+}
+.incart {
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+  justify-content: space-between;
+  transition: all 0.4s ease;
+}
+
+.incart-select{
+  justify-content: space-between;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+  transition: all 0.4s ease;
+}
+
+.incart-cake {
+  width: 75px;
+}
+
+.incart-cake-lg, .cart-title-middle {
+  justify-content: space-evenly;
+}
+
+.cart-title h5 {
+  color: #6a2101;
+}
+
+.select-cake {
+  width: 23px;
+  height: 23px;
+}
+
+.trash-cake {
+  cursor: pointer;
+  color: rgb(75, 75, 75);
+  transition: all 0.4s ease;
+}
+
+.trash-cake:hover {
+  color: #dc3545;
+}
+
+.cart-buy {
+  background-color: #6a2101;
+  border: 3px solid #6a2101;
+  padding: 10px 25px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.cart-buy:hover {
+  background-color: #9f4c22;
+  border: 3px solid #9f4c22;
+}
+
+
+@media (min-width: 460px) {
+  .cart-bottom {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  .cart-buy {
+    margin-left: 25px;
+  }
+}
+
+.body-delete {
+  background-color: rgba(255, 225, 235, 0.7);
+  border: 1px solid #dc3545;
 }
 
 /* ----- Footer ----- */
