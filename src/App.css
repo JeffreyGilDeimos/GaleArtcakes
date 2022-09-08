@@ -34,6 +34,9 @@
   .layered-footer {
     bottom: 71px;
   }
+  .mobile-total{
+    display: none;
+  }
   #footer {
     margin-top: 17px;
   }
@@ -302,6 +305,17 @@ li:not(:last-child) .nav-link:hover {
   transition: all 0.4s ease;
 }
 
+.cart-circle {
+  height: 30px;
+  width: 30px;
+  background-color: #d57a43;
+  transition: all 0.4s ease;
+}
+
+.cart-circle:hover{
+  background-color: #6a2101;
+}
+
 .incart-select{
   justify-content: space-between;
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
@@ -321,7 +335,7 @@ li:not(:last-child) .nav-link:hover {
   justify-content: space-evenly;
 }
 
-.cart-title h5 {
+.cart-title h6, .mobile-total {
   color: #6a2101;
 }
 

@@ -11,21 +11,27 @@ export default function Cart() {
         <div className="py-md-5">
           <div className="cart-mobile">
             <div className="m-0 cart-title d-flex align-items-center justify-content-between">
-              <h5 className="fw-bolder text-uppercase m-0">
+              <h6 className="fw-bolder text-uppercase m-0">
                 <strong>Select</strong>
-              </h5>
-              <h5 className="fw-bolder text-uppercase m-0">
+              </h6>
+              <h6 className="fw-bolder text-uppercase ms-0 me-5 my-0">
                 <strong>Cake</strong>
-              </h5>
-              <h5 className="fw-bolder text-uppercase mx-5 my-0">
+              </h6>
+              <h6 className="fw-bolder text-uppercase my-0 mx-5">
                 <strong>Name</strong>
-              </h5>
-              <h5 className="fw-bolder text-uppercase m-0">
+              </h6>
+              <h6 className="fw-bolder text-uppercase ms-5 me-0 my-0">
                 <strong>Price</strong>
-              </h5>
-              <h5 className="fw-bolder text-uppercase m-0">
+              </h6>
+              <h6 className="fw-bolder text-uppercase m-0">
+                <strong>Quantity</strong>
+              </h6>
+              <h6 className="fw-bolder text-uppercase m-0">
+                <strong>Total</strong>
+              </h6>
+              <h6 className="fw-bolder text-uppercase m-0">
                 <strong>Action</strong>
-              </h5>
+              </h6>
             </div>
             <hr className="my-4" />
             <br />
@@ -49,6 +55,21 @@ export default function Cart() {
                 />
               </Link>
               <h5 className="mt-2 mb-1 m-lg-0">Choco Drip Var1</h5>
+              <p className="m-0">₱ 700.00</p>
+              <div className="d-flex align-items-center justify-content-center">
+                <button className="cart-circle m-0 p-0 border-0 text-white rounded-circle">
+                  -
+                </button>
+                <p className="quantity-cart my-3 my-lg-0 mx-2 fw-semibold rounded-pill">
+                  1
+                </p>
+                <button className="cart-circle m-0 p-0 border-0 text-white rounded-circle">
+                  +
+                </button>
+              </div>
+              <span className="fw-bolder text-uppercase mobile-total">
+                <strong>Total Price:</strong>
+              </span>
               <p className="m-0">₱ 700.00</p>
             </div>
             <FontAwesomeIcon
@@ -101,7 +122,7 @@ export default function Cart() {
                   ></button>
                 </div>
                 <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                  Are you sure you want to delete this cake from your cart?
+                  Are you sure you want to delete this item from your cart?
                 </div>
                 <div className="modal-footer border-0">
                   <button
