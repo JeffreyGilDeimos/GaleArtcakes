@@ -14,7 +14,7 @@ export default function NewCollections() {
 
   const renderCakeList = () => {
     return cakes.map((item) => (
-      <div className="col-sm-6 col-md-4 col-lg-3 pb-4" key={item.id}>
+      <div className="col-sm-6 col-md-4 col-lg-3 pb-5" key={item.id}>
         <div className="card-img-new overflow-hidden rounded position-relative">
           <img src={item.image} alt={item.name} className="img-fluid " />
           <span className="position-absolute d-flex align-items-center justify-content-center text-danger fs-3">
@@ -22,10 +22,10 @@ export default function NewCollections() {
           </span>
         </div>
         <div className="text-center">
-          <p className="text-capitalize mt-3 mb-1 fs-5">{item.name}</p>
-          <span className="fw-bold d-block">{item.price}</span>
+          <p className="text-capitalize  mb-1 fs-5">{item.name}</p>
+          <span className="fw-bold d-block mt-1 mb-2">{`₱ ${item.price}`}</span>
 
-          <Link to={`/Cake/${item.id}`} className="btn btn-danger mt-3">
+          <Link to={`/cake/${item.id}`} className="btn btn-danger">
             More details
           </Link>
         </div>
