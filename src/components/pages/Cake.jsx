@@ -80,9 +80,7 @@ export default function Cake() {
 
   return (
     <section id="cake">
-      <div className="container p-5">
-        {renderCake()}
-      </div>
+      <div className="container p-5">{renderCake()}</div>
     </section>
   );
 }

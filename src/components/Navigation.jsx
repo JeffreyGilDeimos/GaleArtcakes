@@ -22,7 +22,7 @@ export default function Navigation() {
               my-lg-0 me-lg-auto text-decoration-none"
             >
               <img
-                src="images/Logo.png"
+                src="../images/Logo.png"
                 width="180"
                 height="75"
                 alt="Gale Logo"
@@ -97,7 +97,7 @@ export default function Navigation() {
           </div>
         </div>
         <img
-          src="images/layered.png"
+          src="../images/layered.png"
           alt="layered"
           className="layered img-fluid w-100 position-absolute m-0"
         />
