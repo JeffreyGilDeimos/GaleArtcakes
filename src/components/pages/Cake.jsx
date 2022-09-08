@@ -6,13 +6,12 @@ import { cakeList } from "../../utilities/enums";
 
 export default function Cake() {
   const { id } = useParams();
-  const [activeFilter] = useState(id);
+  const [activeFilter] = useState(parseInt(id));
   const [cakes, setCakes] = useState(cakeList);
   const [like, setLike] = useState("");
 
   useEffect(() => {
-    console.log(activeFilter);
-    setCakes(cakeList.filter((item) => item.id == activeFilter));
+    setCakes(cakeList.filter((item) => item.id === activeFilter));
   }, [activeFilter]);
 
   const renderCake = () => {
