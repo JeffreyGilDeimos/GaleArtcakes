@@ -65,7 +65,7 @@ export default function Cake() {
                 >
                   <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
                 </button>
-                <p className="m-0">
+                <p className="m-0 fw-semibold">
                   <small>10 likes</small>
                 </p>
               </div>
