@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { cakeList } from "../../utilities/enums";
 
 export default function Menu() {
-  const [activeFilter, setActiveFilter] = useState("ALL");
+  const [activeFilter, setActiveFilter] = useState("Chocolate Drip Cake");
   const [cakes, setCakes] = useState(cakeList);
 
   useEffect(() => {

@@ -104,7 +104,7 @@ export default function Cart() {
             id="staticBackdrop"
             data-bs-backdrop="static"
             data-bs-keyboard="false"
-            tabindex="-1"
+            tabIndex="-1"
             aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
@@ -144,7 +144,7 @@ export default function Cart() {
           <div
             className="modal fade"
             id="checkOutModal"
-            tabindex="-1"
+            tabIndex="-1"
             aria-labelledby="checkOutModalLabel"
             aria-hidden="true"
           >

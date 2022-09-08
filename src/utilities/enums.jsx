@@ -5,7 +5,7 @@ export const cakeList = [
     name: "Choco Drip Var7",
     category: "Chocolate Drip Cake",
     featured: "YES",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 2,
@@ -13,7 +13,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var3",
     category: "Cartoon/Chartacter Cake",
     featured: "YES",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 3,
@@ -21,7 +21,7 @@ export const cakeList = [
     name: "Themed Cake Var8",
     category: "Themed Cake",
     featured: "YES",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 4,
@@ -29,7 +29,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var7",
     category: "Cartoon/Chartacter Cake",
     featured: "YES",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 5,
@@ -37,7 +37,7 @@ export const cakeList = [
     name: "Choco Drip Var1",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 6,
@@ -45,7 +45,7 @@ export const cakeList = [
     name: "Choco Drip Var2",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 7,
@@ -53,7 +53,7 @@ export const cakeList = [
     name: "Choco Drip Var3",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 8,
@@ -61,7 +61,7 @@ export const cakeList = [
     name: "Choco Drip Var4",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 9,
@@ -69,7 +69,7 @@ export const cakeList = [
     name: "Choco Drip Var5",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 10,
@@ -77,7 +77,7 @@ export const cakeList = [
     name: "Choco Drip Var6",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 11,
@@ -85,7 +85,7 @@ export const cakeList = [
     name: "Choco Drip Var8",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 12,
@@ -93,7 +93,7 @@ export const cakeList = [
     name: "Choco Drip Var9",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 13,
@@ -101,7 +101,7 @@ export const cakeList = [
     name: "Choco Drip Var10",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 14,
@@ -109,7 +109,7 @@ export const cakeList = [
     name: "Choco Drip Var11",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "760.00",
   },
   {
     id: 15,
@@ -117,7 +117,7 @@ export const cakeList = [
     name: "Choco Drip Var12",
     category: "Chocolate Drip Cake",
     featured: "NO",
-    price: "700.00",
+    price: "750.00",
   },
   {
     id: 16,
@@ -125,7 +125,7 @@ export const cakeList = [
     name: "Themed Cake Var1",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 17,
@@ -133,7 +133,7 @@ export const cakeList = [
     name: "Themed Cake Var2",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 18,
@@ -141,7 +141,7 @@ export const cakeList = [
     name: "Themed Cake Var3",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 19,
@@ -149,7 +149,7 @@ export const cakeList = [
     name: "Themed Cake Var4",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 20,
@@ -157,7 +157,7 @@ export const cakeList = [
     name: "Themed Cake Var5",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 21,
@@ -165,7 +165,7 @@ export const cakeList = [
     name: "Themed Cake Var6",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 22,
@@ -173,7 +173,7 @@ export const cakeList = [
     name: "Themed Cake Var7",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 23,
@@ -181,7 +181,7 @@ export const cakeList = [
     name: "Themed Cake Var9",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 24,
@@ -189,7 +189,7 @@ export const cakeList = [
     name: "Themed Cake Var10",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 25,
@@ -197,7 +197,7 @@ export const cakeList = [
     name: "Themed Cake Var11",
     category: "Themed Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 26,
@@ -205,7 +205,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var1",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 27,
@@ -213,7 +213,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var2",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 28,
@@ -221,7 +221,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var4",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 29,
@@ -229,7 +229,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var5",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 30,
@@ -237,7 +237,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var6",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 31,
@@ -245,7 +245,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var7",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 32,
@@ -253,7 +253,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var8",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 33,
@@ -261,7 +261,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var9",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 34,
@@ -269,7 +269,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var10",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 35,
@@ -277,7 +277,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var11",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 36,
@@ -285,7 +285,7 @@ export const cakeList = [
     name: "Cartoon/Character cake Var12",
     category: "Cartoon/Chartacter Cake",
     featured: "NO",
-    price: "600.00",
+    price: "700.00",
   },
   {
     id: 37,
@@ -293,7 +293,7 @@ export const cakeList = [
     name: "Number cake Var1",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 38,
@@ -301,7 +301,7 @@ export const cakeList = [
     name: "Number cake Var2",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 39,
@@ -309,7 +309,7 @@ export const cakeList = [
     name: "Number cake Var3",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 40,
@@ -317,7 +317,7 @@ export const cakeList = [
     name: "Number cake Var4",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 41,
@@ -325,7 +325,7 @@ export const cakeList = [
     name: "Number cake Var5",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 42,
@@ -333,7 +333,7 @@ export const cakeList = [
     name: "Number cake Var6",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 43,
@@ -341,7 +341,7 @@ export const cakeList = [
     name: "Number cake Var7",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 44,
@@ -349,7 +349,7 @@ export const cakeList = [
     name: "Number cake Var8",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
   {
     id: 45,
@@ -357,6 +357,6 @@ export const cakeList = [
     name: "Number cake Var9",
     category: "Number Cake",
     featured: "NO",
-    price: "700.00",
+    price: "650.00",
   },
 ];

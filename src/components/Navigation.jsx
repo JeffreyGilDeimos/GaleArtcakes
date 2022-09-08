@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Navbar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faHouse,
@@ -12,9 +13,9 @@ import { NavHashLink as NavLink } from "react-router-hash-link";
 
 export default function Navigation() {
   return (
-    <header id="header">
+    <Navbar id="header">
       <div className="p-2 p-lg-3 nav-bg-color fixed-top">
-        <div className="container position-relative">
+        <Container className="position-relative">
           <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <NavLink
               to="/"
@@ -39,7 +40,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/cakes" className="nav-link">
+                <NavLink to="/cakes#selection" className="nav-link">
                   <FontAwesomeIcon
                     icon={faCake}
                     className="bi bi-menu-button-wide-fill d-block d-flex justify-content-center mb-1 mx-auto fs-5"
@@ -48,11 +49,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink
-                  to="/#fb_review"
-                  activeClassName="selected"
-                  className="nav-link"
-                >
+                <NavLink to="/#fb_review" className="nav-link">
                   <FontAwesomeIcon
                     icon={faComments}
                     className="bi bi-megaphone d-block d-flex justify-content-center mb-1  mx-auto fs-5"
@@ -95,13 +92,13 @@ export default function Navigation() {
               </li>
             </ul>
           </div>
-        </div>
+        </Container>
         <img
           src="../images/layered.png"
           alt="layered"
           className="layered img-fluid w-100 position-absolute m-0"
         />
       </div>
-    </header>
+    </Navbar>
   );
 }

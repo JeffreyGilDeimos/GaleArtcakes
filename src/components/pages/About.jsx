@@ -75,9 +75,8 @@ export default function About() {
                   title="myPlace"
                   className="w-100"
                   height="400"
-                  allowfullscreen=""
                   loading="lazy"
-                  referrerpolicy="no-referrer-when-downgrade"
+                  referrerPolicy="no-referrer-when-downgrade"
                 ></iframe>
               </div>
             </div>

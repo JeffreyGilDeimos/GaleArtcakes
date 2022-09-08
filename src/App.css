@@ -26,7 +26,7 @@
   #about,
   #cake,
   #cart {
-    padding-top: 110px;
+    padding-top: 94px;
   }
   .footer {
     justify-content: space-between;
@@ -47,7 +47,7 @@
   #about,
   #cake,
   #cart {
-    padding-top: 186px;
+    padding-top: 169px;
   }
   .layered-footer {
     bottom: 151px;
@@ -65,7 +65,7 @@
   #about,
   #cake,
   #cart {
-    padding-top: 232px;
+    padding-top: 216px;
   }
 }
 @media (max-width: 459px) {
@@ -74,7 +74,7 @@
   #about,
   #cake,
   #cart {
-    padding-top: 207px;
+    padding-top: 190px;
   }
   .nav-label {
     display: none;
@@ -94,7 +94,7 @@
   #about,
   #cake,
   #cart {
-    padding-top: 200px;
+    padding-top: 228px;
   }
   .nav-label {
     display: none;
