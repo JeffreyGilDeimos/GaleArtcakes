@@ -68,23 +68,9 @@ export default function Cake() {
               >
                 <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
               </button>
-              <p className="m-0">
+              <p className="m-0 fw-semibold">
                 <small>10 likes</small>
               </p>
-<<<<<<< HEAD
-              <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
-                <button
-                  className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
-                  onClick={() => setLike(like ? "" : "d")}
-                >
-                  <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
-                </button>
-                <p className="m-0 fw-semibold">
-                  <small>10 likes</small>
-                </p>
-              </div>
-=======
->>>>>>> 552e063a357c8e8c1bb7bce28897599f93aeef3e
             </div>
           </div>
         </div>
