@@ -21,13 +21,13 @@ export default function Cart() {
                 <strong>Name</strong>
               </h6>
               <h6 className="fw-bolder text-uppercase ms-5 me-0 my-0">
-                <strong>Price</strong>
+                <strong>Unit Price</strong>
               </h6>
               <h6 className="fw-bolder text-uppercase m-0">
                 <strong>Quantity</strong>
               </h6>
               <h6 className="fw-bolder text-uppercase m-0">
-                <strong>Total</strong>
+                <strong>Total Price</strong>
               </h6>
               <h6 className="fw-bolder text-uppercase m-0">
                 <strong>Action</strong>
