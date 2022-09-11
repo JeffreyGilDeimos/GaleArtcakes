@@ -40,7 +40,7 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li>
-                <NavLink to="/cakes#selection" className="nav-link">
+                <NavLink to={`/cakes/${5}`} className="nav-link">
                   <FontAwesomeIcon
                     icon={faCake}
                     className="bi bi-menu-button-wide-fill d-block d-flex justify-content-center mb-1 mx-auto fs-5"

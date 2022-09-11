@@ -1,26 +1,46 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navigation from "../Navigation";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { cakeList } from "../../utilities/enums";
+import Featured from "../Featured";
 
 export default function Menu() {
-  const [activeFilter, setActiveFilter] = useState("Chocolate Drip Cake");
+  const { id } = useParams();
+  const [activeFilter, setActiveFilter] = useState("ALL");
   const [cakes, setCakes] = useState(cakeList);
+  const [category, setCategory] = useState("");
 
   useEffect(() => {
+    if (parseInt(id) === 1) {
+      setActiveFilter("Chocolate Drip Cake");
+      setCategory("Chocolate Drip Cake");
+    } else if (parseInt(id) === 2) {
+      setActiveFilter("Themed Cake");
+      setCategory("Themed Cake");
+    } else if (parseInt(id) === 3) {
+      setActiveFilter("Cartoon/Chartacter Cake");
+      setCategory("Cartoon/Chartacter Cake");
+    } else if (parseInt(id) === 4) {
+      setActiveFilter("Number Cake");
+      setCategory("Number Cake");
+    } else if (parseInt(id) === 5) {
+      setActiveFilter("ALL");
+      setCategory("");
+    }
+
     if (activeFilter !== "ALL") {
       setCakes(cakeList.filter((item) => item.category === activeFilter));
     } else {
       setCakes(cakeList);
     }
-  }, [activeFilter]);
+  }, [activeFilter, id]);
 
   const renderMenu = () => {
     return cakes.map((item) => (
       <div className="col-sm-6 col-md-4 col-lg-3 pb-5" key={item.id}>
         <div className="card-img overflow-hidden rounded">
-          <img src={item.image} alt={item.name} className="img-fluid" />
+          <img src={`../${item.image}`} alt={item.name} className="img-fluid" />
         </div>
         <div className="text-center">
           <p className="text-capitalize mb-1 fs-5">{item.name}</p>
@@ -39,91 +59,27 @@ export default function Menu() {
       {/* <!-- ---- Featured Selection ---- --> */}
       <Navigation />
       <section id="selection">
-        <div className="container">
-          <div className="py-3 pt-5 mb-4">
-            <div className="container d-flex flex-wrap justify-content-center">
-              <div className="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto">
-                <h4>FEATURED SELECTIONS</h4>
-              </div>
-              <form className="col-12 col-lg-auto mb-3 mb-lg-0" role="search">
-                <input
-                  type="search"
-                  className="form-control"
-                  placeholder="Search product..."
-                  aria-label="Search"
-                />
-              </form>
-            </div>
-          </div>
-          <div className="row g-0 d-flex justify-content-center">
-            <div className="col-sm-6 col-md-4 col-lg-2 pb-3">
-              <div className="selection-item text-center">
-                <div className="selection-img overflow-hidden">
-                  <button
-                    className="p-0 border-0"
-                    onClick={() => setActiveFilter("Chocolate Drip Cake")}
-                  >
-                    <img src="images/choco1.png" alt="Choco drip cakes" />
-                  </button>
-                </div>
-                <div className="selection-text">
-                  <h5 className="pt-2">Chocolate Drip Cakes</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-2 pb-3">
-              <div className="selection-item text-center">
-                <div className="selection-img overflow-hidden">
-                  <button
-                    className="p-0 border-0"
-                    onClick={() => setActiveFilter("Themed Cake")}
-                  >
-                    <img src="images/theme1.png" alt="Themed Cakes" />
-                  </button>
-                </div>
-                <div className="selection-text">
-                  <h5 className="pt-2">Chocomoist Themed Cakes</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-2 pb-3">
-              <div className="selection-item text-center">
-                <div className="selection-img overflow-hidden">
-                  <button
-                    className="p-0 border-0"
-                    onClick={() => setActiveFilter("Cartoon/Chartacter Cake")}
-                  >
-                    <img src="images/character1.png" alt="Character Cakes" />
-                  </button>
-                </div>
-                <div className="selection-text">
-                  <h5 className="pt-2">Cartoon/Character Cakes</h5>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-6 col-md-4 col-lg-2 pb-3">
-              <div className="selection-item text-center">
-                <div className="selection-img overflow-hidden">
-                  <button
-                    className="p-0 border-0"
-                    onClick={() => setActiveFilter("Number Cake")}
-                  >
-                    <img src="images/number1.png" alt="Number Cakes" />
-                  </button>
-                </div>
-                <div className="selection-text">
-                  <h5 className="pt-2">Number Cakes</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Featured />
       </section>
 
       {/* <!-- ---- Varities ---- --> */}
-
-      <section id="varities" className="bg-danger bg-opacity-10">
-        <div className="container py-5">
+      <section id="varities">
+        <div className="container d-flex justify-content-between pb-4 pt-5">
+          <h4>{category}</h4>
+          <form
+            className=" d-flex align-items-center col-12 col-lg-auto mb-3 mb-lg-0"
+            role="search"
+          >
+            <p className="text-capitalize mb-1 fs-5 me-2">Search:</p>
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Search product..."
+              aria-label="Search"
+            />
+          </form>
+        </div>
+        <div className="container pb-5">
           <div className="row">{renderMenu()}</div>
         </div>
       </section>
