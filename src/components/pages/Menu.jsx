@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../Footer";
+import Navigation from "../Navigation";
 import { Link } from "react-router-dom";
 import { cakeList } from "../../utilities/enums";
 
@@ -33,8 +35,9 @@ export default function Menu() {
   };
 
   return (
-    <div>
+    <>
       {/* <!-- ---- Featured Selection ---- --> */}
+      <Navigation />
       <section id="selection">
         <div className="container">
           <div className="py-3 pt-5 mb-4">
@@ -124,6 +127,7 @@ export default function Menu() {
           <div className="row">{renderMenu()}</div>
         </div>
       </section>
-    </div>
+      <Footer />
+    </>
   );
 }

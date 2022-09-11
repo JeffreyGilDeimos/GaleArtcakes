@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Footer from "../Footer";
+import Navigation from "../Navigation";
 import { Link, useParams } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -79,8 +81,12 @@ export default function Cake() {
   };
 
   return (
-    <section id="cake">
-      <div className="container p-5">{renderCake()}</div>
-    </section>
+    <>
+      <Navigation />
+      <section id="cake">
+        <div className="container p-5">{renderCake()}</div>
+      </section>
+      <Footer />
+    </>
   );
 }

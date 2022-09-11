@@ -1,8 +1,11 @@
 import React from "react";
+import Footer from "../Footer";
+import Navigation from "../Navigation";
 
 export default function About() {
   return (
-    <div>
+    <>
+      <Navigation />
       <section id="about" className="">
         <div className="container bg-danger rounded-bottom shadow-lg">
           <div className="row align-items-center">
@@ -83,6 +86,7 @@ export default function About() {
           </div>
         </div>
       </section>
-    </div>
+      <Footer />
+    </>
   );
 }
