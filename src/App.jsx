@@ -6,7 +6,7 @@ import Cake from "./components/pages/Cake";
 import About from "./components/pages/About";
 import Cart from "./components/pages/Cart";
 import Login from "./components/pages/authentication/Login";
-// import Signup from "./components/pages/authentication/Signup";
+import Signup from "./components/pages/authentication/Signup";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/login" element={<Login />} />
-        {/* <Route path="/signup" element={<Signup />} /> */}
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
