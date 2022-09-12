@@ -43,14 +43,14 @@ export default function Cart() {
 
             {/* RENDER THIS PART */}
             <div
-              className={`incart${selected} bg-white p-3 mb-4 d-flex align-items-center rounded-4`}
+              className={`incart${selected} bg-white p-3 mb-4 d-flex justify-content-between align-items-center rounded-4`}
             >
               <input
                 type="checkbox"
                 className="select-cake m-2 cart-input"
                 onClick={() => setSelected(selected ? "" : "-select")}
               />
-              <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center">
+              <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-evenly">
                 <Link to="/cake/5">
                   <img
                     src="../images/choco1.png"
