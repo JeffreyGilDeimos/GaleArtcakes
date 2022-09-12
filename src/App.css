@@ -210,7 +210,7 @@ li:not(:last-child) .nav-link:hover {
 }
 /* ----- Cake ----- */
 #cake {
-  background-image: url(../public/images/cake-bg.png);
+  /* background-image: url(../public/images/cake-bg.png); */
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
@@ -289,7 +289,7 @@ li:not(:last-child) .nav-link:hover {
 
 /* ----- Cart ----- */
 #cart {
-  background-image: url(../public/images/cart-bg.png);
+  /* background-image: url(../public/images/cart-bg.png); */
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
