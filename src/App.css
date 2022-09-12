@@ -228,6 +228,11 @@ li:not(:last-child) .nav-link:hover {
   left: 20px;
 }
 
+/* ----- About ----- */
+.about-img {
+  border: 5px solid white;
+}
+
 /* ----- Cake ----- */
 #cake {
   /* background-image: url(../public/images/cake-bg.png); */

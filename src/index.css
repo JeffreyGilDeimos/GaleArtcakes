@@ -19,13 +19,14 @@
 }
 
 .cart-number, 
+.about-bg-color,
 .btn-login:hover, 
 .cake-btn-go:hover,
 .cart-buy:hover {
   background-color: var(--brown);
 }
 
-.btn-login, 
+.btn-login,
 .cake-btn-add:hover, 
 .cake-btn-go, 
 .cart-circle:hover,
@@ -50,7 +51,8 @@
   color: white;
 }
 
-.product, 
+.product,
+.about-bg-color,
 .incart-select {
   box-shadow: var(--shadow);
 }
