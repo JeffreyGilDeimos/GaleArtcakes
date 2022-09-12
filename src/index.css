@@ -1,7 +1,93 @@
-:root{  
+:root{
+  /* Colors */
+  --dark-brown: #6a2101;
+  --brown: #9f4c22;
+  --light-brown: #d57a43;
   --red: #ff0000;
+
+  /* Box Shadow */
+  --shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.19);
+
+  /* Transition*/
+  --transition: all 0.4s ease-in-out;
 }
 
-.bgred {
-  background-color: var(--red);
+.nav-bg-color, 
+.cart-circle,
+#footer {
+  background-color: var(--light-brown);
 }
+
+.cart-number, 
+.btn-login:hover, 
+.cake-btn-go:hover,
+.cart-buy:hover {
+  background-color: var(--brown);
+}
+
+.btn-login, 
+.cake-btn-add:hover, 
+.cake-btn-go, 
+.cart-circle:hover,
+.cart-buy {
+  background-color: var(--dark-brown);
+}
+
+.socials:hover {
+  color: var(--brown);
+}
+
+.cake-name, 
+.cake-btn-add, 
+.cart-title h6, 
+.mobile-total,
+#footer p,
+.socials {
+  color: var(--dark-brown);
+}
+
+.cake-btn-add:hover {
+  color: white;
+}
+
+.product, 
+.incart-select {
+  box-shadow: var(--shadow);
+}
+
+.btn-login:hover, 
+.product img, 
+.cake-btn-add, 
+.cake-btn-go, 
+.like, 
+.liked, 
+.like:hover, 
+.incart, 
+.cart-circle, 
+.incart-select,
+.incart-cake,
+.trash-cake,
+.cart-buy,
+.socials {
+  transition: var(--transition);
+}
+
+.btn-login, 
+.cake-btn-add, 
+.cake-btn-go, 
+.like, 
+.liked, 
+.like:hover, 
+.cart-input,
+.trash-cake,
+.cart-buy,
+.socials {
+  cursor: pointer;
+}
+
+ #cake, 
+ #cart {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+ }
