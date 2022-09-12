@@ -4,37 +4,74 @@ import Navigation from "../Navigation";
 import { Link, useParams } from "react-router-dom";
 import { cakeList } from "../../utilities/enums";
 import Featured from "../Featured";
+import Skeleton from "react-loading-skeleton";
 
 export default function Menu() {
   const { id } = useParams();
   const [activeFilter, setActiveFilter] = useState("ALL");
   const [cakes, setCakes] = useState(cakeList);
   const [category, setCategory] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    if (parseInt(id) === 1) {
-      setActiveFilter("Chocolate Drip Cake");
-      setCategory("Chocolate Drip Cake");
-    } else if (parseInt(id) === 2) {
-      setActiveFilter("Themed Cake");
-      setCategory("Themed Cake");
-    } else if (parseInt(id) === 3) {
-      setActiveFilter("Cartoon/Chartacter Cake");
-      setCategory("Cartoon/Chartacter Cake");
-    } else if (parseInt(id) === 4) {
-      setActiveFilter("Number Cake");
-      setCategory("Number Cake");
-    } else if (parseInt(id) === 5) {
-      setActiveFilter("ALL");
-      setCategory("");
-    }
-
-    if (activeFilter !== "ALL") {
-      setCakes(cakeList.filter((item) => item.category === activeFilter));
-    } else {
-      setCakes(cakeList);
-    }
+    setLoading(true);
+    setTimeout(() => {
+      if (parseInt(id) === 1) {
+        setActiveFilter("Chocolate Drip Cake");
+        setCategory("Chocolate Drip Cake");
+      } else if (parseInt(id) === 2) {
+        setActiveFilter("Themed Cake");
+        setCategory("Themed Cake");
+      } else if (parseInt(id) === 3) {
+        setActiveFilter("Cartoon/Chartacter Cake");
+        setCategory("Cartoon/Chartacter Cake");
+      } else if (parseInt(id) === 4) {
+        setActiveFilter("Number Cake");
+        setCategory("Number Cake");
+      } else if (parseInt(id) === 5) {
+        setActiveFilter("ALL");
+        setCategory("");
+      }
+      if (activeFilter !== "ALL") {
+        setCakes(cakeList.filter((item) => item.category === activeFilter));
+        setLoading(false);
+      } else {
+        setCakes(cakeList);
+        setLoading(false);
+      }
+    }, 400);
   }, [activeFilter, id]);
+
+  const renderLoading = () => {
+    return (
+      <div className="row g-3 pb-5">
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-3">
+          <Skeleton height={300} />
+        </div>
+      </div>
+    );
+  };
 
   const renderMenu = () => {
     return cakes.map((item) => (
@@ -80,7 +117,7 @@ export default function Menu() {
           </form>
         </div>
         <div className="container pb-5">
-          <div className="row">{renderMenu()}</div>
+          <div className="row">{loading ? renderLoading() : renderMenu()}</div>
         </div>
       </section>
       <Footer />

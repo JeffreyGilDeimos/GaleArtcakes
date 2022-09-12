@@ -5,15 +5,21 @@ import { Link, useParams } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
+import Skeleton from "react-loading-skeleton";
 
 export default function Cake() {
   const { id } = useParams();
   const [activeFilter] = useState(parseInt(id));
   const [cakes, setCakes] = useState(cakeList);
   const [like, setLike] = useState("");
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setCakes(cakeList.filter((item) => item.id === activeFilter));
+    setLoading(true);
+    setTimeout(() => {
+      setCakes(cakeList.filter((item) => item.id === activeFilter));
+      setLoading(false);
+    }, 600);
   }, [activeFilter]);
 
   const renderCake = () => {
@@ -80,11 +86,31 @@ export default function Cake() {
     ));
   };
 
+  const renderLoading = () => {
+    return (
+      <div className="d-flex py-5">
+        <div className="col-md-6 px-5">
+          <Skeleton height={400} />
+        </div>
+        <div className="col-md-6" style={{ lineHeight: 2 }}>
+          <Skeleton height={50} width={200} />
+          <Skeleton height={75} width={300} />
+          <Skeleton height={35} width={150} />
+          <Skeleton height={75} />
+          <Skeleton height={60} width={350} />
+          <Skeleton height={50} width={200} />
+        </div>
+      </div>
+    );
+  };
+
   return (
     <>
       <Navigation />
       <section id="cake">
-        <div className="container p-5">{renderCake()}</div>
+        <div className="container p-5">
+          {loading ? renderLoading() : renderCake()}
+        </div>
       </section>
       <Footer />
     </>
