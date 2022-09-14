@@ -92,7 +92,7 @@ export default function Reviews() {
                       <figure className="ms-3 mb-0">
                         <blockquote class="blockquote m-0 fs-6">
                           <p>
-                            <strong>Jeneda Dela Torre Palalimpa</strong>
+                            <strong>Ain Loquias</strong>
                           </p>
                         </blockquote>
                         <figcaption class="blockquote-footer m-0">
@@ -102,34 +102,7 @@ export default function Reviews() {
                     </div>
                     <div className="review-body p-2">
                       <p className="m-0 review">
-                        Sulit ang kalami...dili kamahayan...pm me or contact for more details...
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-0 m-0">
-                  <div className="review-card bg-white p-3 rounded-3">
-                    <div className="review-head d-flex align-items-center mb-3">
-                      <img
-                        src="images/no-profile-review.jpg"
-                        alt="profile-review"
-                        className="review-profile rounded-circle"
-                      />
-                      <figure className="ms-3 mb-0">
-                        <blockquote class="blockquote m-0 fs-6">
-                          <p>
-                            <strong>Melecyn Regidor Lamban</strong>
-                          </p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer m-0">
-                          &nbsp;09/14/2022
-                        </figcaption>
-                      </figure>
-                    </div>
-                    <div className="review-body p-2">
-                      <p className="m-0 review">
-                        Thank you so much ma'am sa pina abrupt na cake...
+                        Ka gwapa sa cake 😍
                       </p>
                     </div>
                   </div>
@@ -173,6 +146,60 @@ export default function Reviews() {
                       <figure className="ms-3 mb-0">
                         <blockquote class="blockquote m-0 fs-6">
                           <p>
+                            <strong>Melecyn Regidor Lamban</strong>
+                          </p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer m-0">
+                          &nbsp;09/14/2022
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <div className="review-body p-2">
+                      <p className="m-0 review">
+                        Thank you so much ma'am sa pina abrupt na cake...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-0 m-0">
+                  <div className="review-card bg-white p-3 rounded-3">
+                    <div className="review-head d-flex align-items-center mb-3">
+                      <img
+                        src="images/no-profile-review.jpg"
+                        alt="profile-review"
+                        className="review-profile rounded-circle"
+                      />
+                      <figure className="ms-3 mb-0">
+                        <blockquote class="blockquote m-0 fs-6">
+                          <p>
+                            <strong>Jeneda Dela Torre Palalimpa</strong>
+                          </p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer m-0">
+                          &nbsp;09/14/2022
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <div className="review-body p-2">
+                      <p className="m-0 review">
+                        Sulit ang kalami...dili kamahayan...pm me or contact for more details...
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-0 m-0">
+                  <div className="review-card bg-white p-3 rounded-3">
+                    <div className="review-head d-flex align-items-center mb-3">
+                      <img
+                        src="images/no-profile-review.jpg"
+                        alt="profile-review"
+                        className="review-profile rounded-circle"
+                      />
+                      <figure className="ms-3 mb-0">
+                        <blockquote class="blockquote m-0 fs-6">
+                          <p>
                             <strong>Ruth Isagun Allones</strong>
                           </p>
                         </blockquote>
@@ -200,60 +227,6 @@ export default function Reviews() {
                       <figure className="ms-3 mb-0">
                         <blockquote class="blockquote m-0 fs-6">
                           <p>
-                            <strong>Eunice Alipan - Royo</strong>
-                          </p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer m-0">
-                          &nbsp;09/14/2022
-                        </figcaption>
-                      </figure>
-                    </div>
-                    <div className="review-body p-2">
-                      <p className="m-0 review">
-                        Thank you my dear classmate, order jud mo sa iya cake lami kaayo.bisan layu kaayo ko diha jud ko ga order sa iya.😍❤❤❤ Barato pa lami pa.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-0 m-0">
-                  <div className="review-card bg-white p-3 rounded-3">
-                    <div className="review-head d-flex align-items-center mb-3">
-                      <img
-                        src="images/no-profile-review.jpg"
-                        alt="profile-review"
-                        className="review-profile rounded-circle"
-                      />
-                      <figure className="ms-3 mb-0">
-                        <blockquote class="blockquote m-0 fs-6">
-                          <p>
-                            <strong>Ain Loquias</strong>
-                          </p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer m-0">
-                          &nbsp;09/14/2022
-                        </figcaption>
-                      </figure>
-                    </div>
-                    <div className="review-body p-2">
-                      <p className="m-0 review">
-                        Ka gwapa sa cake 😍
-                      </p>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="p-0 m-0">
-                  <div className="review-card bg-white p-3 rounded-3">
-                    <div className="review-head d-flex align-items-center mb-3">
-                      <img
-                        src="images/no-profile-review.jpg"
-                        alt="profile-review"
-                        className="review-profile rounded-circle"
-                      />
-                      <figure className="ms-3 mb-0">
-                        <blockquote class="blockquote m-0 fs-6">
-                          <p>
                             <strong>Amynhor Lumagbas</strong>
                           </p>
                         </blockquote>
@@ -265,6 +238,33 @@ export default function Reviews() {
                     <div className="review-body p-2">
                       <p className="m-0 review">
                        Absolutely beautiful!!! Naka kaon k sa imoha cake gahapon jane,sarap oi...ako man to pinsan gi kasal...c aisa nag order,db?
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-0 m-0">
+                  <div className="review-card bg-white p-3 rounded-3">
+                    <div className="review-head d-flex align-items-center mb-3">
+                      <img
+                        src="images/no-profile-review.jpg"
+                        alt="profile-review"
+                        className="review-profile rounded-circle"
+                      />
+                      <figure className="ms-3 mb-0">
+                        <blockquote class="blockquote m-0 fs-6">
+                          <p>
+                            <strong>Eunice Alipan - Royo</strong>
+                          </p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer m-0">
+                          &nbsp;09/14/2022
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <div className="review-body p-2">
+                      <p className="m-0 review">
+                        Thank you my dear classmate, order jud mo sa iya cake lami kaayo.bisan layu kaayo ko diha jud ko ga order sa iya.😍❤❤❤ Barato pa lami pa.
                       </p>
                     </div>
                   </div>
