@@ -8,10 +8,27 @@ import {
   faUserGroup,
   faCartShopping,
   faRightToBracket,
+  faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+import * as actionUser from "../redux/actions/actionUser";
 import { NavHashLink as NavLink } from "react-router-hash-link";
+import { useDispatch, useSelector } from "react-redux";
+import { bindActionCreators } from "@reduxjs/toolkit";
+import { auth } from "../firebase";
 
 export default function Navigation() {
+  const activeUser = useSelector((state) => state.activeUser);
+  const { logoutUser } = bindActionCreators(actionUser, useDispatch());
+
+  const logout = (e) => {
+    e.preventDefault();
+    auth.signOut();
+    setTimeout(() => {
+      logoutUser();
+    }, 1000);
+  };
+
+
   return (
     <Navbar id="header">
       <div className="p-2 p-lg-3 nav-bg-color fixed-top">
@@ -66,30 +83,48 @@ export default function Navigation() {
                   <span className="nav-label">ABOUT</span>
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/cart" className="nav-link position-relative">
-                  <FontAwesomeIcon
-                    icon={faCartShopping}
-                    className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
-                  />
-                  <span className="position-absolute cart-number translate-middle badge rounded-pill b-primary">
-                    10
-                  </span>
-                  <span className="nav-label">CART</span>
-                </NavLink>
-              </li>
-              <li className="login">
+              {activeUser.email ? (
+                <>
+                <li>
+                  <NavLink to="/cart" className="nav-link position-relative">
+                    <FontAwesomeIcon
+                      icon={faCartShopping}
+                      className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
+                    />
+                    <span className="position-absolute cart-number translate-middle badge rounded-pill b-primary">
+                      10
+                    </span>
+                    <span className="nav-label">CART</span>
+                  </NavLink>
+                </li>
+                <li className="login">
                 <NavLink
                   to="/login"
                   className="nav-link text-white d-flex align-items-center btn-login rounded-pill"
+                  onClick={logout}
                 >
                   <FontAwesomeIcon
-                    icon={faRightToBracket}
+                    icon={faRightFromBracket}
                     className="bi bi-people mx-auto fs-5 me-2"
                   />
-                  LOGIN
+                  LOGOUT
                 </NavLink>
               </li>
+              </>
+              ) : (
+                <li className="login">
+                  <NavLink
+                    to="/login"
+                    className="nav-link text-white d-flex align-items-center btn-login rounded-pill"
+                  >
+                    <FontAwesomeIcon
+                      icon={faRightToBracket}
+                      className="bi bi-people mx-auto fs-5 me-2"
+                    />
+                    LOGIN
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </div>
         </Container>
