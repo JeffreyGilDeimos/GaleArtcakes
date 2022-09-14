@@ -16,16 +16,13 @@ export default function Reviews() {
                 placeholder="Write your review here!"
                 className="rounded-3"
               ></textarea>
-              <button
-                className="submit-review text-decoration-none rounded-3 text-white d-block mx-auto m-md-0 mt-2 mt-md-0 ms-md-4 text-uppercase fw-bold"
-              >
+              <button className="submit-review text-decoration-none rounded-3 text-white d-block mx-auto m-md-0 mt-2 mt-md-0 ms-md-4 text-uppercase fw-bold">
                 Submit
               </button>
             </div>
             <hr className="my-4 mx-5" />
             <div className="grid-col-span-2">
               <div className="for-grid-review">
-
                 {/* REVIEWS */}
                 <div className="p-0 m-0">
                   <div className="review-card bg-white p-3 rounded-3">
@@ -47,9 +44,7 @@ export default function Reviews() {
                       </figure>
                     </div>
                     <div className="review-body p-2">
-                      <p className="m-0 review">
-                        Thank you sa yummy cake 😘
-                      </p>
+                      <p className="m-0 review">Thank you sa yummy cake 😘</p>
                     </div>
                   </div>
                 </div>
@@ -74,9 +69,7 @@ export default function Reviews() {
                       </figure>
                     </div>
                     <div className="review-body p-2">
-                      <p className="m-0 review">
-                        Thank you sa lami na cake te
-                      </p>
+                      <p className="m-0 review">Thank you sa lami na cake te</p>
                     </div>
                   </div>
                 </div>
@@ -101,9 +94,7 @@ export default function Reviews() {
                       </figure>
                     </div>
                     <div className="review-body p-2">
-                      <p className="m-0 review">
-                        Ka gwapa sa cake 😍
-                      </p>
+                      <p className="m-0 review">Ka gwapa sa cake 😍</p>
                     </div>
                   </div>
                 </div>
@@ -183,7 +174,8 @@ export default function Reviews() {
                     </div>
                     <div className="review-body p-2">
                       <p className="m-0 review">
-                        Sulit ang kalami...dili kamahayan...pm me or contact for more details...
+                        Sulit ang kalami...dili kamahayan...pm me or contact for
+                        more details...
                       </p>
                     </div>
                   </div>
@@ -210,7 +202,8 @@ export default function Reviews() {
                     </div>
                     <div className="review-body p-2">
                       <p className="m-0 review">
-                        Thanks Norya ❤❤❤ Hanna likes it.. Nice daw kaay iya cake gahapon. Order kami ulit next time.
+                        Thanks Norya ❤❤❤ Hanna likes it.. Nice daw kaay iya cake
+                        gahapon. Order kami ulit next time.
                       </p>
                     </div>
                   </div>
@@ -237,7 +230,9 @@ export default function Reviews() {
                     </div>
                     <div className="review-body p-2">
                       <p className="m-0 review">
-                       Absolutely beautiful!!! Naka kaon k sa imoha cake gahapon jane,sarap oi...ako man to pinsan gi kasal...c aisa nag order,db?
+                        Absolutely beautiful!!! Naka kaon k sa imoha cake
+                        gahapon jane,sarap oi...ako man to pinsan gi kasal...c
+                        aisa nag order,db?
                       </p>
                     </div>
                   </div>
@@ -264,12 +259,13 @@ export default function Reviews() {
                     </div>
                     <div className="review-body p-2">
                       <p className="m-0 review">
-                        Thank you my dear classmate, order jud mo sa iya cake lami kaayo.bisan layu kaayo ko diha jud ko ga order sa iya.😍❤❤❤ Barato pa lami pa.
+                        Thank you my dear classmate, order jud mo sa iya cake
+                        lami kaayo.bisan layu kaayo ko diha jud ko ga order sa
+                        iya.😍❤❤❤ Barato pa lami pa.
                       </p>
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </div>
