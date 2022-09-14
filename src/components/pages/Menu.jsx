@@ -116,9 +116,11 @@ export default function Menu() {
             />
           </form>
         </div>
+
         <div className="container pb-5">
           <div className="row">{loading ? renderLoading() : renderMenu()}</div>
         </div>
+        
       </section>
       <Footer />
     </>

@@ -54,6 +54,7 @@
 }
 
 .product,
+.featured-card:hover,
 .about-bg-color,
 .review-card:hover,
 .incart-select {
@@ -61,6 +62,8 @@
 }
 
 .btn-login:hover, 
+.featured-card,
+.featured-img,
 .product img,
 .review-card,
 .submit-review, 
@@ -80,6 +83,7 @@
 }
 
 .btn-login, 
+.featured-card,
 .cake-btn-add, 
 .cake-btn-go, 
 .submit-review, 
