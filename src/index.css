@@ -22,6 +22,7 @@
 .about-bg-color,
 .btn-login:hover, 
 .cake-btn-go:hover,
+.submit-review:hover,
 .cart-buy:hover {
   background-color: var(--brown);
 }
@@ -29,6 +30,7 @@
 .btn-login,
 .cake-btn-add:hover, 
 .cake-btn-go, 
+.submit-review,
 .cart-circle:hover,
 .cart-buy {
   background-color: var(--dark-brown);
@@ -53,12 +55,15 @@
 
 .product,
 .about-bg-color,
+.review-card:hover,
 .incart-select {
   box-shadow: var(--shadow);
 }
 
 .btn-login:hover, 
-.product img, 
+.product img,
+.review-card,
+.submit-review, 
 .cake-btn-add, 
 .cake-btn-go, 
 .like, 
@@ -77,6 +82,7 @@
 .btn-login, 
 .cake-btn-add, 
 .cake-btn-go, 
+.submit-review, 
 .like, 
 .liked, 
 .like:hover, 

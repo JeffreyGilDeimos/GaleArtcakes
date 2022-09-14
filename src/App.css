@@ -7,6 +7,9 @@
   #cart {
     padding-top: 94px;
   }
+  .for-grid-review {
+  grid-template-columns: repeat(3, 1fr);
+  }
   .footer {
     justify-content: space-between;
   }
@@ -32,6 +35,9 @@
   .layered-footer {
     bottom: 151px;
   }
+  .for-grid-review{
+    grid-template-columns: repeat(2, 1fr);
+  }
   #footer {
     margin-top: 13px;
   }
@@ -44,6 +50,9 @@
   .product {
     width: 400px;
   }
+  #review-input {
+    width: 50%;
+  }
 }
 
 @media (max-width: 767px) {
@@ -53,6 +62,12 @@
   #cake,
   #cart {
     padding-top: 216px;
+  }
+  .for-grid-review{
+    grid-template-columns: repeat(1, 1fr);
+    }
+  #review-input {
+    width: 100%;
   }
 }
 
@@ -148,6 +163,10 @@ li:not(:last-child) .nav-link:hover {
 }
 
 /* <!-- ---- Featured Selection ---- --> */
+.featured-bg {
+  background-color: rgba(213,	122,67, 0.2);
+}
+
 .selection-img {
   height: 150px;
   width: 150px;
@@ -192,13 +211,7 @@ li:not(:last-child) .nav-link:hover {
 .selection-item:hover .selection-text {
   opacity: 1;
 }
-/* <!-- ---- FB Feedback ---- --> */
-.fb-img:hover {
-  transform: scale(1.2);
-}
-.fb-img {
-  transition: all 0.4s ease;
-}
+
 /* ----- Selected Selection-----  */
 .card-img {
   border: 5px solid #ebadad;
@@ -212,6 +225,9 @@ li:not(:last-child) .nav-link:hover {
   transition: all 0.4s ease;
 }
 /* ----- New Collection-----  */
+#varities, #hero {
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+}
 .card-img-new {
   border: 5px solid #ebadad;
 }
@@ -228,6 +244,47 @@ li:not(:last-child) .nav-link:hover {
   left: 20px;
 }
 
+/* <!-- ---- Reviews ---- --> */
+#reviews {
+  background-color: rgba(213,	122,67, 0.2);
+}
+
+#review-input {
+  height: 50px;
+  padding: 12px;
+  background-color: transparent;
+}
+
+.grid-col-span-2 {
+  grid-column: span 2;
+}
+
+.submit-review {
+  border: 3px solid var(--dark-brown);
+  padding: 10px 25px;
+}
+
+.submit-review:hover {
+  border: 3px solid var(--brown);
+}
+
+.for-grid-review {
+  display: grid;
+  gap: 16px;
+}
+
+.review-card{
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.review-profile {
+  height: 40px;
+  width: 40px;
+}
+
+.review {
+  font-size: 15px;
+}
 /* ----- About ----- */
 .about-img {
   border: 5px solid white;

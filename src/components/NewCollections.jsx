@@ -37,7 +37,9 @@ export default function NewCollections() {
     <div>
       <section id="varities">
         <div className="text-center py-5">
-          <h4>NEW COLLECTIONS</h4>
+          <h1 className="fw-bolder m-0 text-uppercase text-center">
+            <strong>New Collections</strong>
+          </h1>
         </div>
         <div className="container pb-5">
           <div className="row">{renderCakeList()}</div>

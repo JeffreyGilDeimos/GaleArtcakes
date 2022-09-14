@@ -3,10 +3,12 @@ import { NavHashLink as NavLink } from "react-router-hash-link";
 
 export default function Featured() {
   return (
-    <section className="bg-danger bg-opacity-10 pt-5">
+    <section className="featured-bg pt-5">
       <div className="container">
         <div className="text-center pb-5">
-          <h4>FEATURED SELECTIONS</h4>
+          <h1 className="fw-bolder m-0 text-uppercase text-center">
+            <strong>Featured Selections</strong>
+          </h1>
         </div>
 
         <div className="row g-0 d-flex justify-content-center">
