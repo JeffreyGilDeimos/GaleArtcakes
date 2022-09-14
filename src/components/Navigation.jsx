@@ -28,7 +28,6 @@ export default function Navigation() {
     }, 1000);
   };
 
-
   return (
     <Navbar id="header">
       <div className="p-2 p-lg-3 nav-bg-color fixed-top">
@@ -85,32 +84,32 @@ export default function Navigation() {
               </li>
               {activeUser.email ? (
                 <>
-                <li>
-                  <NavLink to="/cart" className="nav-link position-relative">
-                    <FontAwesomeIcon
-                      icon={faCartShopping}
-                      className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
-                    />
-                    <span className="position-absolute cart-number translate-middle badge rounded-pill b-primary">
-                      10
-                    </span>
-                    <span className="nav-label">CART</span>
-                  </NavLink>
-                </li>
-                <li className="login">
-                <NavLink
-                  to="/login"
-                  className="nav-link text-white d-flex align-items-center btn-login rounded-pill"
-                  onClick={logout}
-                >
-                  <FontAwesomeIcon
-                    icon={faRightFromBracket}
-                    className="bi bi-people mx-auto fs-5 me-2"
-                  />
-                  LOGOUT
-                </NavLink>
-              </li>
-              </>
+                  <li>
+                    <NavLink to="/cart" className="nav-link position-relative">
+                      <FontAwesomeIcon
+                        icon={faCartShopping}
+                        className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
+                      />
+                      <span className="position-absolute cart-number translate-middle badge rounded-pill b-primary">
+                        10
+                      </span>
+                      <span className="nav-label">CART</span>
+                    </NavLink>
+                  </li>
+                  <li className="login">
+                    <NavLink
+                      to="/login"
+                      className="nav-link text-white d-flex align-items-center btn-login rounded-pill"
+                      onClick={logout}
+                    >
+                      LOGOUT
+                      <FontAwesomeIcon
+                        icon={faRightFromBracket}
+                        className="bi bi-people mx-auto fs-5 ms-2"
+                      />
+                    </NavLink>
+                  </li>
+                </>
               ) : (
                 <li className="login">
                   <NavLink
