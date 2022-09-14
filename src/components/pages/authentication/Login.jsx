@@ -5,7 +5,7 @@ import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { Link, useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import { useCollection } from "react-firebase-hooks/firestore";
-import { auth, db } from "../../../firebase";
+import { auth, db, googleProvider } from "../../../firebase";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import * as actionUser from "../../../redux/actions/actionUser";
@@ -58,6 +58,11 @@ export default function Login() {
     }
   };
 
+  const googleSignIn = (e) => {
+    e.preventDefault();
+    auth.signInWithPopup(googleProvider).catch((error) => alert(error.message));
+  };
+
   return (
     <div className="auth">
       <div className="page-content d-flex align-items-center">
@@ -72,7 +77,10 @@ export default function Login() {
                 />
               </Link>
               <div className="p-4 p-lg-5">
-                <button className="service-btn border-0 w-100 text-white p-2 rounded-pill">
+                <button
+                  className="service-btn border-0 w-100 text-white p-2 rounded-pill"
+                  onClick={googleSignIn}
+                >
                   <FontAwesomeIcon icon={faGoogle} className="me-2" />
                   <span className="m-0"> Login with Google</span>
                 </button>
