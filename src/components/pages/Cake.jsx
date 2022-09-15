@@ -32,7 +32,7 @@ export default function Cake() {
             <img
               src={`../${item.image}`}
               alt={item.name}
-              className="d-block m-auto w-100 h-auto"
+              className="d-block m-auto w-100 h-auto rounded-3"
             />
           </div>
         </div>
