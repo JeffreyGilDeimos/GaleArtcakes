@@ -6,7 +6,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 export default function Cake() {
   const { id } = useParams();
@@ -14,7 +14,7 @@ export default function Cake() {
   const [cakes, setCakes] = useState(cakeList);
   const [like, setLike] = useState("");
   const [loading, setLoading] = useState(false);
-  const activeUser = useSelector((state) => state.activeUser);
+  // const activeUser = useSelector((state) => state.activeUser);
 
   useEffect(() => {
     setLoading(true);

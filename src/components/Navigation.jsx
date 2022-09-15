@@ -74,7 +74,7 @@ export default function Navigation() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink to="/#fb_review" className="nav-link">
+                  <NavLink to="/#review" className="nav-link">
                     <FontAwesomeIcon
                       icon={faComments}
                       className="bi bi-megaphone d-block d-flex justify-content-center mb-1  mx-auto fs-5"
