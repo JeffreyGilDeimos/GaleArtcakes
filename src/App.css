@@ -279,6 +279,33 @@ li:not(:last-child) .nav-link:hover {
 #varities, #hero {
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
 }
+.new-col-card {
+  border: 4px solid var(--brown);
+} 
+
+.new-col-like {
+  color: rgb(237, 73, 86);
+  top: 7px;
+  left: 15px;
+}
+.base-like {
+  color: white;
+  top: 2px;
+  left: 11px;
+}
+
+.new-col-card:hover {
+  border: 4px solid var(--light-brown);
+}
+
+.new-col-card:hover img {
+  transform: scale(1.1);
+}
+
+.item-name {
+  font-size: 18px;
+}
+
 .card-img-new {
   border: 5px solid #ebadad;
 }

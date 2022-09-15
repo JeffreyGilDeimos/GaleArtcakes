@@ -14,37 +14,42 @@ export default function NewCollections() {
 
   const renderCakeList = () => {
     return cakes.map((item) => (
-      <div className="col-sm-6 col-md-4 col-lg-3 pb-5" key={item.id}>
-        <div className="card-img-new overflow-hidden rounded position-relative">
-          <img src={item.image} alt={item.name} className="img-fluid " />
-          <span className="position-absolute d-flex align-items-center justify-content-center text-danger fs-3">
+      <div className="col-12 col-md-6 col-lg-3 pb-5" key={item.id}>
+        <div className="new-col-card overflow-hidden rounded-4 bg-white position-relative">
+          <img src={item.image} alt={item.name} className="img-fluid" />
+          <span className="position-absolute base-like fs-2">
+            <FontAwesomeIcon icon={faHeart} />
+          </span>
+          <span className="position-absolute new-col-like fs-4">
             <FontAwesomeIcon icon={faHeart} />
           </span>
         </div>
-        <div className="text-center">
-          <p className="text-capitalize  mb-1 fs-5">{item.name}</p>
-          <span className="fw-bold d-block mt-1 mb-2">{`₱ ${item.price}`}</span>
-
-          <Link to={`/cake/${item.id}`} className="btn btn-danger">
-            More details
-          </Link>
-        </div>
+        <p className="m-0 text-center fw-semibold mt-2 item-name">
+          {item.name}
+        </p>
+        <hr className="w-75 mx-auto my-2" />
+        <p className="m-0 fw-bolder text-center">{`₱ ${item.price}`}</p>
+        <hr className="w-75 mx-auto my-2" />
+        <Link
+          to={`/cake/${item.id}`}
+          className="new-col-btn d-block text-white text-center text-decoration-none p-2 rounded-3 w-50 mx-auto mt-3"
+        >
+          More details
+        </Link>
       </div>
     ));
   };
 
   return (
-    <div>
+    <>
       <section id="varities">
-        <div className="text-center py-5">
-          <h1 className="fw-bolder m-0 text-uppercase text-center">
+        <div className="container px-5 pt-5">
+          <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>New Collections</strong>
           </h1>
-        </div>
-        <div className="container pb-5">
           <div className="row">{renderCakeList()}</div>
         </div>
       </section>
-    </div>
+    </>
   );
 }
