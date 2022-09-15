@@ -29,6 +29,7 @@
 
 .btn-login,
 .cake-btn-add:hover, 
+.cont-shop:hover,
 .cake-btn-go, 
 .submit-review,
 .cart-circle:hover,
@@ -42,6 +43,7 @@
 
 .cake-name, 
 .cake-btn-add, 
+.cont-shop,
 .cart-title h6, 
 .mobile-total,
 #footer p,
@@ -49,7 +51,8 @@
   color: var(--dark-brown);
 }
 
-.cake-btn-add:hover {
+.cake-btn-add:hover,
+.cont-shop:hover {
   color: white;
 }
 
@@ -68,6 +71,7 @@
 .review-card,
 .submit-review, 
 .cake-btn-add, 
+.cont-shop,
 .cake-btn-go, 
 .like, 
 .liked, 
@@ -84,7 +88,8 @@
 
 .btn-login, 
 .featured-card,
-.cake-btn-add, 
+.cake-btn-add,
+.cont-shop, 
 .cake-btn-go, 
 .submit-review, 
 .like, 

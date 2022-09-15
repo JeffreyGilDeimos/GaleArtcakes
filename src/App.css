@@ -98,7 +98,7 @@
 @media (min-width: 460px) {
   .cart-bottom {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     align-items: center;
   }
   .cart-buy {
@@ -125,11 +125,13 @@
   }
   .cake-btn-add, 
   .cake-btn-go, 
-  .cart-buy {
+  .cart-buy,
+  .cont-shop {
     display: block;
   }
   .cake-btn-add,
-  .cart-buy {
+  .cart-buy,
+  .cont-shop {
     width: 100%;
   }
   .cake-btn-go {
@@ -349,12 +351,15 @@ li:not(:last-child) .nav-link:hover {
   transform: scale(1.05);
 }
 
-.cake-btn-add, .cake-btn-go {
+.cake-btn-add, 
+.cake-btn-go, 
+.cont-shop {
   border: 3px solid var(--dark-brown);
   padding: 10px 25px;
 }
 
-.cake-btn-add {
+.cake-btn-add, 
+.cont-shop {
   background-color: transparent;
 }
 

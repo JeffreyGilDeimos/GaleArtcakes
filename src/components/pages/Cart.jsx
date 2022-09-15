@@ -89,18 +89,26 @@ export default function Cart() {
             <br />
             <hr className="mb-4 mt-0" />
             <div className="cart-bottom">
-              <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
-                <h6 className="m-0">Total (0 item):&nbsp;</h6>
-                <h5 className="fw-bold m-0">₱ 0.00</h5>
-              </div>
-              <button
-                className="cart-buy rounded-3 text-white text-uppercase fw-bold"
-                type="button"
-                data-bs-toggle="modal"
-                data-bs-target="#checkOutModal"
+              <Link
+                to="/cakes"
+                className="cont-shop rounded-3 text-center text-uppercase fw-bold mb-4 mb-md-0 text-decoration-none"
               >
-                Check Out
-              </button>
+                Continue Shopping
+              </Link>
+              <div className="for-checkout d-md-flex justify-content-between align-items-center">
+                <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
+                  <h6 className="m-0">Total (0 item):&nbsp;</h6>
+                  <h5 className="fw-bold m-0">₱ 0.00</h5>
+                </div>
+                <button
+                  className="cart-buy rounded-3 text-white text-uppercase fw-bold"
+                  type="button"
+                  data-bs-toggle="modal"
+                  data-bs-target="#checkOutModal"
+                >
+                  Check Out
+                </button>
+              </div>
             </div>
 
             {/* Modal for Delete */}
