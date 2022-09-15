@@ -229,6 +229,7 @@ li:not(:last-child) .nav-link:hover {
   transform: scale(1.1);
   transition: all 0.4s ease;
 }
+
 /* ----- New Collection-----  */
 #varities, #hero {
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
@@ -301,6 +302,7 @@ li:not(:last-child) .nav-link:hover {
 .review {
   font-size: 15px;
 }
+
 /* ----- About ----- */
 .about-img {
   border: 5px solid white;
@@ -309,6 +311,7 @@ li:not(:last-child) .nav-link:hover {
 /* ----- Cake ----- */
 #cake {
   /* background-image: url(../public/images/cake-bg.png); */
+  background-image: linear-gradient(to bottom left, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
   height: auto;
 }
 
@@ -340,10 +343,10 @@ li:not(:last-child) .nav-link:hover {
   color: rgb(237, 73, 86);
 }
 
-
 /* ----- Cart ----- */
 #cart {
   /* background-image: url(../public/images/cart-bg.png); */
+  background-image: linear-gradient(to bottom right, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
   height: auto;
 }
 
