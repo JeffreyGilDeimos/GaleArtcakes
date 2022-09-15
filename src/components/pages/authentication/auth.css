@@ -1,5 +1,6 @@
 .page-content{
     /* background-image: url(../../../../public/images/bg-auth.png); */
+    background-color: rgba(213,	122,67, 0.2);
     min-height: 100vh;
     background-position: center;
     background-repeat: no-repeat;

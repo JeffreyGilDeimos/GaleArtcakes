@@ -21,6 +21,7 @@
 .cart-number, 
 .about-bg-color,
 .btn-login:hover, 
+.new-col-btn:hover,
 .cake-btn-go:hover,
 .submit-review:hover,
 .cart-buy:hover {
@@ -30,6 +31,7 @@
 .btn-login,
 .cake-btn-add:hover, 
 .cont-shop:hover,
+.new-col-btn,
 .cake-btn-go, 
 .submit-review,
 .cart-circle:hover,
@@ -67,6 +69,9 @@
 .btn-login:hover, 
 .featured-card,
 .featured-img,
+.new-col-card,
+.new-col-card img,
+.new-col-btn,
 .product img,
 .review-card,
 .submit-review, 
@@ -88,6 +93,7 @@
 
 .btn-login, 
 .featured-card,
+.new-col-card,
 .cake-btn-add,
 .cont-shop, 
 .cake-btn-go, 

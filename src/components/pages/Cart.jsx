@@ -90,7 +90,7 @@ export default function Cart() {
             <hr className="mb-4 mt-0" />
             <div className="cart-bottom">
               <Link
-                to="/cakes"
+                to={`/cakes/${5}`}
                 className="cont-shop rounded-3 text-center text-uppercase fw-bold mb-4 mb-md-0 text-decoration-none"
               >
                 Continue Shopping

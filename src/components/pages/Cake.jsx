@@ -21,7 +21,7 @@ export default function Cake() {
     setTimeout(() => {
       setCakes(cakeList.filter((item) => item.id === activeFilter));
       setLoading(false);
-    }, 600);
+    }, 1000);
   }, [activeFilter]);
 
   const renderCake = () => {
@@ -32,7 +32,7 @@ export default function Cake() {
             <img
               src={`../${item.image}`}
               alt={item.name}
-              className="d-block m-auto w-100 h-auto"
+              className="d-block m-auto w-100 h-auto rounded-3"
             />
           </div>
         </div>
@@ -90,11 +90,11 @@ export default function Cake() {
 
   const renderLoading = () => {
     return (
-      <div className="d-flex py-5">
-        <div className="col-md-6 px-5">
+      <div className="d-lg-flex py-md-5">
+        <div className="col-12 col-lg-6 pb-5 pb-lg-0 pe-lg-5">
           <Skeleton height={400} />
         </div>
-        <div className="col-md-6" style={{ lineHeight: 2 }}>
+        <div className="col-12 col-lg-6" style={{ lineHeight: 2 }}>
           <Skeleton height={50} width={200} />
           <Skeleton height={75} width={300} />
           <Skeleton height={35} width={150} />
