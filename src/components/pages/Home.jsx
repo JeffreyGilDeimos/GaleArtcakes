@@ -1,16 +1,17 @@
 import React, { useEffect } from "react";
-import Footer from "../Footer";
-import Navigation from "../Navigation";
-import Hero from "../Hero";
-import Featured from "../Featured";
-import Reviews from "../Reviews";
-import NewCollections from "../NewCollections";
 import * as actionUser from "../../redux/actions/actionUser";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth, db } from "../../firebase";
 import { useCollection } from "react-firebase-hooks/firestore";
 import { useDispatch, useSelector } from "react-redux";
 import { bindActionCreators } from "redux";
+
+import Footer from "../Footer";
+import Navigation from "../Navigation";
+import Hero from "../Hero";
+import Featured from "../Featured";
+import Reviews from "../Reviews";
+import NewCollections from "../NewCollections";
 
 export default function Home() {
   const [user] = useAuthState(auth);

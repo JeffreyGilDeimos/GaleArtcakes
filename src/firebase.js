@@ -1,25 +1,26 @@
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
+import firebase from "firebase/compat/app";
+import "firebase/compat/auth";
+import "firebase/compat/firestore";
 
 // Your web app's Firebase configuration
+
+// !Important. Keys need to be in environemnt variables or env file.
+//  !!!!!!!!!!!!!!! DO NOT EXPOSE KEYS !!!!!!!!!!!!!!!!!
 const firebaseConfig = {
-    apiKey: "AIzaSyCkop4HTLO2FInmlIcGYJmgGUVQRWR_UBo",
-    authDomain: "react-artcakes.firebaseapp.com",
-    projectId: "react-artcakes",
-    storageBucket: "react-artcakes.appspot.com",
-    messagingSenderId: "836433413617",
-    appId: "1:836433413617:web:effc8b3e24bc2df2ab3050"
-  };
+  apiKey: "AIzaSyCkop4HTLO2FInmlIcGYJmgGUVQRWR_UBo",
+  authDomain: "react-artcakes.firebaseapp.com",
+  projectId: "react-artcakes",
+  storageBucket: "react-artcakes.appspot.com",
+  messagingSenderId: "836433413617",
+  appId: "1:836433413617:web:effc8b3e24bc2df2ab3050",
+};
 
+// use this to initialize the firebase app
+const firebaseapp = firebase.initializeApp(firebaseConfig);
 
- // use this to initialize the firebase app
- const firebaseapp = firebase.initializeApp(firebaseConfig);
-
- // Use for db
-const db = firebaseapp.firestore()
+// Use for db
+const db = firebaseapp.firestore();
 const auth = firebase.auth();
 const googleProvider = new firebase.auth.GoogleAuthProvider();
 
-
-export { db, auth, googleProvider } 
+export { db, auth, googleProvider };
