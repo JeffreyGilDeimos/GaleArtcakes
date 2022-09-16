@@ -1,4 +1,12 @@
 /* <!-- ---- Media Query ---- --> */
+@media (min-height: 886px) {
+  #cake {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+}
+
 @media (min-width: 992px) {
   #hero,
   #selection,
@@ -333,7 +341,6 @@ li:not(:last-child) .nav-link:hover {
 #cake {
   /* background-image: url(../public/images/cake-bg.png); */
   background-image: linear-gradient(to bottom left, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
-  height: auto;
 }
 
 .product:hover img {
@@ -368,7 +375,7 @@ li:not(:last-child) .nav-link:hover {
 #cart {
   /* background-image: url(../public/images/cart-bg.png); */
   background-image: linear-gradient(to bottom right, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
-  height: auto;
+  height: 100vh;
 }
 
 .incart {
