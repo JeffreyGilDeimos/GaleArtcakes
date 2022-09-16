@@ -3,7 +3,7 @@ import React from "react";
 export default function Messages({ user, userImage, message, timestamp }) {
   return (
     <div className="p-0 m-0">
-      <div className="review-card bg-white p-3 rounded-3">
+      <div className="review-card bg-white p-3 rounded-3 h-100">
         <div className="review-head d-flex align-items-center mb-3">
           <img
             src={userImage}
@@ -17,7 +17,7 @@ export default function Messages({ user, userImage, message, timestamp }) {
               </p>
             </blockquote>
             <figcaption className="blockquote-footer m-0">
-              &nbsp;{new Date(timestamp?.toDate()).toUTCString()}
+              &nbsp;{new Date(timestamp?.toDate()).toLocaleString()}
             </figcaption>
           </figure>
         </div>
