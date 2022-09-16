@@ -17,7 +17,7 @@ export default function Messages({ user, userImage, message, timestamp }) {
               </p>
             </blockquote>
             <figcaption className="blockquote-footer m-0">
-              &nbsp;{new Date(timestamp?.toDate()).toUTCString()}
+              &nbsp;{new Date(timestamp?.toDate()).toLocaleString()}
             </figcaption>
           </figure>
         </div>
