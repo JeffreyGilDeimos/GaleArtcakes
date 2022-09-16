@@ -49,8 +49,8 @@ export default function Navigation() {
               >
                 <img
                   src="../images/Logo.png"
-                  width="180"
-                  height="75"
+                  width="160"
+                  height="65"
                   alt="Gale Logo"
                 />
               </NavLink>

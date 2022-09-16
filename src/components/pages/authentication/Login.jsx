@@ -80,7 +80,7 @@ export default function Login() {
                   <img
                     src="images/auth-card-bg.png"
                     alt="auth"
-                    className="w-100 h-auto rounded-4"
+                    className="w-100 h-auto auth-card-img"
                   />
                 </Link>
                 <div className="p-4 p-lg-5">
