@@ -23,6 +23,7 @@ export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const activeUser = useSelector((state) => state.activeUser);
+  const cartLists = useSelector((state) => state.cartLists);
   const { logoutUser } = bindActionCreators(actionUser, useDispatch());
 
   const logout = (e) => {
@@ -103,7 +104,7 @@ export default function Navigation() {
                           className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
                         />
                         <span className="position-absolute cart-number translate-middle badge rounded-pill b-primary">
-                          10
+                          {cartLists.length}
                         </span>
                         <span className="nav-label">CART</span>
                       </NavLink>
