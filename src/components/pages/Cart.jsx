@@ -84,7 +84,7 @@ export default function Cart() {
                   onClick={() => setSelected(selected ? "" : "-select")}
                 />
                 <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-evenly">
-                  <Link to="/cake/5">
+                  <Link to={`/cake/${item.id}`}>
                     <img
                       src="../images/choco1.png"
                       alt="cake"
