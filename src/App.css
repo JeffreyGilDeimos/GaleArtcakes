@@ -374,8 +374,8 @@ li:not(:last-child) .nav-link:hover {
 /* ----- Cart ----- */
 #cart {
   /* background-image: url(../public/images/cart-bg.png); */
-  background-image: linear-gradient(to bottom right, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
   height: 100vh;
+  background-image: linear-gradient(to bottom right, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
 }
 
 .incart {
