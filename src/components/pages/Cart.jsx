@@ -37,19 +37,22 @@ export default function Cart() {
     });
   };
 
-  const handleMinusCart = (item) => {
-    const quantity = item.quantity;
-    updateQuantity({
-      ...item,
-      quantity: quantity - 1,
-    });
-  };
-
   useEffect(() => {
     if (!user || !activeUser.email) {
       navigate("/login");
     }
   });
+
+  const handleMinusCart = (item) => {
+    const quantity = item.quantity;
+    if (item.quantity <= 1) {
+      return;
+    }
+    updateQuantity({
+      ...item,
+      quantity: quantity - 1,
+    });
+  };
 
   return (
     <>
