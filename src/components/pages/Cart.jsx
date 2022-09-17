@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
+import { db } from "../../firebase";
+import { useCollection } from "react-firebase-hooks/firestore";
 import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
@@ -15,11 +17,14 @@ import utils from "../../utilities/utils";
 export default function Cart() {
   const [selected, setSelected] = useState("");
 
+  // const [fbCartLists] = useCollection(db.collection("cartLists"));
   const cartLists = useSelector((state) => state.cartLists);
   const { removeFromCart, updateQuantity } = bindActionCreators(
     cartAction,
     useDispatch()
   );
+
+  // console.log(fbCartLists);
 
   const handlePlusCart = (item) => {
     const quantity = item.quantity;
