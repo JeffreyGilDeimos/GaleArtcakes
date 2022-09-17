@@ -6,9 +6,15 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
+
+import * as cartAction from "../../redux/actions/actionCart";
+import { bindActionCreators } from "redux";
+import { useDispatch } from "react-redux";
 // import { useSelector } from "react-redux";
 
 export default function Cake() {
+  const { addToCart } = bindActionCreators(cartAction, useDispatch());
+
   const { id } = useParams();
   const [activeFilter] = useState(parseInt(id));
   const [cakes, setCakes] = useState(cakeList);
@@ -23,6 +29,11 @@ export default function Cake() {
       setLoading(false);
     }, 1000);
   }, [activeFilter]);
+
+  const handleAddToCart = (item) => {
+    item.quantity = 1;
+    addToCart(item);
+  };
 
   const renderCake = () => {
     return cakes.map((item) => (
@@ -55,7 +66,12 @@ export default function Cake() {
               Actual food presentation may vary.
             </li>
           </ul>
-          <button className="cake-btn-add rounded-3 mb-3 mb-md-0 me-3 text-uppercase fw-bold">
+          <button
+            className="cake-btn-add rounded-3 mb-3 mb-md-0 me-3 text-uppercase fw-bold"
+            onClick={(e) => {
+              handleAddToCart(item);
+            }}
+          >
             Add to Cart
           </button>
           <Link
