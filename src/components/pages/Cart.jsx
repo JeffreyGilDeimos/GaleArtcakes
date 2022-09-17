@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-
-import { db } from "../../firebase";
-import { useCollection } from "react-firebase-hooks/firestore";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../firebase";
+//import { useCollection } from "react-firebase-hooks/firestore";
 import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
@@ -16,6 +16,9 @@ import utils from "../../utilities/utils";
 
 export default function Cart() {
   const [selected, setSelected] = useState("");
+  const [user] = useAuthState(auth);
+  const activeUser = useSelector((state) => state.activeUser);
+  const navigate = useNavigate();
 
   // const [fbCartLists] = useCollection(db.collection("cartLists"));
   const cartLists = useSelector((state) => state.cartLists);
@@ -41,6 +44,13 @@ export default function Cart() {
       quantity: quantity - 1,
     });
   };
+
+  useEffect(() => {
+    if (!user || !activeUser.email) {
+      navigate("/login");
+    }
+  });
+
   return (
     <>
       <Navigation />
