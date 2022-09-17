@@ -43,7 +43,7 @@ export default function Cake() {
   const handleAddToCart = (item) => {
     console.log(cartLists);
     if (cartLists.find((cart) => cart.id === item.id)) {
-      return console.log("Product has been added to cart");
+      return alert("Product has already been added to cart.");
     }
     item.quantity = 1;
     addToCart(item);
