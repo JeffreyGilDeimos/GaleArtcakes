@@ -84,13 +84,12 @@ export default function Cart() {
                   onClick={() => setSelected(selected ? "" : "-select")}
                 />
                 <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-evenly">
-                  <Link to="/cake/5">
-                    <img
-                      src="../images/choco1.png"
-                      alt="cake"
-                      className="incart-cake d-block m-auto m-lg-0"
-                    />
-                  </Link>
+                  <img
+                    src={`../${item.image}`}
+                    alt={item.name}
+                    className="incart-cake d-block m-auto m-lg-0"
+                  />
+
                   <h5 className="mt-2 mb-1 m-lg-0">{item.name}</h5>
                   <p className="m-0">{utils.toPhp.format(item.price)}</p>
                   <div className="d-flex align-items-center justify-content-center">
