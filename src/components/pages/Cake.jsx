@@ -7,14 +7,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { db, auth } from "../../firebase";
 import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 export default function Cake() {
   const { addToCart } = bindActionCreators(cartAction, useDispatch());
 
+  const cartLists = useSelector((state) => state.cartLists);
+  // const [user] = useAuthState(auth);
   const { id } = useParams();
   const [activeFilter] = useState(parseInt(id));
   const [cakes, setCakes] = useState(cakeList);
@@ -30,9 +34,26 @@ export default function Cake() {
     }, 1000);
   }, [activeFilter]);
 
+  // const checkItem = (item) => {
+  //   if(!cartLists.find((cart) => cart.id === item.id)) { // you can also change `name` to `id`
+  //     arr.push(item);
+  //   }
+  // }
+
   const handleAddToCart = (item) => {
+    console.log(cartLists);
+    if (cartLists.find((cart) => cart.id === item.id)) {
+      return console.log("Product has been added to cart");
+    }
     item.quantity = 1;
     addToCart(item);
+
+    // if (user) {
+    //   db.collection("cartLists").add({
+    //     userId: user.uid,
+    //     item,
+    //   });
+    // }
   };
 
   const renderCake = () => {
