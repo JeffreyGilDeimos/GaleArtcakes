@@ -7,6 +7,12 @@
   }
 }
 
+@media (min-height: 603px) {
+  #cake {
+    height: 100vh;
+  }
+}
+
 @media (min-width: 992px) {
   #hero,
   #selection,
