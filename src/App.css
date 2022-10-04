@@ -319,7 +319,7 @@ li:not(:last-child) .nav-link:hover {
   gap: 16px;
 }
 
-.review-card{
+.review-card {
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
@@ -328,8 +328,30 @@ li:not(:last-child) .nav-link:hover {
   width: 40px;
 }
 
+.review-actions {
+  box-shadow: 0 0px 4px 0 rgba(0, 0, 0, 0.1);
+  width: 85px;
+  top: 0;
+  right: 16px;
+}
+
+.review-body {
+  margin-bottom: 24px;
+}
+
+.edit-review:hover,
+.delete-review:hover {
+  font-weight: bolder;
+}
+
+.for-save-btn {
+  bottom: 0;
+  right: 0;
+}
+
 .review {
   font-size: 15px;
+  resize: none;
 }
 
 /* ----- About ----- */
