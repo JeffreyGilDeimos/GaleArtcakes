@@ -45,10 +45,10 @@ export default function Messages({ user, userImage, message, timestamp }) {
             <small>Save</small>
           </button>
         </div>
-        <div className="review-body p-2">
+        <div className="review-body">
           <TextareaAutosize
             defaultValue={message}
-            className="m-0 review w-100 border-0"
+            className="m-0 review w-100 border-0 p-2"
             readOnly
           />
         </div>
