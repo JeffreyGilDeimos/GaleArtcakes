@@ -299,6 +299,7 @@ li:not(:last-child) .nav-link:hover {
   height: 50px;
   padding: 12px;
   background-color: transparent;
+  resize: none;
 }
 
 .grid-col-span-2 {
@@ -337,6 +338,11 @@ li:not(:last-child) .nav-link:hover {
 
 .review-body {
   margin-bottom: 24px;
+}
+
+.review-icon {
+  top: 0;
+  right: 0;
 }
 
 .edit-review:hover,
