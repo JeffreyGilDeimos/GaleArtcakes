@@ -21,7 +21,7 @@ export default function Messages({
           <div className="review-head d-flex align-items-center">
             <img
               src={userImage}
-              alt="profile-review"
+              alt="dp"
               className="review-profile rounded-circle"
             />
             <figure className="ms-3 me-3 mb-0">

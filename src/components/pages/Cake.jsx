@@ -13,6 +13,7 @@ import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Modal } from "react-bootstrap";
 
 export default function Cake() {
   const { addToCart } = bindActionCreators(cartAction, useDispatch());
@@ -25,6 +26,8 @@ export default function Cake() {
   const [like, setLike] = useState("");
   const [loading, setLoading] = useState(false);
   // const activeUser = useSelector((state) => state.activeUser);
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -43,10 +46,13 @@ export default function Cake() {
   const handleAddToCart = (item) => {
     console.log(cartLists);
     if (cartLists.find((cart) => cart.id === item.id)) {
-      return alert("Product has already been added to cart.");
+      setShowModal2(true);
+      return null;
+      // return alert("Product has already been added to cart.");
     }
     item.quantity = 1;
     addToCart(item);
+    setShowModal1(true);
 
     // if (user) {
     //   db.collection("cartLists").add({
@@ -143,6 +149,11 @@ export default function Cake() {
     );
   };
 
+  const closeModal = () => {
+    setShowModal1(false);
+    setShowModal2(false);
+  };
+
   return (
     <>
       <Navigation />
@@ -152,6 +163,58 @@ export default function Cake() {
         </div>
       </section>
       <Footer />
+
+      {/* Modals */}
+      <Modal
+        show={showModal1}
+        id="showModal1"
+        tabIndex="-1"
+        aria-labelledby="showModalLabel1"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-body mx-3 text-center">
+              Great! Product has been successfully added to cart.
+            </div>
+            <div className="modal-footer border-0">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => closeModal()}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        show={showModal2}
+        id="showModal2"
+        tabIndex="-1"
+        aria-labelledby="showModalLabel2"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered">
+          <div className="modal-content">
+            <div className="modal-body mx-3 text-center">
+              This product has already been added to your cart.
+            </div>
+            <div className="modal-footer border-0">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => closeModal()}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
     </>
   );
 }

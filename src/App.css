@@ -353,6 +353,7 @@ li:not(:last-child) .nav-link:hover {
 .review {
   font-size: 15px;
   resize: none;
+  overflow-y: hidden;
 }
 
 /* ----- About ----- */

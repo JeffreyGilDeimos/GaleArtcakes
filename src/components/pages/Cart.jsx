@@ -88,7 +88,10 @@ export default function Cart() {
               <br />
             </div>
             {cartLists && cartLists.length === 0 && (
-              <div>No product has been added to cart. Continue shopping...</div>
+              <div>
+                <h6 className="text-center d-block m-0">No product has been added to your cart. Please continue shopping...</h6>
+                <br />
+              </div>
             )}
 
             {/* RENDER THIS PART */}
