@@ -336,10 +336,6 @@ li:not(:last-child) .nav-link:hover {
   right: 16px;
 }
 
-.review-body {
-  margin-bottom: 24px;
-}
-
 .review-icon {
   top: 0;
   right: 0;
@@ -351,8 +347,7 @@ li:not(:last-child) .nav-link:hover {
 }
 
 .for-save-btn {
-  bottom: 0;
-  right: 0;
+  margin-top: 6px;
 }
 
 .review {

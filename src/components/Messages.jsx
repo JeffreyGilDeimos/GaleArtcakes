@@ -58,22 +58,26 @@ export default function Messages({
                 </div>
               </div>
             </div>
-            <div className="for-save-btn d-flex justify-content-end position-absolute pb-3 pe-3">
+            <TextareaAutosize
+              defaultValue={message}
+              className="m-0 review w-100 h-100 border-0 p-2"
+              readOnly
+            />
+
+            {/* the Save button should only appear when the Edit button is clicked */}
+            <div className="for-save-btn d-flex justify-content-end">
               <button className="save-review border-0 p-0 bg-white fs-6 fw-bolder">
                 <small>Save</small>
               </button>
             </div>
           </>
         ) : (
-          <div></div>
-        )}
-        <div className="review-body">
           <TextareaAutosize
             defaultValue={message}
             className="m-0 review w-100 h-100 border-0 p-2"
             readOnly
           />
-        </div>
+        )}
       </div>
     </div>
   );
