@@ -58,23 +58,23 @@ export default function Cart() {
     <>
       <Navigation />
       <section id="cart">
-        <div className="container p-5">
+        <div className="container cart-container p-5">
           <div className="py-md-5">
             <div className="cart-mobile">
               <div className="m-0 cart-title d-flex align-items-center justify-content-between">
                 <h6 className="fw-bolder text-uppercase m-0">
                   <strong>Select</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase ms-0 me-5 my-0">
+                <h6 className="fw-bolder text-uppercase ms-5 me-5 my-0">
                   <strong>Cake</strong>
                 </h6>
                 <h6 className="fw-bolder text-uppercase my-0 mx-5">
                   <strong>Name</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase ms-5 me-0 my-0">
+                <h6 className="fw-bolder text-uppercase ms-4 me-3 my-0">
                   <strong>Unit Price</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase m-0">
+                <h6 className="fw-bolder text-uppercase me-3 ms-0 my-0">
                   <strong>Quantity</strong>
                 </h6>
                 <h6 className="fw-bolder text-uppercase m-0">
@@ -111,7 +111,7 @@ export default function Cart() {
                     className="incart-cake d-block m-auto m-lg-0"
                   />
 
-                  <h5 className="mt-2 mb-1 m-lg-0">{item.name}</h5>
+                  <h5 className="mt-2 mb-1 m-lg-0">{item.name.substring(0, 12)}...</h5>
                   <p className="m-0">{utils.toPhp.format(item.price)}</p>
                   <div className="d-flex align-items-center justify-content-center">
                     <button
@@ -161,7 +161,7 @@ export default function Cart() {
                     <div className="modal-content">
                       <div className="modal-header border-0">
                         <h5 className="modal-title" id="staticBackdropLabel">
-                          Delete <span>Choco Drip Var1</span>
+                          Delete item
                         </h5>
                         <button
                           type="button"
