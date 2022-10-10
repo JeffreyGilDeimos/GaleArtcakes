@@ -12,7 +12,8 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 91px;
   }
   .for-grid-review {
@@ -25,6 +26,10 @@
   }
   .featured-img {
     height: 180px;
+  }
+  .form-category,
+  .form-price {
+    width: 70%;
   }
   .footer {
     justify-content: space-between;
@@ -45,7 +50,8 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 159px;
   }
   .layered-footer {
@@ -61,6 +67,10 @@
   }
   .featured-img {
     height: 150px;
+  }
+  .form-category,
+  .form-price {
+    width: 60%;
   }
   #footer {
     margin-top: 13px;
@@ -84,20 +94,25 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 156px;
   }
   .for-grid-review{
     grid-template-columns: repeat(1, 1fr);
     }
-    .featured-card {
+  .featured-card {
       width: 110px;
       height: 110px;
       border: 3px solid white;
     }
-    .featured-img {
+  .featured-img {
       height: 110px;
     }
+  .form-category,
+  .form-price {
+    width: 100%;
+  }
   #review-input {
     width: 100%;
   }
@@ -108,7 +123,8 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 207px;
   }
 }
@@ -130,7 +146,8 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 142px;
   }
   .nav-label {
@@ -145,12 +162,14 @@
   .cake-btn-add, 
   .cake-btn-go, 
   .cart-buy,
-  .cont-shop {
+  .cont-shop, 
+  .admin-btn-upload {
     display: block;
   }
   .cake-btn-add,
   .cart-buy,
-  .cont-shop {
+  .cont-shop, 
+  .admin-btn-upload {
     width: 100%;
   }
   .cake-btn-go {
@@ -163,7 +182,8 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 181px;
   }
 }
@@ -173,7 +193,8 @@
   #selection,
   #about,
   #cake,
-  #cart {
+  #cart,
+  #admin {
     padding-top: 181px;
   }
   .nav-label {
@@ -373,13 +394,15 @@ li:not(:last-child) .nav-link:hover {
 
 .cake-btn-add, 
 .cake-btn-go, 
-.cont-shop {
+.cont-shop, 
+.admin-btn-upload {
   border: 3px solid var(--dark-brown);
   padding: 10px 25px;
 }
 
 .cake-btn-add, 
-.cont-shop {
+.cont-shop, 
+.admin-btn-upload {
   background-color: transparent;
 }
 
@@ -419,7 +442,8 @@ li:not(:last-child) .nav-link:hover {
   transform: scale(1.05);
 }
 
-.select-cake {
+.select-cake,
+.admin-input {
   width: 23px;
   height: 23px;
 }
@@ -444,6 +468,11 @@ li:not(:last-child) .nav-link:hover {
 .body-delete {
   background-color: rgba(255, 225, 235, 0.7);
   border: 1px solid #dc3545;
+}
+
+/* ----- Admin ----- */
+form check {
+  color: black;
 }
 
 /* ----- Footer ----- */

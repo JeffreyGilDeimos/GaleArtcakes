@@ -35,7 +35,8 @@
 .cake-btn-go, 
 .submit-review,
 .cart-circle:hover,
-.cart-buy {
+.cart-buy, 
+.admin-btn-upload:hover {
   background-color: var(--dark-brown);
 }
 
@@ -50,12 +51,14 @@
 .cart-title h6, 
 .mobile-total,
 #footer p,
-.socials {
+.socials, 
+.admin-btn-upload {
   color: var(--dark-brown);
 }
 
 .cake-btn-add:hover,
-.cont-shop:hover {
+.cont-shop:hover, 
+.admin-btn-upload:hover {
   color: white;
 }
 
@@ -84,14 +87,15 @@
 .cake-btn-go, 
 .like, 
 .liked, 
-.like:hover, 
+.like:hover,
+.admin-btn-upload,
 .incart, 
 .cart-circle, 
 .incart-select,
 .incart-cake,
 .trash-cake,
 .cart-buy,
-.socials {
+.socials{
   transition: var(--transition);
 }
 
@@ -106,10 +110,12 @@
 .like, 
 .liked, 
 .like:hover, 
+.admin-btn-upload,
 .cart-input,
+.admin-input,
 .trash-cake,
 .cart-buy,
-.socials {
+.socials  {
   cursor: pointer;
 }
 
