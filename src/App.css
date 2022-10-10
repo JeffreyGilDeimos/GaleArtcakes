@@ -81,7 +81,8 @@
 }
 
 @media (min-width: 768px) {
-  .product {
+  .product,
+  .admin-product {
     width: 400px;
   }
   #review-input {

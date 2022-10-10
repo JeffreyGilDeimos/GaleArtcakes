@@ -84,7 +84,7 @@ export default function AdminProducts() {
       </h1>
       <div className="col-lg-6">
         <React.Fragment>
-          <div className="product p-4 m-auto rounded-4 bg-white">
+          <div className="admin-product p-4 m-auto rounded-4 bg-white">
             <MyDropzone />
           </div>
         </React.Fragment>
