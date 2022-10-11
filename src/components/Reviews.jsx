@@ -22,13 +22,14 @@ export default function Reviews() {
 
     if (activeUser.id) {
       db.collection("messages").add({
-      message: input,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-      // the user must be username, not email
-      user: activeUser.email,
-      userImage: "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0",
-      email: activeUser.email,
-    });
+        message: input,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+        // the user must be username, not email
+        user: activeUser.email,
+        userImage:
+          "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0",
+        email: activeUser.email,
+      });
     } else {
       db.collection("messages").add({
         message: input,
@@ -38,8 +39,6 @@ export default function Reviews() {
         email: activeUser.email,
       });
     }
-
-    
 
     setInput("");
   };
@@ -52,8 +51,8 @@ export default function Reviews() {
 
   return (
     <section id="review">
-      <div className="container p-5">
-        <div className="pb-md-5">
+      <div className="container px-5 pt-5 pb-4 pb-lg-5">
+        <div className="pb-md-4">
           <h1 className="fw-bolder m-0 text-uppercase text-center">
             <strong>Reviews</strong>
           </h1>
@@ -77,24 +76,23 @@ export default function Reviews() {
             </form>
 
             <hr className="my-4 mx-5" />
-            <div className="grid-col-span-2">
-              <div className="for-grid-review">
-                {/* REVIEWS */}
+            <div className="row justify-content-center">
+              {/* REVIEWS */}
 
-                {reviews?.docs.map((doc) => {
-                  const { user, userImage, message, timestamp, email } = doc.data();
-                  return (
-                    <Messages
-                      key={doc.id}
-                      user={user}
-                      userImage={userImage}
-                      message={message}
-                      timestamp={timestamp}
-                      email={email}
-                    />
-                  );
-                })}
-              </div>
+              {reviews?.docs.map((doc) => {
+                const { user, userImage, message, timestamp, email } =
+                  doc.data();
+                return (
+                  <Messages
+                    key={doc.id}
+                    user={user}
+                    userImage={userImage}
+                    message={message}
+                    timestamp={timestamp}
+                    email={email}
+                  />
+                );
+              })}
             </div>
           </div>
         </div>

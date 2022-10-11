@@ -94,7 +94,7 @@
 .cart-circle, 
 .incart-select,
 .incart-cake,
-.trash-cake,
+.trash,
 .cart-buy,
 .socials{
   transition: var(--transition);
@@ -114,7 +114,7 @@
 .admin-btn-upload,
 .cart-input,
 .admin-input,
-.trash-cake,
+.trash,
 .cart-buy,
 .socials  {
   cursor: pointer;

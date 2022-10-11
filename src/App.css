@@ -16,9 +16,6 @@
   #admin {
     padding-top: 91px;
   }
-  .for-grid-review {
-  grid-template-columns: repeat(3, 1fr);
-  }
   .featured-card {
     width: 180px;
     height: 180px;
@@ -56,9 +53,6 @@
   }
   .layered-footer {
     bottom: 151px;
-  }
-  .for-grid-review{
-    grid-template-columns: repeat(2, 1fr);
   }
   .featured-card {
     width: 150px;
@@ -99,9 +93,6 @@
   #admin {
     padding-top: 156px;
   }
-  .for-grid-review{
-    grid-template-columns: repeat(1, 1fr);
-    }
   .featured-card {
       width: 110px;
       height: 110px;
@@ -324,10 +315,6 @@ li:not(:last-child) .nav-link:hover {
   resize: none;
 }
 
-.grid-col-span-2 {
-  grid-column: span 2;
-}
-
 .submit-review {
   border: 3px solid var(--dark-brown);
   padding: 10px 25px;
@@ -335,11 +322,6 @@ li:not(:last-child) .nav-link:hover {
 
 .submit-review:hover {
   border: 3px solid var(--brown);
-}
-
-.for-grid-review {
-  display: grid;
-  gap: 16px;
 }
 
 .review-card {
@@ -449,11 +431,11 @@ li:not(:last-child) .nav-link:hover {
   height: 23px;
 }
 
-.trash-cake {
+.trash {
   color: rgb(75, 75, 75);
 }
 
-.trash-cake:hover {
+.trash:hover {
   color: #dc3545;
 }
 
@@ -472,8 +454,16 @@ li:not(:last-child) .nav-link:hover {
 }
 
 /* ----- Admin ----- */
-form check {
-  color: black;
+.admin-product-card {
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+#admin-products {
+  background-image: linear-gradient(rgba(213,	122,67, 0.2),  white, white, white, white, white, white, white, white, white, white, white, white, white, white, rgba(213,	122,67, 0.2));
+}
+
+#admin-review {
+  background-color: rgba(213,	122,67, 0.2);
 }
 
 /* ----- Footer ----- */

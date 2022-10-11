@@ -89,7 +89,10 @@ export default function Cart() {
             </div>
             {cartLists && cartLists.length === 0 && (
               <div>
-                <h6 className="text-center d-block m-0">No product has been added to your cart. Please continue shopping...</h6>
+                <h6 className="text-center d-block m-0">
+                  No product has been added to your cart. Please continue
+                  shopping...
+                </h6>
                 <br />
               </div>
             )}
@@ -111,7 +114,9 @@ export default function Cart() {
                     className="incart-cake d-block m-auto m-lg-0"
                   />
 
-                  <h5 className="mt-2 mb-1 m-lg-0">{item.name.substring(0, 12)}...</h5>
+                  <h5 className="mt-2 mb-1 m-lg-0">
+                    {item.name.substring(0, 12)}...
+                  </h5>
                   <p className="m-0">{utils.toPhp.format(item.price)}</p>
                   <div className="d-flex align-items-center justify-content-center">
                     <button
@@ -142,7 +147,7 @@ export default function Cart() {
                 <FontAwesomeIcon
                   icon={faTrash}
                   type="button"
-                  className="trash-cake fs-5 m-2"
+                  className="trash fs-5 m-2"
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 />
