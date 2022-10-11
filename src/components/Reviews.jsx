@@ -25,7 +25,7 @@ export default function Reviews() {
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         // the user must be username, not email
-        user: activeUser.email,
+        user: activeUser.username,
         userImage:
           "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0",
         email: activeUser.email,

@@ -25,11 +25,11 @@ export default function Home() {
     } else if (userList?.docs.length !== 0) {
       userList?.docs.forEach((doc) => {
         if (doc.data().email === activeUser.email) {
-          loginUser({ id: doc.id, email: doc.data().email });
+          loginUser({ id: doc.id, email: doc.data().email, username: doc.data().username });
         }
       });
     }
-  }, [user, userList, activeUser.email]);
+  }, [user, userList, activeUser.email, activeUser.username]);
 
   return (
     <>
