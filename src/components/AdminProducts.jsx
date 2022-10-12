@@ -332,7 +332,7 @@ export default function AdminProducts() {
               <div className="modal-content">
                 <div className="modal-header border-0">
                   <h5 className="modal-title" id="staticBackdropLabel">
-                    Delete review
+                    Delete product
                   </h5>
                   <button
                     type="button"
@@ -342,7 +342,7 @@ export default function AdminProducts() {
                   ></button>
                 </div>
                 <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                  Are you sure you want to delete this review?
+                  Are you sure you want to delete this product?
                 </div>
                 <div className="modal-footer border-0">
                   <button
