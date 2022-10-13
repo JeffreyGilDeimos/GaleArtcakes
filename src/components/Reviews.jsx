@@ -7,12 +7,14 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Messages from "./Messages";
 import TextareaAutosize from "react-textarea-autosize";
+import { Modal } from "react-bootstrap";
 
 export default function Reviews() {
   const [input, setInput] = useState("");
   const [user] = useAuthState(auth);
   const activeUser = useSelector((state) => state.activeUser);
   const navigate = useNavigate();
+  const [showModal, setShowModal] = useState(false);
   const [reviews] = useCollection(
     db.collection("messages").orderBy("timestamp", "desc")
   );
@@ -20,7 +22,10 @@ export default function Reviews() {
   const sendMessage = (e) => {
     e.preventDefault();
 
-    if (activeUser.id) {
+    if (!input) {
+      setShowModal(false);
+      return null;
+    } else if (activeUser.id) {
       db.collection("messages").add({
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
@@ -30,6 +35,7 @@ export default function Reviews() {
           "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0",
         email: activeUser.email,
       });
+      setShowModal(true);
     } else {
       db.collection("messages").add({
         message: input,
@@ -38,6 +44,7 @@ export default function Reviews() {
         userImage: user.photoURL,
         email: activeUser.email,
       });
+      setShowModal(true);
     }
 
     setInput("");
@@ -47,6 +54,10 @@ export default function Reviews() {
     if (!activeUser.email) {
       navigate("/login");
     }
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -69,11 +80,40 @@ export default function Reviews() {
                 onClick={() => checkUser()}
                 placeholder="Write your review here!"
                 className="rounded-3"
+                required
               />
               <button className="submit-review text-decoration-none rounded-3 text-white d-block mx-auto m-md-0 mt-2 mt-md-0 ms-md-4 text-uppercase fw-bold">
                 Submit
               </button>
             </form>
+
+            <Modal
+              show={showModal}
+              className="h-100 d-flex justify-content-center align-items-center"
+              id="reviewModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabIndex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+                <div className="modal-content">
+                  <div className="modal-body mx-3 text-center">
+                    Great! Your review has been added successfully.
+                  </div>
+                  <div className="modal-footer border-0">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => closeModal()}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Modal>
 
             <hr className="my-4 mx-5" />
             <div className="row justify-content-center">

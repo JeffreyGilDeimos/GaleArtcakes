@@ -167,15 +167,18 @@ export default function Cake() {
       {/* Modals */}
       <Modal
         show={showModal1}
-        id="showModal1"
+        className="h-100 d-flex justify-content-center align-items-center"
+        id="cakeModal1"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
         tabIndex="-1"
-        aria-labelledby="showModalLabel1"
+        aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
             <div className="modal-body mx-3 text-center">
-              Great! Product has been successfully added to cart.
+              Great! Product has been added to your cart successfully.
             </div>
             <div className="modal-footer border-0">
               <button
@@ -192,12 +195,15 @@ export default function Cake() {
 
       <Modal
         show={showModal2}
-        id="showModal2"
+        className="h-100 d-flex justify-content-center align-items-center"
+        id="cakeModal2"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
         tabIndex="-1"
-        aria-labelledby="showModalLabel2"
+        aria-labelledby="staticBackdropLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog modal-dialog-centered">
+        <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
             <div className="modal-body mx-3 text-center">
               This product has already been added to your cart.
@@ -214,7 +220,6 @@ export default function Cake() {
           </div>
         </div>
       </Modal>
-
     </>
   );
 }

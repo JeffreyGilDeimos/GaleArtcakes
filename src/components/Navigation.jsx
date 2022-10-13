@@ -7,6 +7,7 @@ import {
   faComments,
   faUserGroup,
   faCartShopping,
+  faUserGear,
   faRightToBracket,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
@@ -109,6 +110,17 @@ export default function Navigation() {
                         <span className="nav-label">CART</span>
                       </NavLink>
                     </li>
+                    {activeUser.email === "admin@admin.com" && (
+                      <li>
+                      <NavLink to="/admin" className="nav-link">
+                        <FontAwesomeIcon
+                          icon={faUserGear}
+                          className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
+                        />
+                        <span className="nav-label">ADMIN</span>
+                      </NavLink>
+                    </li>
+                    )}
                     <li className="login">
                       <NavLink
                         to="/login"

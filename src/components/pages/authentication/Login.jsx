@@ -59,6 +59,7 @@ export default function Login() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (checkIfValid()) {
+      setInvalidUser(false);
       setLoading(true);
       loginUser({ email });
     }
@@ -107,6 +108,7 @@ export default function Login() {
                           placeholder="Email Address"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
+                          isInvalid={invalidUser}
                           required
                         ></Form.Control>
                       </div>

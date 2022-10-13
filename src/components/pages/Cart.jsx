@@ -41,7 +41,11 @@ export default function Cart() {
     if (!user || !activeUser.email) {
       navigate("/login");
     }
-  });
+  }, [navigate, user, activeUser.email]);
+
+  if (!user || !activeUser.email) {
+    return;
+  }
 
   const handleMinusCart = (item) => {
     const quantity = item.quantity;
@@ -163,38 +167,70 @@ export default function Cart() {
                   aria-hidden="true"
                 >
                   <div className="modal-dialog modal-dialog-centered">
-                    <div className="modal-content">
-                      <div className="modal-header border-0">
-                        <h5 className="modal-title" id="staticBackdropLabel">
-                          Delete item
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
+                    <div className="modal-content p-2 border-0">
+                      <div className="border-0">
+                        <div className="modal-header border-0">
+                          <h5 className="modal-title" id="staticBackdropLabel">
+                            Delete item
+                          </h5>
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div className="modal-body body-delete mx-3 rounded-2 text-danger">
+                          Are you sure you want to delete this item from your
+                          cart?
+                        </div>
+                        <div className="modal-footer border-0">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button
+                            type="button"
+                            className="btn btn-danger"
+                            onClick={() => removeFromCart(item.id)}
+                            data-bs-toggle="modal"
+                            data-bs-target="#staticBackdrop05"
+                          >
+                            Delete
+                          </button>
+                        </div>
                       </div>
-                      <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                        Are you sure you want to delete this item from your
-                        cart?
-                      </div>
-                      <div className="modal-footer border-0">
-                        <button
-                          type="button"
-                          className="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-bs-dismiss="modal"
-                          onClick={() => removeFromCart(item.id)}
-                        >
-                          Delete
-                        </button>
+                    </div>
+                  </div>
+                </div>
+
+                <div
+                  className="modal fade"
+                  id="staticBackdrop05"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabIndex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content p-4 border-0">
+                      <div className="border border-1 rounded-3">
+                        <div className="modal-body mx-3 text-center">
+                          Great! The item has been deleted successfully.
+                        </div>
+                        <div className="modal-footer border-0">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -233,31 +269,27 @@ export default function Cart() {
             <div
               className="modal fade"
               id="checkOutModal"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
               tabIndex="-1"
-              aria-labelledby="checkOutModalLabel"
+              aria-labelledby="staticBackdropLabel"
               aria-hidden="true"
             >
               <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content">
-                  <div className="modal-header border-0">
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body mx-3 text-center">
-                    You have not selected any items for checkout
-                  </div>
-                  <div className="modal-footer border-0">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
+                <div className="modal-content p-4 border-0">
+                  <div className="border border-1 rounded-3">
+                    <div className="modal-body mx-3 text-center">
+                      You have not selected any items for checkout.
+                    </div>
+                    <div className="modal-footer border-0">
+                      <button
+                        type="button"
+                        className="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

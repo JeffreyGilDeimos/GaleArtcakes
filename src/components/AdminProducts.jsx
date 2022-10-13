@@ -37,9 +37,9 @@ export default function AdminProducts() {
         productPrice: price,
         description: description,
         newCollection: addToNewCollections,
-      }
+      };
 
-      console.log(requestBody)
+      console.log(requestBody);
       return null;
     }
   };
@@ -48,6 +48,7 @@ export default function AdminProducts() {
     let isValid = true;
 
     // Check if productName is valid
+    // Create a condition that NO product should have the SAME Product Name
     if (productName.match("^$|^.*@.*..*$")) {
       setInvalidProductName(true);
       isValid = false;
@@ -196,9 +197,11 @@ export default function AdminProducts() {
                   isInvalid={invalidProductName}
                   className="product-name display-6 fw-bolder fs-1"
                   style={{ color: "#6a2101" }}
+                  // required
                 ></Form.Control>
                 <Form.Control.Feedback type="invalid">
-                  Please enter a product name
+                  Product Name already exists. Please try again!
+                  {/* no product should have the same product name */}
                 </Form.Control.Feedback>
               </Form.Group>
 
@@ -216,6 +219,7 @@ export default function AdminProducts() {
                     onChange={(e) => setPrice(e.target.value)}
                     isInvalid={invalidPrice}
                     className="fw-bolder fs-2"
+                    // required
                   ></Form.Control>
                   <Form.Control.Feedback type="invalid">
                     Price must be a number
@@ -233,7 +237,8 @@ export default function AdminProducts() {
                   onChange={(e) => setDescription(e.target.value)}
                   isInvalid={invalidDescription}
                   className="lead fw-normal m-0 fs-5"
-                />
+                  // required
+                ></Form.Control>
                 <Form.Control.Feedback type="invalid">
                   Please enter a product description
                 </Form.Control.Feedback>
@@ -259,7 +264,6 @@ export default function AdminProducts() {
               {/* UPLOAD */}
               <button
                 className="admin-btn-upload rounded-3 mb-3 mb-md-0 me-3 text-uppercase fw-bold"
-                onClick={handleSubmit}
                 // onClick={() => setAddToNewCollections((c) => !c)}
               >
                 Upload Product
@@ -271,14 +275,17 @@ export default function AdminProducts() {
           <Modal
             show={showModal1}
             id="showModal1"
+            className="h-100 d-flex justify-content-center align-items-center"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
             tabIndex="-1"
-            aria-labelledby="showModalLabel1"
+            aria-labelledby="staticBackdropLabel"
             aria-hidden="true"
           >
-            <div className="modal-dialog modal-dialog-centered">
+            <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
               <div className="modal-content">
                 <div className="modal-body mx-3 text-center">
-                  Great! The product has been successfully uploaded.
+                  Great! The product has been uploaded successfully.
                 </div>
                 <div className="modal-footer border-0">
                   <button
@@ -329,37 +336,39 @@ export default function AdminProducts() {
             aria-hidden="true"
           >
             <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content">
-                <div className="modal-header border-0">
-                  <h5 className="modal-title" id="staticBackdropLabel">
-                    Delete product
-                  </h5>
-                  <button
-                    type="button"
-                    className="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                  Are you sure you want to delete this product?
-                </div>
-                <div className="modal-footer border-0">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                  <button
-                    type="button"
-                    className="btn btn-danger"
-                    data-bs-target="#staticBackdrop0"
-                    data-bs-toggle="modal"
-                  >
-                    Delete
-                  </button>
+              <div className="modal-content p-2 border-0">
+                <div className="border-0">
+                  <div className="modal-header border-0">
+                    <h5 className="modal-title" id="staticBackdropLabel">
+                      Delete product
+                    </h5>
+                    <button
+                      type="button"
+                      className="btn-close"
+                      data-bs-dismiss="modal"
+                      aria-label="Close"
+                    ></button>
+                  </div>
+                  <div className="modal-body body-delete mx-3 rounded-2 text-danger">
+                    Are you sure you want to delete this product?
+                  </div>
+                  <div className="modal-footer border-0">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      data-bs-dismiss="modal"
+                    >
+                      Close
+                    </button>
+                    <button
+                      type="button"
+                      className="btn btn-danger"
+                      data-bs-target="#staticBackdrop0"
+                      data-bs-toggle="modal"
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
@@ -378,7 +387,7 @@ export default function AdminProducts() {
               <div className="modal-content p-4 border-0">
                 <div className="border border-1 rounded-3">
                   <div className="modal-body mx-3 text-center">
-                    Great! The product has been successfully deleted.
+                    Great! The product has been deleted successfully.
                   </div>
                   <div className="modal-footer border-0">
                     <button
@@ -393,7 +402,6 @@ export default function AdminProducts() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>

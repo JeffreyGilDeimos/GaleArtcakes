@@ -207,14 +207,17 @@ export default function Signup() {
                   <Modal
                     show={showModal}
                     id="signupModal"
+                    className="h-100 d-flex justify-content-center align-items-center"
+                    data-bs-backdrop="static"
+                    data-bs-keyboard="false"
                     tabIndex="-1"
-                    aria-labelledby="signupModalLabel"
+                    aria-labelledby="staticBackdropLabel"
                     aria-hidden="true"
                   >
-                    <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
                       <div className="modal-content">
                         <div className="modal-body mx-3 text-center">
-                          Greate! Your account has been registered successfully.
+                          Great! Your account has been registered successfully.
                         </div>
                         <div className="modal-footer border-0">
                           <button
