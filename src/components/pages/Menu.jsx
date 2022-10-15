@@ -124,7 +124,7 @@ export default function Menu() {
             />
           </form> */}
 
-          <div className="row">{loading ? renderLoading() : renderMenu()}</div>
+          <div className="row justify-content-center">{loading ? renderLoading() : renderMenu()}</div>
         </div>
       </section>
       <Footer />

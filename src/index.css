@@ -24,7 +24,8 @@
 .new-col-btn:hover,
 .cake-btn-go:hover,
 .submit-review:hover,
-.cart-buy:hover {
+.cart-buy:hover,
+.cart-cake-btn:hover {
   background-color: var(--brown);
 }
 
@@ -36,6 +37,7 @@
 .submit-review,
 .cart-circle:hover,
 .cart-buy, 
+.cart-cake-btn,
 .admin-btn-upload:hover {
   background-color: var(--dark-brown);
 }
@@ -96,6 +98,9 @@
 .incart-cake,
 .trash,
 .cart-buy,
+.cart-cake-card, 
+.cart-cake-card img,
+.cart-cake-btn,
 .socials{
   transition: var(--transition);
 }
@@ -116,6 +121,7 @@
 .admin-input,
 .trash,
 .cart-buy,
+.cart-cake-card,
 .socials  {
   cursor: pointer;
 }

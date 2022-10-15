@@ -9,16 +9,20 @@ import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
+import { Modal } from "react-bootstrap";
 
 import Footer from "../Footer";
 import Navigation from "../Navigation";
 import utils from "../../utilities/utils";
+import CartCakes from "../CartCakes";
 
 export default function Cart() {
   const [selected, setSelected] = useState("");
   const [user] = useAuthState(auth);
   const activeUser = useSelector((state) => state.activeUser);
   const navigate = useNavigate();
+  const [showModal1, setShowModal1] = useState(false);
+  const [showModal2, setShowModal2] = useState(false);
 
   // const [fbCartLists] = useCollection(db.collection("cartLists"));
   const cartLists = useSelector((state) => state.cartLists);
@@ -56,6 +60,15 @@ export default function Cart() {
       ...item,
       quantity: quantity - 1,
     });
+  };
+
+  const handleCheckOut = () => {
+    setShowModal1(true);
+  };
+
+  const closeModal = () => {
+    setShowModal1(false);
+    setShowModal2(false);
   };
 
   return (
@@ -257,6 +270,7 @@ export default function Cart() {
                 <button
                   className="cart-buy rounded-3 text-white text-uppercase fw-bold"
                   type="button"
+                  onClick={() => handleCheckOut()}
                   data-bs-toggle="modal"
                   data-bs-target="#checkOutModal"
                 >
@@ -266,37 +280,66 @@ export default function Cart() {
             </div>
 
             {/* Modal for No Selected Item */}
-            <div
-              className="modal fade"
-              id="checkOutModal"
+            <Modal
+              show={showModal1}
+              className="h-100 d-flex justify-content-center align-items-center"
+              id="cakeModal1"
               data-bs-backdrop="static"
               data-bs-keyboard="false"
               tabIndex="-1"
               aria-labelledby="staticBackdropLabel"
               aria-hidden="true"
             >
-              <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content p-4 border-0">
-                  <div className="border border-1 rounded-3">
-                    <div className="modal-body mx-3 text-center">
-                      You have not selected any items for checkout.
-                    </div>
-                    <div className="modal-footer border-0">
-                      <button
-                        type="button"
-                        className="btn btn-secondary"
-                        data-bs-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                    </div>
+              <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+                <div className="modal-content">
+                  <div className="modal-body mx-3 text-center">
+                    You have not selected any items for checkout.
+                  </div>
+                  <div className="modal-footer border-0">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => closeModal()}
+                    >
+                      Close
+                    </button>
                   </div>
                 </div>
               </div>
-            </div>
+            </Modal>
+
+            {/* Modal for Successful Checkout*/}
+            <Modal
+              show={showModal2}
+              className="h-100 d-flex justify-content-center align-items-center"
+              id="cakeModal1"
+              data-bs-backdrop="static"
+              data-bs-keyboard="false"
+              tabIndex="-1"
+              aria-labelledby="staticBackdropLabel"
+              aria-hidden="true"
+            >
+              <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+                <div className="modal-content">
+                  <div className="modal-body mx-3 text-center">
+                    Congratulation! Successful Checkout.
+                  </div>
+                  <div className="modal-footer border-0">
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => closeModal()}
+                    >
+                      Close
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </Modal>
           </div>
         </div>
       </section>
+      <CartCakes />
       <Footer />
     </>
   );

@@ -47,7 +47,7 @@ export default function NewCollections() {
           <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>New Collections</strong>
           </h1>
-          <div className="row">{renderCakeList()}</div>
+          <div className="row justify-content-center">{renderCakeList()}</div>
         </div>
       </section>
     </>
