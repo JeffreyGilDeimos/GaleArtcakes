@@ -23,7 +23,7 @@ import Spinner from "react-spinkit";
 export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const activeUser = useSelector((state) => state.activeUser);
+  const localstorage = useSelector((state) => state.localstorage);
   const cartLists = useSelector((state) => state.cartLists);
   const { logoutUser } = bindActionCreators(actionUser, useDispatch());
 
@@ -93,7 +93,7 @@ export default function Navigation() {
                     <span className="nav-label">ABOUT</span>
                   </NavLink>
                 </li>
-                {activeUser.email ? (
+                {localstorage.email ? (
                   <>
                     <li>
                       <NavLink
@@ -110,7 +110,7 @@ export default function Navigation() {
                         <span className="nav-label">CART</span>
                       </NavLink>
                     </li>
-                    {activeUser.email === "admin@admin.com" && (
+                    {localstorage.email === "admin@admin.com" && (
                       <li>
                       <NavLink to="/admin" className="nav-link">
                         <FontAwesomeIcon

@@ -19,7 +19,7 @@ import CartCakes from "../CartCakes";
 export default function Cart() {
   const [selected, setSelected] = useState("");
   const [user] = useAuthState(auth);
-  const activeUser = useSelector((state) => state.activeUser);
+  const localstorage = useSelector((state) => state.localstorage);
   const navigate = useNavigate();
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
@@ -42,12 +42,12 @@ export default function Cart() {
   };
 
   useEffect(() => {
-    if (!user || !activeUser.email) {
+    if (!user || !localstorage.email) {
       navigate("/login");
     }
-  }, [navigate, user, activeUser.email]);
+  }, [navigate, user, localstorage.email]);
 
-  if (!user || !activeUser.email) {
+  if (!user || !localstorage.email) {
     return;
   }
 

@@ -1,8 +1,8 @@
-export const loginUser = (activeUserDetails) => {
+export const loginUser = (localstorageDetails) => {
     return (dispatch) => {
         dispatch({
             type: 'LOGIN_USER',
-            payload: activeUserDetails
+            payload: localstorageDetails
         })
     }
 }

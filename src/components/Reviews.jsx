@@ -12,7 +12,7 @@ import { Modal } from "react-bootstrap";
 export default function Reviews() {
   const [input, setInput] = useState("");
   const [user] = useAuthState(auth);
-  const activeUser = useSelector((state) => state.activeUser);
+  const localstorage = useSelector((state) => state.localstorage);
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [reviews] = useCollection(
@@ -25,15 +25,15 @@ export default function Reviews() {
     if (!input) {
       setShowModal(false);
       return null;
-    } else if (activeUser.id) {
+    } else if (localstorage.id) {
       db.collection("messages").add({
         message: input,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         // the user must be username, not email
-        user: activeUser.username,
+        user: localstorage.username,
         userImage:
           "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0",
-        email: activeUser.email,
+        email: localstorage.email,
       });
       setShowModal(true);
     } else {
@@ -42,7 +42,7 @@ export default function Reviews() {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         user: user.displayName,
         userImage: user.photoURL,
-        email: activeUser.email,
+        email: localstorage.email,
       });
       setShowModal(true);
     }
@@ -51,7 +51,7 @@ export default function Reviews() {
   };
 
   const checkUser = () => {
-    if (!activeUser.email) {
+    if (!localstorage.email) {
       navigate("/login");
     }
   };

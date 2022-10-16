@@ -24,11 +24,11 @@ export default function Login() {
   const [user] = useAuthState(auth);
   const { loginUser } = bindActionCreators(actionUser, useDispatch());
   const navigate = useNavigate();
-  const activeUser = useSelector((state) => state.activeUser);
+  const localstorage = useSelector((state) => state.localstorage);
 
   useEffect(() => {
     setTimeout(() => {
-      if (user || activeUser.email) {
+      if (user || localstorage.email) {
         // navigate home page
         setLoading(false);
         navigate("/");

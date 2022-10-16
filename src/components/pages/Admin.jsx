@@ -7,16 +7,16 @@ import Footer from "../Footer";
 import Navigation from "../Navigation";
 
 export default function Admin() {
-  const activeUser = useSelector((state) => state.activeUser);
+  const localstorage = useSelector((state) => state.localstorage);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (activeUser.email !== "admin@admin.com") {
+    if (localStorage.email !== "admin@admin.com") {
       navigate("/");
     }
-  }, [navigate, activeUser.email]);
+  }, [navigate, localStorage.email]);
 
-  if (activeUser.email !== "admin@admin.com") {
+  if (localStorage.email !== "admin@admin.com") {
     return;
   }
 
