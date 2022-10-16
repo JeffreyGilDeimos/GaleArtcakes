@@ -25,7 +25,7 @@ export default function Cake() {
   const [cakes, setCakes] = useState(cakeList);
   const [like, setLike] = useState("");
   const [loading, setLoading] = useState(false);
-  // const localstorage = useSelector((state) => state.localstorage);
+  // const activeUser = useSelector((state) => state.activeUser);
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 

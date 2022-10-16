@@ -22,11 +22,11 @@ export default function Signup() {
 
   const [userList] = useCollection(db.collection("users"));
   const [user] = useAuthState(auth);
-  const localstorage = useSelector((state) => state.localstorage);
+  const activeUser = useSelector((state) => state.activeUser);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (user || localstorage.email) {
+    if (user || activeUser.email) {
       navigate("/");
     }
   });

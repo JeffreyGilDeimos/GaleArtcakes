@@ -23,7 +23,7 @@ import Spinner from "react-spinkit";
 export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const localstorage = useSelector((state) => state.localstorage);
+  const activeUser = useSelector((state) => state.activeUser);
   const cartLists = useSelector((state) => state.cartLists);
   const { logoutUser } = bindActionCreators(actionUser, useDispatch());
 
@@ -93,7 +93,7 @@ export default function Navigation() {
                     <span className="nav-label">ABOUT</span>
                   </NavLink>
                 </li>
-                {localstorage.email ? (
+                {activeUser.email ? (
                   <>
                     <li>
                       <NavLink
@@ -110,16 +110,16 @@ export default function Navigation() {
                         <span className="nav-label">CART</span>
                       </NavLink>
                     </li>
-                    {localstorage.email === "admin@admin.com" && (
+                    {activeUser.email === "admin@admin.com" && (
                       <li>
-                      <NavLink to="/admin" className="nav-link">
-                        <FontAwesomeIcon
-                          icon={faUserGear}
-                          className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
-                        />
-                        <span className="nav-label">ADMIN</span>
-                      </NavLink>
-                    </li>
+                        <NavLink to="/admin" className="nav-link">
+                          <FontAwesomeIcon
+                            icon={faUserGear}
+                            className="bi bi-people d-block d-flex justify-content-center mb-1 mx-auto fs-5"
+                          />
+                          <span className="nav-label">ADMIN</span>
+                        </NavLink>
+                      </li>
                     )}
                     <li className="login">
                       <NavLink

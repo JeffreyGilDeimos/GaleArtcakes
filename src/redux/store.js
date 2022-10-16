@@ -16,7 +16,7 @@ export const store = configureStore({
     productList: productReducer,
     reviewList: reviewReducer,
     likeList: likeReducer,
-    localstorage: userReducer,
+    activeUser: userReducer,
     cartLists: cartReducer,
   },
   middleware: [

@@ -16,7 +16,7 @@ import NewCollections from "../NewCollections";
 export default function Home() {
   const [user] = useAuthState(auth);
   const [userList] = useCollection(db.collection("users"));
-  const localstorage = useSelector((state) => state.localstorage);
+  const activeUser = useSelector((state) => state.activeUser);
   const { loginUser } = bindActionCreators(actionUser, useDispatch());
 
   useEffect(() => {
@@ -24,12 +24,16 @@ export default function Home() {
       loginUser({ email: user.email });
     } else if (userList?.docs.length !== 0) {
       userList?.docs.forEach((doc) => {
-        if (doc.data().email === localstorage.email) {
-          loginUser({ id: doc.id, email: doc.data().email, username: doc.data().username });
+        if (doc.data().email === activeUser.email) {
+          loginUser({
+            id: doc.id,
+            email: doc.data().email,
+            username: doc.data().username,
+          });
         }
       });
     }
-  }, [user, userList, localstorage.email, localstorage.username]);
+  }, [user, userList, activeUser.email, activeUser.username]);
 
   return (
     <>
