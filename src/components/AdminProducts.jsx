@@ -6,6 +6,10 @@ import { useCallback } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Modal } from "react-bootstrap";
+import * as actionProduct from "../redux/actions/actionProduct";
+import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 export default function AdminProducts() {
   const [productImage, setProductImage] = useState(null);
@@ -17,10 +21,21 @@ export default function AdminProducts() {
 
   const [showModal1, setShowModal1] = useState(false);
 
+  const { getAllProducts, addProduct, deleteProduct } = bindActionCreators(
+    actionProduct,
+    useDispatch()
+  );
+  const productList = useSelector((state) => state.productList);
+
   // Validation
   const [invalidProductName, setInvalidProductName] = useState(false);
   const [invalidPrice, setInvalidPrice] = useState(false);
   const [invalidDescription, setInvalidDescription] = useState(false);
+
+  useEffect(() => {
+    console.log(getAllProducts());
+    getAllProducts();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,17 +45,18 @@ export default function AdminProducts() {
       setPrice("");
       setDescription("");
       setAddToNewCollections(false);
+      setCategory("Chocolate Drip Cake");
       const requestBody = {
-        productImage: productImage,
+        imageLink: productImage,
         category: category,
         productName: productName,
-        productPrice: price,
+        price: price,
         description: description,
-        newCollection: addToNewCollections,
+        featured: addToNewCollections ? "YES" : "NO",
       };
 
       console.log(requestBody);
-      return null;
+      addProduct(requestBody);
     }
   };
 
@@ -102,32 +118,183 @@ export default function AdminProducts() {
     );
   }
 
-  const renderProducts = () => {
+  const renderProducts = (category) => {
     return (
-      <div className="col-6 col-md-4 col-lg-2 pb-4">
-        <div className="admin-product-card bg-white rounded-4 w-100 h-100 p-3">
-          <React.Fragment>
-            <MyDropzone />
-          </React.Fragment>
-          <div className="pt-2">
-            <p className="mb-2 fw-semibold text-center">Product Name</p>
-            <hr className="m-0" />
-            <p className="my-1 fw-bolder text-center">
-              <small>₱ 000.00</small>
-            </p>
-            <hr className="mb-2 mt-0 mx-0" />
-            <div className="d-flex justify-content-center align-items">
-              <FontAwesomeIcon
-                icon={faTrash}
-                type="button"
-                className="trash fs-6"
-                data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop"
-              />
+      <>
+        {productList
+          .filter(
+            (product) =>
+              product.category === category && product.featured !== "YES"
+          )
+          .map((product) => (
+            <div
+              className="col-6 col-md-4 col-lg-2 pb-4"
+              key={product.productId}
+            >
+              <div className="admin-product-card bg-white rounded-4 w-100 h-100 p-3">
+                <React.Fragment>
+                  <MyDropzone />
+                </React.Fragment>
+                <div className="pt-2">
+                  <p className="mb-2 fw-semibold text-center">
+                    {product?.productName.substring(0, 12)}...
+                  </p>
+                  <hr className="m-0" />
+                  <p className="my-1 fw-bolder text-center">
+                    <small>₱ {product.price}</small>
+                  </p>
+                  <hr className="mb-2 mt-0 mx-0" />
+                  <div className="d-flex justify-content-center align-items">
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      type="button"
+                      className="trash fs-6"
+                      data-bs-toggle="modal"
+                      data-bs-target="#AdminProductModal01"
+                    />
+                  </div>
+                </div>
+              </div>
+              <div
+                className="modal fade"
+                id="AdminProductModal01"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabIndex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content p-2 border-0">
+                    <div className="border-0">
+                      <div className="modal-header border-0">
+                        <h5 className="modal-title" id="staticBackdropLabel">
+                          Delete product
+                        </h5>
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div className="modal-body body-delete mx-3 rounded-2 text-danger">
+                        Are you sure you want to delete this product?
+                      </div>
+                      <div className="modal-footer border-0">
+                        <button
+                          type="button"
+                          className="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-bs-target="#staticBackdrop0"
+                          data-bs-toggle="modal"
+                          onClick={() => deleteProduct(product.productId)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-      </div>
+          ))}
+      </>
+    );
+  };
+
+  const renderFeaturedProducts = () => {
+    return (
+      <>
+        {productList
+          .filter((product) => product.featured === "YES")
+          .map((product) => (
+            <div
+              className="col-6 col-md-4 col-lg-2 pb-4"
+              key={product.productId}
+            >
+              <div className="admin-product-card bg-white rounded-4 w-100 h-100 p-3">
+                <React.Fragment>
+                  <MyDropzone />
+                </React.Fragment>
+                <div className="pt-2">
+                  <p className="mb-2 fw-semibold text-center">
+                    {product?.productName.substring(0, 12)}...
+                  </p>
+                  <hr className="m-0" />
+                  <p className="my-1 fw-bolder text-center">
+                    <small>₱ {product.price}</small>
+                  </p>
+                  <hr className="mb-2 mt-0 mx-0" />
+                  <div className="d-flex justify-content-center align-items">
+                    <FontAwesomeIcon
+                      icon={faTrash}
+                      type="button"
+                      className="trash fs-6"
+                      data-bs-toggle="modal"
+                      data-bs-target="#AdminProductModal02"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div
+                className="modal fade"
+                id="AdminProductModal02"
+                data-bs-backdrop="static"
+                data-bs-keyboard="false"
+                tabIndex="-1"
+                aria-labelledby="staticBackdropLabel"
+                aria-hidden="true"
+              >
+                <div className="modal-dialog modal-dialog-centered">
+                  <div className="modal-content p-2 border-0">
+                    <div className="border-0">
+                      <div className="modal-header border-0">
+                        <h5 className="modal-title" id="staticBackdropLabel">
+                          Delete product
+                        </h5>
+                        <button
+                          type="button"
+                          className="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div className="modal-body body-delete mx-3 rounded-2 text-danger">
+                        Are you sure you want to delete this product?
+                      </div>
+                      <div className="modal-footer border-0">
+                        <button
+                          type="button"
+                          className="btn btn-secondary"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                          className="btn btn-danger"
+                          data-bs-target="#staticBackdrop0"
+                          data-bs-toggle="modal"
+                          onClick={() => deleteProduct(product.productId)}
+                        >
+                          Delete
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+      </>
     );
   };
 
@@ -197,7 +364,7 @@ export default function AdminProducts() {
                   isInvalid={invalidProductName}
                   className="product-name display-6 fw-bolder fs-1"
                   style={{ color: "#6a2101" }}
-                  // required
+                  required
                 ></Form.Control>
                 <Form.Control.Feedback type="invalid">
                   Product Name already exists. Please try again!
@@ -219,7 +386,7 @@ export default function AdminProducts() {
                     onChange={(e) => setPrice(e.target.value)}
                     isInvalid={invalidPrice}
                     className="fw-bolder fs-2"
-                    // required
+                    required
                   ></Form.Control>
                   <Form.Control.Feedback type="invalid">
                     Price must be a number
@@ -303,77 +470,39 @@ export default function AdminProducts() {
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-md-4">
             <strong>New Collections</strong>
           </h2>
-          <div className="row justify-content-center">{renderProducts()}</div>
+          <div className="row justify-content-center">
+            {renderFeaturedProducts("true")}
+          </div>
 
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Chocolate Drip Cakes</strong>
           </h2>
-          <div className="row justify-content-center">{renderProducts()}</div>
+          <div className="row justify-content-center">
+            {renderProducts("Chocolate Drip Cake")}
+          </div>
 
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Chocomoist Themed Cakes</strong>
           </h2>
-          <div className="row justify-content-center">{renderProducts()}</div>
+          <div className="row justify-content-center">
+            {renderProducts("Chocomoist Themed Cake")}
+          </div>
 
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Cartoon / Character Cakes</strong>
           </h2>
-          <div className="row justify-content-center">{renderProducts()}</div>
+          <div className="row justify-content-center">
+            {renderProducts("Cartoon / Character Cake")}
+          </div>
 
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Number Cakes</strong>
           </h2>
-          <div className="row justify-content-center">{renderProducts()}</div>
-
-          {/* Modal for Delete */}
-          <div
-            className="modal fade"
-            id="staticBackdrop"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabIndex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content p-2 border-0">
-                <div className="border-0">
-                  <div className="modal-header border-0">
-                    <h5 className="modal-title" id="staticBackdropLabel">
-                      Delete product
-                    </h5>
-                    <button
-                      type="button"
-                      className="btn-close"
-                      data-bs-dismiss="modal"
-                      aria-label="Close"
-                    ></button>
-                  </div>
-                  <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                    Are you sure you want to delete this product?
-                  </div>
-                  <div className="modal-footer border-0">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                    <button
-                      type="button"
-                      className="btn btn-danger"
-                      data-bs-target="#staticBackdrop0"
-                      data-bs-toggle="modal"
-                    >
-                      Delete
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <div className="row justify-content-center">
+            {renderProducts("Number Cake")}
           </div>
 
+          {/* MODAL FOR DELETE */}
           <div
             className="modal fade"
             id="staticBackdrop0"
