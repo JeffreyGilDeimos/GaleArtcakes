@@ -56,7 +56,10 @@ export default function Login() {
       .then((response) => {
         loginUserViaProvider(response?.additionalUserInfo.profile.email);
         console.log(email);
-        localStorage.setItem("email", email);
+        localStorage.setItem(
+          "email",
+          response?.additionalUserInfo.profile.email
+        );
         navigate("/");
       })
       .catch((error) => alert(error.message));
