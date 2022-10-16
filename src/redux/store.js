@@ -8,10 +8,14 @@ import logger from 'redux-logger';
 import userReducer from "./reducers/userReducer";
 import cartReducer from "./reducers/cartReducer";
 import productReducer from './reducers/productReducer';
+import reviewReducer from "./reducers/reviewReducer";
+import likeReducer from "./reducers/likeReducer";
 
 export const store = configureStore({
   reducer: {
     productList: productReducer,
+    reviewList: reviewReducer,
+    likeList: likeReducer,
     activeUser: userReducer,
     cartLists: cartReducer,
   },
