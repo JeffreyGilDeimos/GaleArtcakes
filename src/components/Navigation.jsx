@@ -23,9 +23,7 @@ import Spinner from "react-spinkit";
 export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const activeUser = useSelector((state) => state.activeUser);
   const cartLists = useSelector((state) => state.cartLists);
-  const { logoutUser } = bindActionCreators(actionUser, useDispatch());
 
   const logout = (e) => {
     e.preventDefault();
@@ -33,7 +31,7 @@ export default function Navigation() {
     setLoading(true);
     setTimeout(() => {
       setLoading(false);
-      logoutUser();
+      localStorage.removeItem("email");
       navigate("/login");
     }, 1000);
   };
@@ -93,7 +91,7 @@ export default function Navigation() {
                     <span className="nav-label">ABOUT</span>
                   </NavLink>
                 </li>
-                {activeUser.email ? (
+                {localStorage.email ? (
                   <>
                     <li>
                       <NavLink
@@ -110,7 +108,7 @@ export default function Navigation() {
                         <span className="nav-label">CART</span>
                       </NavLink>
                     </li>
-                    {activeUser.email === "admin@admin.com" && (
+                    {localStorage.email === "admin@admin.com" && (
                       <li>
                         <NavLink to="/admin" className="nav-link">
                           <FontAwesomeIcon

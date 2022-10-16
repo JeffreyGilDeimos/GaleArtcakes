@@ -5,7 +5,7 @@ import promiseMiddleware from 'redux-promise-middleware';
 import logger from 'redux-logger';
 
 //Reducers
-import userReducer from "./reducers/userReducer";
+// import userReducer from "./reducers/userReducer";
 import cartReducer from "./reducers/cartReducer";
 import productReducer from './reducers/productReducer';
 import reviewReducer from "./reducers/reviewReducer";
@@ -16,7 +16,7 @@ export const store = configureStore({
     productList: productReducer,
     reviewList: reviewReducer,
     likeList: likeReducer,
-    activeUser: userReducer,
+    // activeUser: userReducer,
     cartLists: cartReducer,
   },
   middleware: [

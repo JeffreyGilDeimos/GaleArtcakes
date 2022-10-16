@@ -12,7 +12,7 @@ export default function Messages({
   email,
 }) {
   const [action, setAction] = useState("");
-  const activeUser = useSelector((state) => state.activeUser);
+  // const activeUser = useSelector((state) => state.activeUser);
 
   return (
     <div className="col-12 col-md-6 col-lg-4 pt-0 pb-4">
@@ -37,7 +37,7 @@ export default function Messages({
           </div>
         </div>
 
-        {activeUser.email === email && activeUser.email ? (
+        {localStorage.email === email && localStorage.email ? (
           <>
             <div
               className="review-icon position-absolute p-3"
