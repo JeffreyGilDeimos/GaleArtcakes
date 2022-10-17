@@ -29,7 +29,7 @@ export default function Menu() {
         setActiveFilter("Themed Cake");
         setCategory("Themed Cakes");
       } else if (parseInt(id) === 3) {
-        setActiveFilter("Cartoon/Chartacter Cake");
+        setActiveFilter("Cartoon/Character Cake");
         setCategory("Cartoon/Chartacter Cakes");
       } else if (parseInt(id) === 4) {
         setActiveFilter("Number Cake");
