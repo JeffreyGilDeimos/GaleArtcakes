@@ -2,15 +2,20 @@ import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navigation from "../Navigation";
 import { Link, useParams } from "react-router-dom";
-import { cakeList } from "../../utilities/enums";
+// import { cakeList } from "../../utilities/enums";
 import Featured from "../Featured";
 import Skeleton from "react-loading-skeleton";
+import * as actionProducts from "../../redux/actions/actionProduct";
+import { bindActionCreators } from "redux";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Menu() {
   const { id } = useParams();
   // const [ourCakes, setOurCakes] = useState("");
+  const { getAllProducts } = bindActionCreators(actionProducts, useDispatch());
+  const productList = useSelector((state) => state.productList);
   const [activeFilter, setActiveFilter] = useState("ALL");
-  const [cakes, setCakes] = useState(cakeList);
+  const [cakes, setCakes] = useState([]);
   const [category, setCategory] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -34,10 +39,11 @@ export default function Menu() {
         setCategory("Cakes");
       }
       if (activeFilter !== "ALL") {
-        setCakes(cakeList.filter((item) => item.category === activeFilter));
+        setCakes(productList.filter((item) => item.category === activeFilter));
+        // setCakes(cakeList.filter((item) => item.category === activeFilter));
         setLoading(false);
       } else {
-        setCakes(cakeList);
+        setCakes(productList);
         setLoading(false);
       }
     }, 500);
@@ -78,10 +84,18 @@ export default function Menu() {
     return cakes.map((item) => (
       <div className="col-12 col-md-6 col-lg-3 pb-5" key={item.id}>
         <div className="new-col-card overflow-hidden rounded-4 bg-white position-relative">
-          <img src={`../${item.image}`} alt={item.name} className="img-fluid" />
+          <img
+            src={
+              item.imageLink
+                ? `http://localhost:8080/product/${item.productId}/download`
+                : "/images/empty-img.png"
+            }
+            alt={item.productName}
+            className="img-fluid"
+          />
         </div>
         <p className="m-0 text-center fw-semibold mt-2 item-name">
-          {item.name}
+          {item.productName}
         </p>
         <hr className="w-75 mx-auto my-2" />
         <p className="m-0 fw-bolder text-center">{`₱ ${item.price}`}</p>
@@ -124,7 +138,9 @@ export default function Menu() {
             />
           </form> */}
 
-          <div className="row justify-content-center">{loading ? renderLoading() : renderMenu()}</div>
+          <div className="row justify-content-center">
+            {loading ? renderLoading() : renderMenu()}
+          </div>
         </div>
       </section>
       <Footer />
