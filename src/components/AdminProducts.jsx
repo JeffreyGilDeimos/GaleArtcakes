@@ -10,6 +10,7 @@ import * as actionProduct from "../redux/actions/actionProduct";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import axios from "axios";
 
 export default function AdminProducts() {
   const [productImage, setProductImage] = useState(null);
@@ -40,12 +41,6 @@ export default function AdminProducts() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (checkIfValid()) {
-      setShowModal1(true);
-      setProductName("");
-      setPrice("");
-      setDescription("");
-      setAddToNewCollections(false);
-      setCategory("Chocolate Drip Cake");
       const requestBody = {
         imageLink: productImage,
         category: category,
@@ -56,7 +51,21 @@ export default function AdminProducts() {
       };
 
       console.log(requestBody);
-      addProduct(requestBody);
+      addProduct(requestBody)
+        .then((response) => {
+          console.log(response, "response");
+          setInvalidProductName(false);
+          setShowModal1(true);
+          setProductName("");
+          setPrice("");
+          setDescription("");
+          setAddToNewCollections(false);
+          setCategory("Chocolate Drip Cake");
+        })
+        .catch((error) => {
+          setInvalidProductName(true);
+          console.log(error, "error");
+        });
     }
   };
 
@@ -102,6 +111,25 @@ export default function AdminProducts() {
 
       const formData = new FormData();
       formData.append("file", file);
+
+      //Upload Image
+      axios
+        .put(
+          `http://localhost:8080/product/${product.productId}/upload`,
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then(() => {
+          console.log("file uploaded successfully");
+          window.location.reload();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }, []);
 
     // React Dropzone
@@ -110,7 +138,11 @@ export default function AdminProducts() {
     // Return statement
     return (
       <img
-        src={product.imageLink ? product.imageLink : "/images/no-image.png"}
+        src={
+          product.imageLink
+            ? `http://localhost:8080/product/${product.productId}/download`
+            : "/images/no-image.png"
+        }
         alt={product.productName}
         className="d-block m-auto w-100 h-auto rounded-3"
         {...getRootProps()}
@@ -124,7 +156,8 @@ export default function AdminProducts() {
         {productList
           .filter(
             (product) =>
-              product.category === category && product.featured !== "YES"
+              // product.category === category && product.featured !== "YES"
+              product.category === category
           )
           .map((product) => (
             <div
@@ -133,7 +166,7 @@ export default function AdminProducts() {
             >
               <div className="admin-product-card bg-white rounded-4 w-100 h-100 p-3">
                 <React.Fragment>
-                  <MyDropzone />
+                  <MyDropzone {...product} />
                 </React.Fragment>
                 <div className="pt-2">
                   <p className="mb-2 fw-semibold text-center">
@@ -149,6 +182,7 @@ export default function AdminProducts() {
                       icon={faTrash}
                       type="button"
                       className="trash fs-6"
+                      onClick={() => deleteProduct(product.productId)}
                       data-bs-toggle="modal"
                       data-bs-target="#AdminProductModal01"
                     />
@@ -169,7 +203,7 @@ export default function AdminProducts() {
                     <div className="border-0">
                       <div className="modal-header border-0">
                         <h5 className="modal-title" id="staticBackdropLabel">
-                          Delete product
+                          Gake ArtCakes
                         </h5>
                         <button
                           type="button"
@@ -178,8 +212,8 @@ export default function AdminProducts() {
                           aria-label="Close"
                         ></button>
                       </div>
-                      <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                        Are you sure you want to delete this product?
+                      <div className="modal-body body-delete mx-4 rounded-2 text-danger">
+                        Cake successfully deleted!
                       </div>
                       <div className="modal-footer border-0">
                         <button
@@ -188,15 +222,6 @@ export default function AdminProducts() {
                           data-bs-dismiss="modal"
                         >
                           Close
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-bs-target="#staticBackdrop0"
-                          data-bs-toggle="modal"
-                          onClick={() => deleteProduct(product.productId)}
-                        >
-                          Delete
                         </button>
                       </div>
                     </div>
@@ -221,7 +246,7 @@ export default function AdminProducts() {
             >
               <div className="admin-product-card bg-white rounded-4 w-100 h-100 p-3">
                 <React.Fragment>
-                  <MyDropzone />
+                  <MyDropzone {...product} />
                 </React.Fragment>
                 <div className="pt-2">
                   <p className="mb-2 fw-semibold text-center">
@@ -237,6 +262,7 @@ export default function AdminProducts() {
                       icon={faTrash}
                       type="button"
                       className="trash fs-6"
+                      onClick={() => deleteProduct(product.productId)}
                       data-bs-toggle="modal"
                       data-bs-target="#AdminProductModal02"
                     />
@@ -258,7 +284,7 @@ export default function AdminProducts() {
                     <div className="border-0">
                       <div className="modal-header border-0">
                         <h5 className="modal-title" id="staticBackdropLabel">
-                          Delete product
+                          Gale ArtCakes
                         </h5>
                         <button
                           type="button"
@@ -267,8 +293,8 @@ export default function AdminProducts() {
                           aria-label="Close"
                         ></button>
                       </div>
-                      <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                        Are you sure you want to delete this product?
+                      <div className="modal-body body-delete mx-4 rounded-2 text-danger">
+                        Cake successfully deleted!
                       </div>
                       <div className="modal-footer border-0">
                         <button
@@ -277,15 +303,6 @@ export default function AdminProducts() {
                           data-bs-dismiss="modal"
                         >
                           Close
-                        </button>
-                        <button
-                          type="button"
-                          className="btn btn-danger"
-                          data-bs-target="#staticBackdrop0"
-                          data-bs-toggle="modal"
-                          onClick={() => deleteProduct(product.productId)}
-                        >
-                          Delete
                         </button>
                       </div>
                     </div>
@@ -308,12 +325,12 @@ export default function AdminProducts() {
 
           {/* UPLOAD NEW PRODUCT FORM */}
           <Form onSubmit={handleSubmit} className="row pb-5">
-            <div className="col-lg-6">
-              <React.Fragment>
+            <div className="col-lg-6 bg-danger">
+              {/* <React.Fragment>
                 <div className="admin-product p-4 m-auto rounded-4 bg-white">
                   <MyDropzone />
                 </div>
-              </React.Fragment>
+              </React.Fragment> */}
             </div>
             <div className="col-lg-6 pt-5 pt-lg-0">
               {/* CATEGORY */}
@@ -334,16 +351,16 @@ export default function AdminProducts() {
                     Chocolate Drip Cake
                   </option>
                   <option
-                    value="Chocomoist Themed Cake"
+                    value="Themed Cake"
                     className="text-uppercase text-black-50 fs-5 fw-semibold"
                   >
-                    Chocomoist Themed Cake
+                    Themed Cake
                   </option>
                   <option
-                    value="Cartoon / Character Cake"
+                    value="Cartoon/Character Cake"
                     className="text-uppercase text-black-50 fs-5 fw-semibold"
                   >
-                    Cartoon / Character Cake
+                    Cartoon/Character Cake
                   </option>
                   <option
                     value="Number Cake"
@@ -485,14 +502,14 @@ export default function AdminProducts() {
             <strong>Chocomoist Themed Cakes</strong>
           </h2>
           <div className="row justify-content-center">
-            {renderProducts("Chocomoist Themed Cake")}
+            {renderProducts("Themed Cake")}
           </div>
 
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Cartoon / Character Cakes</strong>
           </h2>
           <div className="row justify-content-center">
-            {renderProducts("Cartoon / Character Cake")}
+            {renderProducts("Cartoon/Character Cake")}
           </div>
 
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">

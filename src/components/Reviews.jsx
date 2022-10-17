@@ -12,7 +12,7 @@ import { Modal } from "react-bootstrap";
 export default function Reviews() {
   const [input, setInput] = useState("");
   const [user] = useAuthState(auth);
-  const activeUser = useSelector((state) => state.activeUser);
+  // const activeUser = useSelector((state) => state.activeUser);
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
   const [reviews] = useCollection(
