@@ -302,46 +302,48 @@ export default function AdminProducts() {
 
           {/* UPLOAD NEW PRODUCT FORM */}
           <Form onSubmit={handleSubmit} className="row pb-5">
-            <div className="col-lg-6 bg-danger">
-              {/* <React.Fragment>
-                <div className="admin-product p-4 m-auto rounded-4 bg-white">
-                  <MyDropzone />
-                </div>
-              </React.Fragment> */}
+            <div className="col-lg-6 pe-lg-3">
+              <div className="admin-product p-4 m-auto w-auto me-lg-0 rounded-4 bg-white">
+                <img
+                  src="/images/no-image-icon.png"
+                  alt="logo"
+                  className="admin-product-img w-auto rounded-3"
+                />
+              </div>
             </div>
-            <div className="col-lg-6 pt-5 pt-lg-0">
+            <div className="col-lg-6 pt-5 pt-lg-0 ps-lg-3 m-auto m-lg-0">
               {/* CATEGORY */}
               <Form.Group
                 controlId="formCategory"
-                className="form-category mb-2"
+                className="form-category mb-3"
               >
                 <Form.Select
                   aria-label="Default select example"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
-                  className="text-uppercase text-black-50 fs-5 fw-semibold"
+                  className="text-black-50 fs-5 fw-bolder"
                 >
                   <option
                     value="Chocolate Drip Cake"
-                    className="text-uppercase text-black-50 fs-5 fw-semibold"
+                    className="text-black-50 fs-5 fw-semibold"
                   >
                     Chocolate Drip Cake
                   </option>
                   <option
                     value="Themed Cake"
-                    className="text-uppercase text-black-50 fs-5 fw-semibold"
+                    className="text-black-50 fs-5 fw-semibold"
                   >
                     Themed Cake
                   </option>
                   <option
                     value="Cartoon/Character Cake"
-                    className="text-uppercase text-black-50 fs-5 fw-semibold"
+                    className="text-black-50 fs-5 fw-semibold"
                   >
                     Cartoon/Character Cake
                   </option>
                   <option
                     value="Number Cake"
-                    className="text-uppercase text-black-50 fs-5 fw-semibold"
+                    className="text-black-50 fs-5 fw-semibold"
                   >
                     Number Cake
                   </option>
@@ -349,14 +351,14 @@ export default function AdminProducts() {
               </Form.Group>
 
               {/* PRODUCT NAME */}
-              <Form.Group controlId="formProductname" className="w-100">
+              <Form.Group controlId="formProductname" className="form-name">
                 <Form.Control
                   type="text"
                   placeholder="Product Name"
                   value={productName}
                   onChange={(e) => setProductName(e.target.value)}
                   isInvalid={invalidProductName}
-                  className="product-name display-6 fw-bolder fs-1"
+                  className="product-name display-6 fw-bold fs-5"
                   style={{ color: "#6a2101" }}
                   required
                 ></Form.Control>
@@ -369,17 +371,17 @@ export default function AdminProducts() {
               {/* PRODUCT PRICE */}
               <Form.Group
                 controlId="formPrice"
-                className="form-price d-flex align-items-center my-4"
+                className="form-price d-flex align-items-center my-3"
               >
-                <h2 className="fw-bolder m-0 me-2">₱</h2>
-                <div>
+                <h3 className="fw-bold m-0 me-2">₱</h3>
+                <div className="w-100">
                   <Form.Control
                     type="text"
                     placeholder="Product Price"
                     value={price}
                     onChange={(e) => setPrice(e.target.value)}
                     isInvalid={invalidPrice}
-                    className="fw-bolder fs-2"
+                    className="fw-bold fs-5"
                     required
                   ></Form.Control>
                   <Form.Control.Feedback type="invalid">
@@ -389,7 +391,7 @@ export default function AdminProducts() {
               </Form.Group>
 
               {/* PRODUCT DESCRIPTION */}
-              <Form.Group controlId="formDescription">
+              <Form.Group controlId="formDescription" className="form-description">
                 <Form.Control
                   as="textarea"
                   rows={3}
@@ -397,7 +399,7 @@ export default function AdminProducts() {
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   isInvalid={invalidDescription}
-                  className="lead fw-normal m-0 fs-5"
+                  className="fw-bold m-0 fs-5"
                   // required
                 ></Form.Control>
                 <Form.Control.Feedback type="invalid">
@@ -406,7 +408,7 @@ export default function AdminProducts() {
               </Form.Group>
 
               {/* ADD THE PRODUCT TO NEW Collections */}
-              <div className="d-flex align-items-center w-100 my-4">
+              <div className="d-flex align-items-center w-100 mt-3 mb-4 mx-0">
                 <input
                   type="checkbox"
                   className="admin-input m-0 border border-light"
