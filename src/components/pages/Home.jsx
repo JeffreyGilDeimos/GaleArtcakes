@@ -10,7 +10,7 @@ import Footer from "../Footer";
 import Navigation from "../Navigation";
 import Hero from "../Hero";
 import Featured from "../Featured";
-// import Reviews from "../Reviews";
+import Reviews from "../Reviews";
 import NewCollections from "../NewCollections";
 
 export default function Home() {
@@ -41,7 +41,7 @@ export default function Home() {
       <Hero />
       <Featured />
       <NewCollections />
-      {/* <Reviews /> */}
+      <Reviews />
       <Footer />
     </>
   );
