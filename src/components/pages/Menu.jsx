@@ -82,7 +82,7 @@ export default function Menu() {
 
   const renderMenu = () => {
     return cakes.map((item) => (
-      <div className="col-12 col-md-6 col-lg-3 pb-5" key={item.id}>
+      <div className="col-12 col-md-6 col-lg-3 pb-5" key={item.productId}>
         <div className="new-col-card overflow-hidden rounded-4 bg-white position-relative">
           <img
             src={
@@ -101,7 +101,7 @@ export default function Menu() {
         <p className="m-0 fw-bolder text-center">{`₱ ${item.price}`}</p>
         <hr className="w-75 mx-auto my-2" />
         <Link
-          to={`/cake/${item.id}`}
+          to={`/cake/${item.productId}`}
           className="new-col-btn d-block text-white text-center text-decoration-none p-2 rounded-3 w-50 mx-auto mt-3"
         >
           More details
