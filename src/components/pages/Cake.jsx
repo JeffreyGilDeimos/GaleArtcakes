@@ -6,7 +6,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
-
+import * as actionProduct from "../../redux/actions/actionProduct";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase";
 import * as cartAction from "../../redux/actions/actionCart";
@@ -16,26 +16,26 @@ import { useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 
 export default function Cake() {
-  const { addToCart } = bindActionCreators(cartAction, useDispatch());
-
-  const cartLists = useSelector((state) => state.cartLists);
+  // const { addToCart } = bindActionCreators(cartAction, useDispatch());
+  // const cartLists = useSelector((state) => state.cartLists);
   // const [user] = useAuthState(auth);
   const { id } = useParams();
-  const [activeFilter] = useState(parseInt(id));
-  const [cakes, setCakes] = useState(cakeList);
-  const [like, setLike] = useState("");
+  const [cakes, setCakes] = useState([]);
+  // const [like, setLike] = useState("");
   const [loading, setLoading] = useState(false);
-  // const activeUser = useSelector((state) => state.activeUser);
+  const { getProduct } = bindActionCreators(actionProduct, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
-      setCakes(cakeList.filter((item) => item.id === activeFilter));
-      setLoading(false);
-    }, 1000);
-  }, [activeFilter]);
+      getProduct(id).then((response) => {
+        setCakes(response.payload);
+        setLoading(false);
+      }, 1000);
+    });
+  }, [id]);
 
   // const checkItem = (item) => {
   //   if(!cartLists.find((cart) => cart.id === item.id)) { // you can also change `name` to `id`
@@ -43,46 +43,38 @@ export default function Cake() {
   //   }
   // }
 
-  const handleAddToCart = (item) => {
-    console.log(cartLists);
-    if (cartLists.find((cart) => cart.id === item.id)) {
-      setShowModal2(true);
-      return null;
-      // return alert("Product has already been added to cart.");
-    }
-    item.quantity = 1;
-    addToCart(item);
-    setShowModal1(true);
-
-    // if (user) {
-    //   db.collection("cartLists").add({
-    //     userId: user.uid,
-    //     item,
-    //   });
-    // }
-  };
+  // const handleAddToCart = (item) => {
+  //   console.log(cartLists);
+  //   if (cartLists.find((cart) => cart.id === item.id)) {
+  //     setShowModal2(true);
+  //     return null;
+  // return alert("Product has already been added to cart.");
+  // }
+  // item.quantity = 1;
+  // addToCart(item);
+  // setShowModal1(true);
 
   const renderCake = () => {
-    return cakes.map((item) => (
-      <div className="row py-md-5" key={item.id}>
+    return (
+      <div className="row py-md-5">
         <div className="col-lg-6">
           <div className="product p-4 m-auto rounded-4 bg-white">
             <img
-              src={`../${item.image}`}
-              alt={item.name}
+              src={
+                cakes.imageLink
+                  ? `http://localhost:8080/product/${cakes.productId}/download`
+                  : "/images/empty-img.png"
+              }
+              alt={cakes.productName}
               className="d-block m-auto w-100 h-auto rounded-3"
             />
           </div>
         </div>
         <div className="col-lg-6 pt-5 pt-lg-0">
-          <h5 className="text-uppercase text-black-50">{item.category}</h5>
-          <h1 className="display-6 cake-name fw-bolder">{item.name}</h1>
-          <h2 className="fw-bolder my-4">{`₱ ${item.price}`}</h2>
-          <p className="lead fw-normal m-0">
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Veritatis,
-            numquam a animi expedita sed blanditiis sint ea harum quidem!
-            Dolore, quos voluptatibus!
-          </p>
+          <h5 className="text-uppercase text-black-50">{cakes.category}</h5>
+          <h1 className="display-6 cake-name fw-bolder">{cakes.productName}</h1>
+          <h2 className="fw-bolder my-4">{`₱ ${cakes.price}`}</h2>
+          <p className="lead fw-normal m-0">{cakes.description}</p>
           <ul className="my-4 ps-4 ps-lg-5">
             <li>Prices may vary according to sizes.</li>
             <li>Prices may change without any prior notice.</li>
@@ -95,9 +87,9 @@ export default function Cake() {
           </ul>
           <button
             className="cake-btn-add rounded-3 mb-3 mb-md-0 me-3 text-uppercase fw-bold"
-            onClick={(e) => {
-              handleAddToCart(item);
-            }}
+            // onClick={(e) => {
+            //   handleAddToCart(item);
+            // }}
           >
             Add to Cart
           </button>
@@ -117,9 +109,9 @@ export default function Cake() {
             <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
               <button
                 className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
-                onClick={() => setLike(like ? "" : "d")}
+                // onClick={() => setLike(like ? "" : "d")}
               >
-                <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
+                {/* <FontAwesomeIcon icon={faHeart} className={`like${like}`} /> */}
               </button>
               <p className="m-0 fw-semibold">
                 <small>10 like/s</small>
@@ -128,7 +120,7 @@ export default function Cake() {
           </div>
         </div>
       </div>
-    ));
+    );
   };
 
   const renderLoading = () => {
