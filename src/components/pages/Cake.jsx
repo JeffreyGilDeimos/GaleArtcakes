@@ -6,9 +6,15 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
+<<<<<<< Updated upstream
 import * as actionProduct from "../../redux/actions/actionProduct";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase";
+=======
+
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { db, auth } from "../../firebase";
+>>>>>>> Stashed changes
 import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
@@ -22,7 +28,11 @@ export default function Cake() {
   const { id } = useParams();
   const [cakes, setCakes] = useState([]);
   const [like, setLike] = useState("");
+<<<<<<< Updated upstream
   const [numLike, setNumLike] = useState(0);
+=======
+  const [numLike, setNumLike] = useState(1)
+>>>>>>> Stashed changes
   const [loading, setLoading] = useState(false);
   const { getProduct } = bindActionCreators(actionProduct, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
@@ -59,6 +69,12 @@ export default function Cake() {
   // item.quantity = 1;
   // addToCart(item);
   // setShowModal1(true);
+
+  const handlelikes = () => {
+    setNumLike((prev) => {
+      return prev + 1
+    })
+  }
 
   const renderCake = () => {
     return (
@@ -115,6 +131,7 @@ export default function Cake() {
             <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
               <button
                 className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
+<<<<<<< Updated upstream
                 // hearts = {() => setLike(like ? "" : "d")}
                 onClick={handlelikes}
               >
@@ -123,6 +140,16 @@ export default function Cake() {
               <p className="m-0 fw-semibold">
               <small> {numLike} {numLike >= 2  ? "Likes" : "Like"} </small>                
               </p>
+=======
+                // onClick={() => setLike(like ? "" : "d")}
+                onClick={handlelikes}
+              >
+                <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
+                <span className="m-0 fw-semibold">
+                <small> {numLike} like/s</small>
+                </span>
+                </button>
+>>>>>>> Stashed changes
             </div>
           </div>
         </div>
