@@ -54,12 +54,9 @@ export default function Login() {
     auth
       .signInWithPopup(googleProvider)
       .then((response) => {
-        loginUserViaProvider(response?.additionalUserInfo.profile.email);
-        console.log(email);
-        localStorage.setItem(
-          "email",
-          response?.additionalUserInfo.profile.email
-        );
+        let email = response?.additionalUserInfo.profile.email;
+        loginUserViaProvider(email);
+        localStorage.setItem("email", email);
         navigate("/");
       })
       .catch((error) => alert(error.message));

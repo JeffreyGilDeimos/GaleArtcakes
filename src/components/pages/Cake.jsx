@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
 import * as actionProduct from "../../redux/actions/actionProduct";
+import * as actionCart from "../../redux/actions/actionCart";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { db, auth } from "../../firebase";
 import * as cartAction from "../../redux/actions/actionCart";
@@ -24,6 +25,7 @@ export default function Cake() {
   // const [like, setLike] = useState("");
   const [loading, setLoading] = useState(false);
   const { getProduct } = bindActionCreators(actionProduct, useDispatch());
+  const { addToCart } = bindActionCreators(actionCart, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
@@ -36,6 +38,13 @@ export default function Cake() {
       }, 1000);
     });
   }, [id]);
+
+  const handleAddToCart = (productId) => {
+    if (localStorage.email) {
+      addToCart(localStorage.email, productId);
+      window.location.reload();
+    }
+  };
 
   // const checkItem = (item) => {
   //   if(!cartLists.find((cart) => cart.id === item.id)) { // you can also change `name` to `id`
@@ -87,9 +96,9 @@ export default function Cake() {
           </ul>
           <button
             className="cake-btn-add rounded-3 mb-3 mb-md-0 me-3 text-uppercase fw-bold"
-            // onClick={(e) => {
-            //   handleAddToCart(item);
-            // }}
+            onClick={(e) => {
+              handleAddToCart(cakes.productId);
+            }}
           >
             Add to Cart
           </button>
