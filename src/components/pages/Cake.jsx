@@ -21,12 +21,13 @@ export default function Cake() {
   // const [user] = useAuthState(auth);
   const { id } = useParams();
   const [cakes, setCakes] = useState([]);
-  // const [like, setLike] = useState("");
+  const [like, setLike] = useState("");
+  const [numLike, setNumLike] = useState(0);
   const [loading, setLoading] = useState(false);
   const { getProduct } = bindActionCreators(actionProduct, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-
+   
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -35,8 +36,13 @@ export default function Cake() {
         setLoading(false);
       }, 1000);
     });
-  }, [id]);
+  }, [id])  
 
+  const handlelikes = () => {
+    setNumLike((prev) => 
+      prev + 1
+    )
+  }
   // const checkItem = (item) => {
   //   if(!cartLists.find((cart) => cart.id === item.id)) { // you can also change `name` to `id`
   //     arr.push(item);
@@ -109,12 +115,13 @@ export default function Cake() {
             <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
               <button
                 className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
-                // onClick={() => setLike(like ? "" : "d")}
+                // hearts = {() => setLike(like ? "" : "d")}
+                onClick={handlelikes}
               >
-                {/* <FontAwesomeIcon icon={faHeart} className={`like${like}`} /> */}
+                <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
               </button>
               <p className="m-0 fw-semibold">
-                <small>10 like/s</small>
+              <small> {numLike} {numLike >= 2  ? "Likes" : "Like"} </small>                
               </p>
             </div>
           </div>
