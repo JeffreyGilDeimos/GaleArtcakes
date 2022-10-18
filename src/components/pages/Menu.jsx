@@ -7,13 +7,11 @@ import Featured from "../Featured";
 import Skeleton from "react-loading-skeleton";
 import * as actionProducts from "../../redux/actions/actionProduct";
 import { bindActionCreators } from "redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Menu() {
   const { id } = useParams();
-  // const [ourCakes, setOurCakes] = useState("");
   const { getAllProducts } = bindActionCreators(actionProducts, useDispatch());
-  // const productList = useSelector((state) => state.productList);
   const [activeFilter, setActiveFilter] = useState("ALL");
   const [cakes, setCakes] = useState([]);
   const [category, setCategory] = useState("");

@@ -6,7 +6,6 @@ import * as actionCart from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { Form, Modal } from "react-bootstrap";
-
 import Footer from "../Footer";
 import Navigation from "../Navigation";
 import utils from "../../utilities/utils";
