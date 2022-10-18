@@ -2,10 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-//import { useCollection } from "react-firebase-hooks/firestore";
-// import * as cartAction from "../../redux/actions/actionCart";
 import * as actionCart from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
@@ -21,7 +17,6 @@ export default function Cart() {
   const [total, setTotal] = useState(0);
   const [cartProducts, setCartProducts] = useState([]);
   const [selected, setSelected] = useState("");
-  // const [user] = useAuthState(auth);
   const activeUser = localStorage;
   const navigate = useNavigate();
   const [showModal1, setShowModal1] = useState(false);
@@ -31,23 +26,6 @@ export default function Cart() {
     actionCart,
     useDispatch()
   );
-
-  // const [fbCartLists] = useCollection(db.collection("cartLists"));
-  // const cartLists = useSelector((state) => state.cartLists);
-  // const { removeFromCart, updateQuantity } = bindActionCreators(
-  //   cartAction,
-  //   useDispatch()
-  // );
-
-  // console.log(fbCartLists);
-
-  // const handlePlusCart = (item) => {
-  //   const quantity = item.quantity;
-  //   updateQuantity({
-  //     ...item,
-  //     quantity: quantity + 1,
-  //   });
-  // };
 
   useEffect(() => {
     if (!activeUser.email) {
@@ -72,17 +50,6 @@ export default function Cart() {
     });
     setTotal(value);
   }, [cartProducts]);
-
-  // const handleMinusCart = (item) => {
-  //   const quantity = item.quantity;
-  //   if (item.quantity <= 1) {
-  //     return;
-  //   }
-  //   updateQuantity({
-  //     ...item,
-  //     quantity: quantity - 1,
-  //   });
-  // };
 
   const handleCheckOut = (e) => {
     e.preventDefault();
@@ -201,28 +168,15 @@ export default function Cart() {
                       <option value={4}>4</option>
                       <option value={5}>5</option>
                     </Form.Select>
-                    {/* <button
-                      className="cart-circle m-0 p-0 border-0 text-white rounded-circle"
-                      onClick={(e) => handleMinusCart(item)}
-                    >
-                      -
-                    </button>
-                    <p className="quantity-cart my-3 my-lg-0 mx-2 fw-semibold rounded-pill">
-                      {item.quantity}
-                    </p>
-                    <button
-                      className="cart-circle m-0 p-0 border-0 text-white rounded-circle"
-                      onClick={(e) => {
-                        handlePlusCart(item);
-                      }}
-                    >
-                      +
-                    </button> */}
                   </div>
                   <span className="fw-bolder text-uppercase mobile-total">
                     <strong>Total Price:</strong>
                   </span>
-                  <p className="m-0">{utils.toPhp.format(item.price)}</p>
+                  <p className="m-0">
+                    {utils.toPhp.format(
+                      item.price * (item.quantity ? item.quantity : 1)
+                    )}
+                  </p>
                 </div>
                 <FontAwesomeIcon
                   icon={faTrash}
