@@ -1,5 +1,6 @@
 /* <!-- ---- Media Query ---- --> */
-@media (min-height: 1025px) {
+/* @media (min-height: 1025px) {  */
+@media (min-height: 863px) { 
   #cake {
     height: 100vh;
     display: flex;
@@ -25,8 +26,16 @@
     height: 180px;
   }
   .form-category,
-  .form-price {
-    width: 70%;
+  .form-name,
+  .form-price,
+  .form-description {
+    width: 72%;
+  }
+  .admin-product {
+    transform: translate(0, 0);
+  }
+  .admin-product-img {
+    width: 57%;
   }
   .footer {
     justify-content: space-between;
@@ -63,8 +72,13 @@
     height: 150px;
   }
   .form-category,
-  .form-price {
-    width: 60%;
+  .form-name,
+  .form-price,
+  .form-description {
+    width: 100%;
+  }
+  .admin-product {
+    transform: translate(-42%, 0);
   }
   #footer {
     margin-top: 13px;
@@ -75,8 +89,7 @@
 }
 
 @media (min-width: 768px) {
-  .product,
-  .admin-product {
+  .product {
     width: 400px;
   }
   #review-input {
@@ -102,8 +115,13 @@
       height: 110px;
     }
   .form-category,
-  .form-price {
+  .form-name,
+  .form-price,
+  .form-description {
     width: 100%;
+  }
+  .admin-product {
+    transform: translate(0, 0);
   }
   #review-input {
     width: 100%;
@@ -389,7 +407,8 @@ li:not(:last-child) .nav-link:hover {
   background-image: linear-gradient(to bottom left, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
 }
 
-.product:hover img {
+.product:hover img,
+.admin-product-img:hover {
   transform: scale(1.05);
 }
 
