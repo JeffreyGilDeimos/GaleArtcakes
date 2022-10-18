@@ -1,26 +1,62 @@
-export const addToCart = (productDetails) => {
-  return (dispatch) => {
-    dispatch({
-      type: "ADD_TO_CART",
-      payload: productDetails,
-    });
-  };
-};
+import { get, put, post, deleteMethod } from '../../utilities/https';
 
-export const removeFromCart = (id) => {
-  return (dispatch) => {
-    dispatch({
-      type: "REMOVE_FROM_CART",
-      payload: id,
-    });
-  };
-};
+export const getAllProductsByUser = (email) => {
+    const url = `/cart/getProductByUser/${email}`;
+    return new Promise((resolve, reject) => {
+        const promise = get(url);
+        promise.then((response) => {
+            resolve({
+                type: 'SAVE_CART_PRODUCTS',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
 
-export const updateQuantity = (productDetails) => {
-  return (dispatch) => {
-    dispatch({
-      type: "UPDATE_QUANTITY",
-      payload: productDetails,
-    });
-  };
-};
+export const addToCart = (email, productId) => {
+    const url = `/cart/${email}/addProduct/${productId}`;
+    return new Promise((resolve, reject) => {
+        const promise = put(url);
+        promise.then((response) => {
+            resolve({
+                type: 'SAVE_CART_PRODUCTS',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+
+export const checkOut = (email) => {
+    const url = `/cart/checkout/${email}`;
+    return new Promise((resolve, reject) => {
+        const promise = post(url);
+        promise.then((response) => {
+            resolve({
+                type: 'SAVE_CART_PRODUCTS',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+export const deleteFromCart = (email, productId) => {
+    const url = `/cart/${email}/delete/${productId}`;
+    return new Promise((resolve, reject) => {
+        const promise = deleteMethod(url);
+        promise.then((response) => {
+            resolve({
+                type: 'SAVE_CART_PRODUCTS',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error);
+        })
+    })
+}

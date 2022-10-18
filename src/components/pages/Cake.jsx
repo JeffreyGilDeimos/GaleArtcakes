@@ -6,24 +6,20 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
+import * as actionCart from "../../redux/actions/actionCart";
 import * as actionProduct from "../../redux/actions/actionProduct";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { db, auth } from "../../firebase";
-import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
 
 export default function Cake() {
-  // const { addToCart } = bindActionCreators(cartAction, useDispatch());
-  // const cartLists = useSelector((state) => state.cartLists);
-  // const [user] = useAuthState(auth);
   const { id } = useParams();
   const [cakes, setCakes] = useState([]);
   // const [like, setLike] = useState("");
+  // const [numLike, setNumLike] = useState(1);
   const [loading, setLoading] = useState(false);
   const { getProduct } = bindActionCreators(actionProduct, useDispatch());
+  const { addToCart } = bindActionCreators(actionCart, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
 
@@ -37,22 +33,13 @@ export default function Cake() {
     });
   }, [id]);
 
-  // const checkItem = (item) => {
-  //   if(!cartLists.find((cart) => cart.id === item.id)) { // you can also change `name` to `id`
-  //     arr.push(item);
-  //   }
-  // }
-
-  // const handleAddToCart = (item) => {
-  //   console.log(cartLists);
-  //   if (cartLists.find((cart) => cart.id === item.id)) {
-  //     setShowModal2(true);
-  //     return null;
-  // return alert("Product has already been added to cart.");
-  // }
-  // item.quantity = 1;
-  // addToCart(item);
-  // setShowModal1(true);
+  const handleAddToCart = (productId) => {
+    if (localStorage.email) {
+      addToCart(localStorage.email, productId);
+      setShowModal1(true);
+      // window.location.reload();
+    }
+  };
 
   const renderCake = () => {
     return (
@@ -87,9 +74,9 @@ export default function Cake() {
           </ul>
           <button
             className="cake-btn-add rounded-3 mb-3 mb-md-0 me-3 text-uppercase fw-bold"
-            // onClick={(e) => {
-            //   handleAddToCart(item);
-            // }}
+            onClick={(e) => {
+              handleAddToCart(cakes.productId);
+            }}
           >
             Add to Cart
           </button>
@@ -112,10 +99,10 @@ export default function Cake() {
                 // onClick={() => setLike(like ? "" : "d")}
               >
                 {/* <FontAwesomeIcon icon={faHeart} className={`like${like}`} /> */}
+                <span className="m-0 fw-semibold">
+                  <small> 10 like/s</small>
+                </span>
               </button>
-              <p className="m-0 fw-semibold">
-                <small>10 like/s</small>
-              </p>
             </div>
           </div>
         </div>
@@ -170,13 +157,14 @@ export default function Cake() {
         <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
             <div className="modal-body mx-3 text-center">
-              Great! Product has been added to your cart successfully.
+              Cake has been added to your cart successfully.
             </div>
             <div className="modal-footer border-0">
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => closeModal()}
+                data-bs-dismiss="modal"
+                onClick={() => window.location.reload()}
               >
                 Close
               </button>

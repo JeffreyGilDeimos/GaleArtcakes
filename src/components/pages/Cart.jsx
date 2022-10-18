@@ -2,73 +2,84 @@ import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-//import { useCollection } from "react-firebase-hooks/firestore";
-import * as cartAction from "../../redux/actions/actionCart";
+import * as actionCart from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { Modal } from "react-bootstrap";
-
+import { Form, Modal } from "react-bootstrap";
 import Footer from "../Footer";
 import Navigation from "../Navigation";
 import utils from "../../utilities/utils";
 import CartCakes from "../CartCakes";
 
 export default function Cart() {
+  const [total, setTotal] = useState(0);
+  const [cartProducts, setCartProducts] = useState([]);
   const [selected, setSelected] = useState("");
-  const [user] = useAuthState(auth);
-  const activeUser = useSelector((state) => state.activeUser);
+  const activeUser = localStorage;
   const navigate = useNavigate();
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-
-  // const [fbCartLists] = useCollection(db.collection("cartLists"));
-  const cartLists = useSelector((state) => state.cartLists);
-  const { removeFromCart, updateQuantity } = bindActionCreators(
-    cartAction,
+  const { getAllProductsByUser, checkOut, deleteFromCart } = bindActionCreators(
+    actionCart,
     useDispatch()
   );
 
-  // console.log(fbCartLists);
-
-  const handlePlusCart = (item) => {
-    const quantity = item.quantity;
-    updateQuantity({
-      ...item,
-      quantity: quantity + 1,
-    });
-  };
-
   useEffect(() => {
-    if (!user || !activeUser.email) {
+    if (!activeUser.email) {
       navigate("/login");
     }
-  }, [navigate, user, activeUser.email]);
+  });
 
-  if (!user || !activeUser.email) {
-    return;
-  }
-
-  const handleMinusCart = (item) => {
-    const quantity = item.quantity;
-    if (item.quantity <= 1) {
-      return;
+  useEffect(() => {
+    if (localStorage.email) {
+      getAllProductsByUser(activeUser.email).then((response) => {
+        setCartProducts(response.payload);
+      });
     }
-    updateQuantity({
-      ...item,
-      quantity: quantity - 1,
+  }, []);
+
+  useEffect(() => {
+    let value = 0;
+    cartProducts?.forEach((product) => {
+      const productValue =
+        product.price * (product.quantity ? product.quantity : 1);
+      value = value + productValue;
+    });
+    setTotal(value);
+  }, [cartProducts]);
+
+  const handleCheckOut = (e) => {
+    e.preventDefault();
+    checkOut(activeUser.email).then((response) => {
+      setShowModal1(true);
+      setCartProducts(response.payload);
     });
   };
 
-  const handleCheckOut = () => {
-    setShowModal1(true);
-  };
-
-  const closeModal = () => {
+  const closeModal = (e) => {
+    e.preventDefault();
     setShowModal1(false);
     setShowModal2(false);
+    window.location.reload();
+  };
+
+  const setQuantity = (productId, quantity) => {
+    const newProductList = [];
+
+    cartProducts.forEach((data) => {
+      if (productId === data.productId) {
+        newProductList.push({
+          productId: data.productId,
+          productName: data.productName,
+          imageLink: data.imageLink,
+          price: data.price,
+          quantity: quantity,
+        });
+      } else {
+        newProductList.push(data);
+      }
+    });
+    setCartProducts(newProductList);
   };
 
   return (
@@ -104,7 +115,7 @@ export default function Cart() {
               <hr className="my-4" />
               <br />
             </div>
-            {cartLists && cartLists.length === 0 && (
+            {cartProducts && cartProducts?.length === 0 && (
               <div>
                 <h6 className="text-center d-block m-0">
                   No product has been added to your cart. Please continue
@@ -115,8 +126,9 @@ export default function Cart() {
             )}
 
             {/* RENDER THIS PART */}
-            {cartLists?.map((item) => (
+            {cartProducts?.map((item) => (
               <div
+                key={item.productId}
                 className={`incart${selected} bg-white p-3 mb-4 d-flex justify-content-between align-items-center rounded-4`}
               >
                 <input
@@ -126,45 +138,50 @@ export default function Cart() {
                 />
                 <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-evenly">
                   <img
-                    src={`../${item.image}`}
-                    alt={item.name}
+                    src={
+                      item.imageLink
+                        ? `http://localhost:8080/product/${item.productId}/download`
+                        : "/images/empty-img.png"
+                    }
+                    alt={item.productName}
                     className="incart-cake d-block m-auto m-lg-0"
                   />
 
                   <h5 className="mt-2 mb-1 m-lg-0">
-                    {item.name.substring(0, 12)}...
+                    {item.productName.substring(0, 12)}...
                   </h5>
                   <p className="m-0">{utils.toPhp.format(item.price)}</p>
                   <div className="d-flex align-items-center justify-content-center">
-                    <button
-                      className="cart-circle m-0 p-0 border-0 text-white rounded-circle"
-                      onClick={(e) => handleMinusCart(item)}
+                    <Form.Select
+                      aria-label="QTY"
+                      style={{ marginLeft: "10px", width: "69px" }}
+                      onChange={(e) =>
+                        setQuantity(item.productId, e.target.value)
+                      }
                     >
-                      -
-                    </button>
-                    <p className="quantity-cart my-3 my-lg-0 mx-2 fw-semibold rounded-pill">
-                      {item.quantity}
-                    </p>
-                    <button
-                      className="cart-circle m-0 p-0 border-0 text-white rounded-circle"
-                      onClick={(e) => {
-                        handlePlusCart(item);
-                      }}
-                    >
-                      +
-                    </button>
+                      <option value={1}>1</option>
+                      <option value={2}>2</option>
+                      <option value={3}>3</option>
+                      <option value={4}>4</option>
+                      <option value={5}>5</option>
+                    </Form.Select>
                   </div>
                   <span className="fw-bolder text-uppercase mobile-total">
                     <strong>Total Price:</strong>
                   </span>
                   <p className="m-0">
-                    {utils.toPhp.format(item.price * item.quantity)}
+                    {utils.toPhp.format(
+                      item.price * (item.quantity ? item.quantity : 1)
+                    )}
                   </p>
                 </div>
                 <FontAwesomeIcon
                   icon={faTrash}
                   type="button"
                   className="trash fs-5 m-2"
+                  onClick={() =>
+                    deleteFromCart(activeUser.email, item.productId)
+                  }
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 />
@@ -184,7 +201,7 @@ export default function Cart() {
                       <div className="border-0">
                         <div className="modal-header border-0">
                           <h5 className="modal-title" id="staticBackdropLabel">
-                            Delete item
+                            Gale ArtCakes
                           </h5>
                           <button
                             type="button"
@@ -194,26 +211,26 @@ export default function Cart() {
                           ></button>
                         </div>
                         <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                          Are you sure you want to delete this item from your
-                          cart?
+                          Item successfully deleted from cart.
                         </div>
                         <div className="modal-footer border-0">
                           <button
                             type="button"
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
+                            onClick={() => window.location.reload()}
                           >
                             Close
                           </button>
-                          <button
+                          {/* <button
                             type="button"
                             className="btn btn-danger"
-                            onClick={() => removeFromCart(item.id)}
+                            // onClick={() => removeFromCart(item.id)}
                             data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop05"
                           >
                             Delete
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>
@@ -263,9 +280,9 @@ export default function Cart() {
               <div className="for-checkout d-md-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
                   <h6 className="m-0">
-                    Total ({cartLists.length} item):&nbsp;
+                    Total ({cartProducts?.length} item/s) : &nbsp;
                   </h6>
-                  <h5 className="fw-bold m-0">{utils.calcTotal(cartLists)}</h5>
+                  <h5 className="fw-bold m-0">{utils.toPhp.format(total)}</h5>
                 </div>
                 <button
                   className="cart-buy rounded-3 text-white text-uppercase fw-bold"

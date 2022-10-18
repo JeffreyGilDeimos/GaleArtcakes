@@ -7,13 +7,11 @@ import Featured from "../Featured";
 import Skeleton from "react-loading-skeleton";
 import * as actionProducts from "../../redux/actions/actionProduct";
 import { bindActionCreators } from "redux";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export default function Menu() {
   const { id } = useParams();
-  // const [ourCakes, setOurCakes] = useState("");
   const { getAllProducts } = bindActionCreators(actionProducts, useDispatch());
-  const productList = useSelector((state) => state.productList);
   const [activeFilter, setActiveFilter] = useState("ALL");
   const [cakes, setCakes] = useState([]);
   const [category, setCategory] = useState("");
@@ -21,32 +19,39 @@ export default function Menu() {
 
   useEffect(() => {
     setLoading(true);
-    setTimeout(() => {
-      if (parseInt(id) === 1) {
-        setActiveFilter("Chocolate Drip Cake");
-        setCategory("Chocolate Drip Cakes");
-      } else if (parseInt(id) === 2) {
-        setActiveFilter("Themed Cake");
-        setCategory("Themed Cakes");
-      } else if (parseInt(id) === 3) {
-        setActiveFilter("Cartoon/Character Cake");
-        setCategory("Cartoon/Chartacter Cakes");
-      } else if (parseInt(id) === 4) {
-        setActiveFilter("Number Cake");
-        setCategory("Number Cakes");
-      } else if (parseInt(id) === 5) {
-        setActiveFilter("ALL");
-        setCategory("Cakes");
-      }
-      if (activeFilter !== "ALL") {
-        setCakes(productList.filter((item) => item.category === activeFilter));
-        // setCakes(cakeList.filter((item) => item.category === activeFilter));
-        setLoading(false);
-      } else {
-        setCakes(productList);
-        setLoading(false);
-      }
-    }, 500);
+
+    if (parseInt(id) === 1) {
+      setActiveFilter("Chocolate Drip Cake");
+      setCategory("Chocolate Drip Cakes");
+    } else if (parseInt(id) === 2) {
+      setActiveFilter("Themed Cake");
+      setCategory("Themed Cakes");
+    } else if (parseInt(id) === 3) {
+      setActiveFilter("Cartoon/Character Cake");
+      setCategory("Cartoon/Chartacter Cakes");
+    } else if (parseInt(id) === 4) {
+      setActiveFilter("Number Cake");
+      setCategory("Number Cakes");
+    } else if (parseInt(id) === 5) {
+      setActiveFilter("ALL");
+      setCategory("Cakes");
+    }
+
+    getAllProducts().then((response) => {
+      setTimeout(() => {
+        if (activeFilter !== "ALL") {
+          const allProducts = response.payload.filter(
+            (item) => item.category === activeFilter
+          );
+          setCakes(allProducts);
+          setLoading(false);
+        } else {
+          const allProducts = response.payload;
+          setCakes(allProducts);
+          setLoading(false);
+        }
+      }, 500);
+    });
   }, [activeFilter, id]);
 
   const renderLoading = () => {
