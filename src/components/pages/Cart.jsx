@@ -14,7 +14,6 @@ import CartCakes from "../CartCakes";
 export default function Cart() {
   const [total, setTotal] = useState(0);
   const [cartProducts, setCartProducts] = useState([]);
-  const [selected, setSelected] = useState("");
   const activeUser = localStorage;
   const navigate = useNavigate();
   const [showModal1, setShowModal1] = useState(false);
@@ -91,7 +90,7 @@ export default function Cart() {
             <div className="cart-mobile">
               <div className="m-0 cart-title d-flex align-items-center justify-content-between">
                 <h6 className="fw-bolder text-uppercase m-0">
-                  <strong>Select</strong>
+                  <strong></strong>
                 </h6>
                 <h6 className="fw-bolder text-uppercase ms-5 me-5 my-0">
                   <strong>Cake</strong>
@@ -129,14 +128,9 @@ export default function Cart() {
             {cartProducts?.map((item) => (
               <div
                 key={item.productId}
-                className={`incart${selected} bg-white p-3 mb-4 d-flex justify-content-between align-items-center rounded-4`}
+                className="bg-white p-3 mb-4 d-flex justify-content-between align-items-center rounded-4"
               >
-                <input
-                  type="checkbox"
-                  className="select-cake m-2 cart-input"
-                  onClick={() => setSelected(selected ? "" : "-select")}
-                />
-                <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-evenly">
+                <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-around">
                   <img
                     src={
                       item.imageLink
