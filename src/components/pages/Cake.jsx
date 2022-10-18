@@ -6,10 +6,9 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
-import * as actionProduct from "../../redux/actions/actionProduct";
-import * as actionCart from "../../redux/actions/actionCart";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { db, auth } from "../../firebase";
+
+// import { useAuthState } from "react-firebase-hooks/auth";
+// import { db, auth } from "../../firebase";
 import * as cartAction from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
@@ -22,13 +21,14 @@ export default function Cake() {
   // const [user] = useAuthState(auth);
   const { id } = useParams();
   const [cakes, setCakes] = useState([]);
-  // const [like, setLike] = useState("");
+  const [like, setLike] = useState("");
+  const [numLike, setNumLike] = useState(1)
   const [loading, setLoading] = useState(false);
-  const { getProduct } = bindActionCreators(actionProduct, useDispatch());
-  const { addToCart } = bindActionCreators(actionCart, useDispatch());
+  const { getProduct, actionProduct, actionCart } = bindActionCreators(actionProduct, useDispatch());
+  const { addToCart, handleAddToCart } = bindActionCreators(actionCart, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-
+   
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -37,15 +37,13 @@ export default function Cake() {
         setLoading(false);
       }, 1000);
     });
-  }, [id]);
+  }, [id])  
 
-  const handleAddToCart = (productId) => {
-    if (localStorage.email) {
-      addToCart(localStorage.email, productId);
-      window.location.reload();
-    }
-  };
-
+  const handlelikes = () => {
+    setNumLike((prev) => 
+      prev + 1
+    )
+  }
   // const checkItem = (item) => {
   //   if(!cartLists.find((cart) => cart.id === item.id)) { // you can also change `name` to `id`
   //     arr.push(item);
@@ -62,6 +60,7 @@ export default function Cake() {
   // item.quantity = 1;
   // addToCart(item);
   // setShowModal1(true);
+
 
   const renderCake = () => {
     return (
@@ -119,12 +118,13 @@ export default function Cake() {
               <button
                 className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
                 // onClick={() => setLike(like ? "" : "d")}
+                onClick={handlelikes}
               >
-                {/* <FontAwesomeIcon icon={faHeart} className={`like${like}`} /> */}
-              </button>
-              <p className="m-0 fw-semibold">
-                <small>10 like/s</small>
-              </p>
+                <FontAwesomeIcon icon={faHeart} className={`like${like}`} />
+                <span className="m-0 fw-semibold">
+                    <small> {numLike} like/s</small>
+                </span>
+                </button>
             </div>
           </div>
         </div>
