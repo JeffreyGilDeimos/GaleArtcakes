@@ -41,14 +41,14 @@ export default function Menu() {
 
     getAllProducts().then((response) => {
       setTimeout(() => {
-        const allProducts = response.payload.filter(
-          (item) => item.category === activeFilter
-        );
         if (activeFilter !== "ALL") {
+          const allProducts = response.payload.filter(
+            (item) => item.category === activeFilter
+          );
           setCakes(allProducts);
-          // setCakes(cakeList.filter((item) => item.category === activeFilter));
           setLoading(false);
         } else {
+          const allProducts = response.payload;
           setCakes(allProducts);
           setLoading(false);
         }

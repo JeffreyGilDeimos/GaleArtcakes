@@ -5,7 +5,6 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import * as actionCart from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { Form, Modal } from "react-bootstrap";
 
 import Footer from "../Footer";
@@ -21,7 +20,6 @@ export default function Cart() {
   const navigate = useNavigate();
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-  const [showModal, setShowModal] = useState(false);
   const { getAllProductsByUser, checkOut } = bindActionCreators(
     actionCart,
     useDispatch()
