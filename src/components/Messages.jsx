@@ -46,7 +46,7 @@ export default function Messages() {
             readOnly
           />
           {activeUser.email === review.email && (
-            <div className="for-save-btn d-flex justify-content-between">
+            <div className="for-save-btn d-flex justify-content-end">
               <button
                 className="delete-review border-0 p-0 bg-white fs-6"
                 data-bs-toggle="modal"
@@ -55,13 +55,13 @@ export default function Messages() {
               >
                 <small>Delete</small>
               </button>
-              <button
+              {/* <button
                 className="save-review border-0 p-0 bg-white fs-6"
                 data-bs-toggle="modal"
                 data-bs-target="#reviewModal2"
               >
                 <small>Edit</small>
-              </button>
+              </button> */}
             </div>
           )}
         </div>

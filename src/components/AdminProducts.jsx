@@ -303,11 +303,11 @@ export default function AdminProducts() {
           {/* UPLOAD NEW PRODUCT FORM */}
           <Form onSubmit={handleSubmit} className="row pb-5">
             <div className="col-lg-6 pe-lg-3">
-              <div className="admin-product p-4 m-auto w-auto me-lg-0 rounded-4 bg-white">
+              <div className="admin-product p-4 m-auto rounded-4 bg-white float-md-end">
                 <img
                   src="/images/no-image-icon.png"
                   alt="logo"
-                  className="admin-product-img w-auto rounded-3"
+                  className="admin-product-img d-block m-auto w-100 h-auto rounded-3"
                 />
               </div>
             </div>
@@ -391,7 +391,10 @@ export default function AdminProducts() {
               </Form.Group>
 
               {/* PRODUCT DESCRIPTION */}
-              <Form.Group controlId="formDescription" className="form-description">
+              <Form.Group
+                controlId="formDescription"
+                className="form-description"
+              >
                 <Form.Control
                   as="textarea"
                   rows={3}

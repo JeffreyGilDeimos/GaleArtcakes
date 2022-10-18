@@ -1,5 +1,6 @@
 /* <!-- ---- Media Query ---- --> */
-@media (min-height: 1025px) {
+/* @media (min-height: 1025px) {  */
+@media (min-height: 863px) { 
   #cake {
     height: 100vh;
     display: flex;
@@ -29,6 +30,12 @@
   .form-price,
   .form-description {
     width: 72%;
+  }
+  .admin-product {
+    transform: translate(0, 0);
+  }
+  .admin-product-img {
+    width: 57%;
   }
   .footer {
     justify-content: space-between;
@@ -70,6 +77,9 @@
   .form-description {
     width: 100%;
   }
+  .admin-product {
+    transform: translate(-42%, 0);
+  }
   #footer {
     margin-top: 13px;
   }
@@ -109,6 +119,9 @@
   .form-price,
   .form-description {
     width: 100%;
+  }
+  .admin-product {
+    transform: translate(0, 0);
   }
   #review-input {
     width: 100%;
@@ -395,7 +408,7 @@ li:not(:last-child) .nav-link:hover {
 }
 
 .product:hover img,
-.admin-product:hover img {
+.admin-product-img:hover {
   transform: scale(1.05);
 }
 
@@ -482,10 +495,6 @@ li:not(:last-child) .nav-link:hover {
 }
 
 /* ----- Admin ----- */
-.admin-product-img {
-  height: 356px;
-}
-
 .admin-product-card {
   box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
 }
