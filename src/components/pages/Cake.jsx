@@ -11,7 +11,6 @@ import * as actionProduct from "../../redux/actions/actionProduct";
 import { bindActionCreators } from "redux";
 import { useDispatch } from "react-redux";
 import { Modal } from "react-bootstrap";
-import Featured from "../Featured";
 
 export default function Cake() {
   const { id } = useParams();
@@ -141,7 +140,6 @@ export default function Cake() {
           {loading ? renderLoading() : renderCake()}
         </div>
       </section>
-      <Featured />
       <Footer />
 
       {/* Modals */}
