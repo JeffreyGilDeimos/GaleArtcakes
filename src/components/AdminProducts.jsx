@@ -199,21 +199,10 @@ export default function AdminProducts() {
                 aria-hidden="true"
               >
                 <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content p-2 border-0">
-                    <div className="border-0">
-                      <div className="modal-header border-0">
-                        <h5 className="modal-title" id="staticBackdropLabel">
-                          Gake ArtCakes
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body body-delete mx-4 rounded-2 text-danger">
-                        Cake successfully deleted!
+                  <div className="modal-content p-4 border-0">
+                    <div className="border border-1 rounded-3">
+                      <div className="modal-body mx-3 text-center">
+                        Great! The product has been deleted successfully.
                       </div>
                       <div className="modal-footer border-0">
                         <button
@@ -269,7 +258,6 @@ export default function AdminProducts() {
                   </div>
                 </div>
               </div>
-
               <div
                 className="modal fade"
                 id="AdminProductModal02"
@@ -280,21 +268,10 @@ export default function AdminProducts() {
                 aria-hidden="true"
               >
                 <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content p-2 border-0">
-                    <div className="border-0">
-                      <div className="modal-header border-0">
-                        <h5 className="modal-title" id="staticBackdropLabel">
-                          Gale ArtCakes
-                        </h5>
-                        <button
-                          type="button"
-                          className="btn-close"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        ></button>
-                      </div>
-                      <div className="modal-body body-delete mx-4 rounded-2 text-danger">
-                        Cake successfully deleted!
+                  <div className="modal-content p-4 border-0">
+                    <div className="border border-1 rounded-3">
+                      <div className="modal-body mx-3 text-center">
+                        Great! The product has been deleted successfully.
                       </div>
                       <div className="modal-footer border-0">
                         <button
@@ -517,36 +494,6 @@ export default function AdminProducts() {
           </h2>
           <div className="row justify-content-center">
             {renderProducts("Number Cake")}
-          </div>
-
-          {/* MODAL FOR DELETE */}
-          <div
-            className="modal fade"
-            id="staticBackdrop0"
-            data-bs-backdrop="static"
-            data-bs-keyboard="false"
-            tabIndex="-1"
-            aria-labelledby="staticBackdropLabel"
-            aria-hidden="true"
-          >
-            <div className="modal-dialog modal-dialog-centered">
-              <div className="modal-content p-4 border-0">
-                <div className="border border-1 rounded-3">
-                  <div className="modal-body mx-3 text-center">
-                    Great! The product has been deleted successfully.
-                  </div>
-                  <div className="modal-footer border-0">
-                    <button
-                      type="button"
-                      className="btn btn-secondary"
-                      data-bs-dismiss="modal"
-                    >
-                      Close
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>

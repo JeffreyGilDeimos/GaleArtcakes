@@ -1,23 +1,23 @@
-import { useState, React } from "react";
-import { auth, db } from "../firebase";
-import firebase from "firebase/compat/app";
-import { useCollection } from "react-firebase-hooks/firestore";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { useSelector } from "react-redux";
+import { useState, React, useEffect, useRef } from "react";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Messages from "./Messages";
 import TextareaAutosize from "react-textarea-autosize";
 import { Modal } from "react-bootstrap";
+import * as actionReview from "../redux/actions/actionReview";
+import { bindActionCreators } from "redux";
 
 export default function Reviews() {
   const [input, setInput] = useState("");
-  const [user] = useAuthState(auth);
-  // const activeUser = useSelector((state) => state.activeUser);
+  const activeUser = localStorage;
   const navigate = useNavigate();
   const [showModal, setShowModal] = useState(false);
-  const [reviews] = useCollection(
-    db.collection("messages").orderBy("timestamp", "desc")
-  );
+  const inputRef = useRef(null);
+  const { addReview } = bindActionCreators(actionReview, useDispatch());
+
+  useEffect(() => {
+    inputRef.current.focus();
+  });
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -25,29 +25,21 @@ export default function Reviews() {
     if (!input) {
       setShowModal(false);
       return null;
-    } else if (activeUser.id) {
-      db.collection("messages").add({
+    } else if (activeUser.email) {
+      const requestBody = {
         message: input,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        // the user must be username, not email
-        user: activeUser.username,
-        userImage:
-          "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0",
         email: activeUser.email,
-      });
-      setShowModal(true);
-    } else {
-      db.collection("messages").add({
-        message: input,
-        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-        user: user.displayName,
-        userImage: user.photoURL,
-        email: activeUser.email,
-      });
-      setShowModal(true);
+      };
+      addReview(requestBody)
+        .then((response) => {
+          console.log(response, "response");
+          setShowModal(true);
+          setInput("");
+        })
+        .catch((error) => {
+          console.log(error, "error");
+        });
     }
-
-    setInput("");
   };
 
   const checkUser = () => {
@@ -76,6 +68,7 @@ export default function Reviews() {
                 name="review-input"
                 id="review-input"
                 value={input}
+                ref={inputRef}
                 onChange={(e) => setInput(e.target.value)}
                 onClick={() => checkUser()}
                 placeholder="Write your review here!"
@@ -119,20 +112,7 @@ export default function Reviews() {
             <div className="row justify-content-center">
               {/* REVIEWS */}
 
-              {reviews?.docs.map((doc) => {
-                const { user, userImage, message, timestamp, email } =
-                  doc.data();
-                return (
-                  <Messages
-                    key={doc.id}
-                    user={user}
-                    userImage={userImage}
-                    message={message}
-                    timestamp={timestamp}
-                    email={email}
-                  />
-                );
-              })}
+              <Messages />
             </div>
           </div>
         </div>

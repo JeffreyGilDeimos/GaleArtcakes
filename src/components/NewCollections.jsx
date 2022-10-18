@@ -15,11 +15,22 @@ export default function NewCollections() {
 
   useEffect(() => {
     getAllProducts().then((response) => {
-      setCakes(productList.filter((item) => item.featured === activeFilter));
+      const allCakes = response.payload.filter(
+        (item) => item.featured === activeFilter
+      );
+      setCakes(allCakes);
     });
-
-    // setCakes(cakeList.filter((item) => item.featured === activeFilter));
   }, [activeFilter]);
+
+  // useEffect(() => {
+  //   getAllProducts().then((response) => {
+  //     const allCakes = response.payload.filter((item) => item.featured === activeFilter));
+  //     setCakes(allCakes);
+  //   }
+  //   });
+
+  // setCakes(cakeList.filter((item) => item.featured === activeFilter));
+  // }, [activeFilter]);
 
   const renderCakeList = () => {
     return cakes.map((item) => (

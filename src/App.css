@@ -363,6 +363,21 @@ li:not(:last-child) .nav-link:hover {
   overflow-y: hidden;
 }
 
+.save-review,
+.delete-review {
+  color: rgba(0, 0, 0, 0.5);
+  font-weight: bold;
+}
+
+.save-review:hover,
+.delete-review:hover {
+  font-weight: bolder;
+}
+
+.delete-review:hover {
+  color: #dc3545;
+}
+
 /* ----- About ----- */
 .about-img {
   border: 5px solid white;
