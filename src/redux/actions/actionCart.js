@@ -1,4 +1,4 @@
-import { get, put, post } from '../../utilities/https';
+import { get, put, post, deleteMethod } from '../../utilities/https';
 
 export const getAllProductsByUser = (email) => {
     const url = `/cart/getProductByUser/${email}`;
@@ -42,6 +42,21 @@ export const checkOut = (email) => {
             })
         }).catch((error) => {
             reject(error)
+        })
+    })
+}
+
+export const deleteFromCart = (email, productId) => {
+    const url = `/cart/${email}/delete/${productId}`;
+    return new Promise((resolve, reject) => {
+        const promise = deleteMethod(url);
+        promise.then((response) => {
+            resolve({
+                type: 'SAVE_CART_PRODUCTS',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error);
         })
     })
 }

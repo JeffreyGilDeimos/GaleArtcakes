@@ -36,7 +36,8 @@ export default function Cake() {
   const handleAddToCart = (productId) => {
     if (localStorage.email) {
       addToCart(localStorage.email, productId);
-      window.location.reload();
+      setShowModal1(true);
+      // window.location.reload();
     }
   };
 
@@ -156,13 +157,14 @@ export default function Cake() {
         <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
             <div className="modal-body mx-3 text-center">
-              Great! Product has been added to your cart successfully.
+              Cake has been added to your cart successfully.
             </div>
             <div className="modal-footer border-0">
               <button
                 type="button"
                 className="btn btn-secondary"
-                onClick={() => closeModal()}
+                data-bs-dismiss="modal"
+                onClick={() => window.location.reload()}
               >
                 Close
               </button>

@@ -19,7 +19,7 @@ export default function Cart() {
   const navigate = useNavigate();
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
-  const { getAllProductsByUser, checkOut } = bindActionCreators(
+  const { getAllProductsByUser, checkOut, deleteFromCart } = bindActionCreators(
     actionCart,
     useDispatch()
   );
@@ -179,6 +179,9 @@ export default function Cart() {
                   icon={faTrash}
                   type="button"
                   className="trash fs-5 m-2"
+                  onClick={() =>
+                    deleteFromCart(activeUser.email, item.productId)
+                  }
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 />
@@ -198,7 +201,7 @@ export default function Cart() {
                       <div className="border-0">
                         <div className="modal-header border-0">
                           <h5 className="modal-title" id="staticBackdropLabel">
-                            Delete item
+                            Gale ArtCakes
                           </h5>
                           <button
                             type="button"
@@ -208,18 +211,18 @@ export default function Cart() {
                           ></button>
                         </div>
                         <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                          Are you sure you want to delete this item from your
-                          cart?
+                          Item successfully deleted from cart.
                         </div>
                         <div className="modal-footer border-0">
                           <button
                             type="button"
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
+                            onClick={() => window.location.reload()}
                           >
                             Close
                           </button>
-                          <button
+                          {/* <button
                             type="button"
                             className="btn btn-danger"
                             // onClick={() => removeFromCart(item.id)}
@@ -227,7 +230,7 @@ export default function Cart() {
                             data-bs-target="#staticBackdrop05"
                           >
                             Delete
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>
@@ -277,7 +280,7 @@ export default function Cart() {
               <div className="for-checkout d-md-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
                   <h6 className="m-0">
-                    Total ({cartProducts?.length} item):&nbsp;
+                    Total ({cartProducts?.length} item/s) : &nbsp;
                   </h6>
                   <h5 className="fw-bold m-0">{utils.toPhp.format(total)}</h5>
                 </div>
