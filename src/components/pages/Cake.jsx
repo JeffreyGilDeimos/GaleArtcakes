@@ -3,6 +3,7 @@ import Footer from "../Footer";
 import Navigation from "../Navigation";
 import { Link, useParams } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FcLike} from "react-icons/fc";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Skeleton from "react-loading-skeleton";
 import * as actionCart from "../../redux/actions/actionCart";
@@ -38,10 +39,10 @@ export default function Cake() {
     }
   };
 
-  const [numLike, setNumLike] = useState(0);
+  const [numLike, setNumLike] = useState(1);
 
   const handleAddLike = (prev) => {
-    setNumLike((prev) => prev + 1);
+    setLike(!like)
   };
 
   const renderCake = () => {
@@ -98,14 +99,11 @@ export default function Cake() {
             </p>
             <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
               <button
-                className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
-                // onClick={() => setLike(like ? "" : "d") }
+              className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"                
+              onClick={handleAddLike}
               >
-                <FontAwesomeIcon
-                  icon={faHeart}
-                  className={`like${like}`}
-                  onClick={handleAddLike}
-                />
+              {like ? <FcLike size={20} onClick={() =>setNumLike((prev) => (prev-1))}/> : <FcLike size={20} onClick={() =>setNumLike((prev) => (prev + 1))}/>}
+
                 <span className="m-0 fw-semibold">
                   <small>
                     {" "}
