@@ -44,7 +44,6 @@ export default function Cake() {
 
   const handleAddLike = (prev) => {
     setNumLike(prev => prev + 1 )
-
   }
 
 
@@ -103,7 +102,7 @@ export default function Cake() {
             <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
               <button
                 className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
-                // onClick={() => setLike(like ? "" : "d")}
+                // onClick={() => setLike(like ? "" : "d") }
               >
                 <FontAwesomeIcon icon={faHeart} className={`like${like}`}
                 onClick={handleAddLike} />
