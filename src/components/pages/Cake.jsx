@@ -4,7 +4,6 @@ import Navigation from "../Navigation";
 import { Link, useParams } from "react-router-dom";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { cakeList } from "../../utilities/enums";
 import Skeleton from "react-loading-skeleton";
 import * as actionCart from "../../redux/actions/actionCart";
 import * as actionProduct from "../../redux/actions/actionProduct";
@@ -15,7 +14,7 @@ import { Modal } from "react-bootstrap";
 export default function Cake() {
   const { id } = useParams();
   const [cakes, setCakes] = useState([]);
-  const [like, setLike] = useState("");  
+  const [like, setLike] = useState("");
   const [loading, setLoading] = useState(false);
   const { getProduct } = bindActionCreators(actionProduct, useDispatch());
   const { addToCart } = bindActionCreators(actionCart, useDispatch());
@@ -42,9 +41,8 @@ export default function Cake() {
   const [numLike, setNumLike] = useState(0);
 
   const handleAddLike = (prev) => {
-    setNumLike(prev => prev + 1 )
-  }
-
+    setNumLike((prev) => prev + 1);
+  };
 
   const renderCake = () => {
     return (
@@ -103,10 +101,16 @@ export default function Cake() {
                 className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
                 // onClick={() => setLike(like ? "" : "d") }
               >
-                <FontAwesomeIcon icon={faHeart} className={`like${like}`}
-                onClick={handleAddLike} />
+                <FontAwesomeIcon
+                  icon={faHeart}
+                  className={`like${like}`}
+                  onClick={handleAddLike}
+                />
                 <span className="m-0 fw-semibold">
-                  <small> {numLike} {numLike <= 1 ? "like" : "likes"}</small>
+                  <small>
+                    {" "}
+                    {numLike} {numLike <= 1 ? "like" : "likes"}
+                  </small>
                 </span>
               </button>
             </div>
@@ -170,7 +174,8 @@ export default function Cake() {
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
-                onClick={() => window.location.reload()}
+                onClick={() => closeModal()}
+                // onClick={() => window.location.reload()}
               >
                 Close
               </button>

@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import * as actionCart from "../../redux/actions/actionCart";
 import { bindActionCreators } from "redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Form, Modal } from "react-bootstrap";
 import Footer from "../Footer";
 import Navigation from "../Navigation";
@@ -22,6 +22,7 @@ export default function Cart() {
     actionCart,
     useDispatch()
   );
+  const cartLists = useSelector((state) => state.cartLists);
 
   useEffect(() => {
     if (!activeUser.email) {
@@ -173,9 +174,9 @@ export default function Cart() {
                   icon={faTrash}
                   type="button"
                   className="trash fs-5 m-2"
-                  onClick={() =>
-                    deleteFromCart(activeUser.email, item.productId)
-                  }
+                  // onClick={() =>
+                  //   deleteFromCart(activeUser.email, item.productId)
+                  // }
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 />
@@ -195,7 +196,7 @@ export default function Cart() {
                       <div className="border-0">
                         <div className="modal-header border-0">
                           <h5 className="modal-title" id="staticBackdropLabel">
-                            Gale ArtCakes
+                            Delete item
                           </h5>
                           <button
                             type="button"
@@ -205,26 +206,29 @@ export default function Cart() {
                           ></button>
                         </div>
                         <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                          Item successfully deleted from cart.
+                          Are you sure you want to delete this item from your
+                          cart?
                         </div>
                         <div className="modal-footer border-0">
                           <button
                             type="button"
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
-                            onClick={() => window.location.reload()}
+                            // onClick={() => window.location.reload()}
                           >
                             Close
                           </button>
-                          {/* <button
+                          <button
                             type="button"
                             className="btn btn-danger"
-                            // onClick={() => removeFromCart(item.id)}
+                            onClick={() =>
+                              deleteFromCart(activeUser.email, item.productId)
+                            }
                             data-bs-toggle="modal"
                             data-bs-target="#staticBackdrop05"
                           >
                             Delete
-                          </button> */}
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -244,13 +248,14 @@ export default function Cart() {
                     <div className="modal-content p-4 border-0">
                       <div className="border border-1 rounded-3">
                         <div className="modal-body mx-3 text-center">
-                          Great! The item has been deleted successfully.
+                          The item has been deleted successfully.
                         </div>
                         <div className="modal-footer border-0">
                           <button
                             type="button"
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
+                            onClick={() => window.location.reload()}
                           >
                             Close
                           </button>
@@ -274,7 +279,7 @@ export default function Cart() {
               <div className="for-checkout d-md-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
                   <h6 className="m-0">
-                    Total ({cartProducts?.length} item/s) : &nbsp;
+                    Total ({cartLists?.length} item/s) : &nbsp;
                   </h6>
                   <h5 className="fw-bold m-0">{utils.toPhp.format(total)}</h5>
                 </div>

@@ -11,7 +11,6 @@ import {
   faRightToBracket,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-// import * as actionUser from "../redux/actions/actionUser";
 import * as actionCart from "../redux/actions/actionCart";
 import { NavHashLink as NavLink } from "react-router-hash-link";
 import { useDispatch, useSelector } from "react-redux";
@@ -24,8 +23,7 @@ import Spinner from "react-spinkit";
 export default function Navigation() {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  // const cartLists = useSelector((state) => state.cartLists);
-  const [cartProducts, setCartProducts] = useState([]);
+  const cartLists = useSelector((state) => state.cartLists);
   const { getAllProductsByUser } = bindActionCreators(
     actionCart,
     useDispatch()
@@ -33,9 +31,7 @@ export default function Navigation() {
 
   useEffect(() => {
     if (localStorage.email) {
-      getAllProductsByUser(localStorage.email).then((response) => {
-        setCartProducts(response.payload);
-      });
+      getAllProductsByUser(localStorage.email);
     }
   }, []);
 
@@ -118,7 +114,7 @@ export default function Navigation() {
                         />
                         <span className="position-absolute cart-number translate-middle badge rounded-pill b-primary">
                           {/* {cartLists.length} */}
-                          {cartProducts ? cartProducts?.length : 0}
+                          {cartLists ? cartLists?.length : 0}
                         </span>
                         <span className="nav-label">CART</span>
                       </NavLink>
