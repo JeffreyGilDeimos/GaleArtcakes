@@ -80,7 +80,7 @@ export default function Messages() {
             <div className="modal-content p-4 border-0">
               <div className="border border-1 rounded-3">
                 <div className="modal-body mx-3 text-center">
-                  Great! Your review has been deleted successfully.
+                  Your review has been deleted successfully.
                 </div>
                 <div className="modal-footer border-0">
                   <button

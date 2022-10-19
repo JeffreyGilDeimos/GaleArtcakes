@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import NewCollections from "./NewCollections";
 
 export default function CartCakes() {
   const renderCakeList = () => {
@@ -32,11 +33,12 @@ export default function CartCakes() {
     <>
       <section id="cart-cake">
         <div className="container px-5 pt-5 pt-md-0 pb-0 pb-md-5">
-          <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
-            <strong>You May Also Like</strong>
+          <h1 className="fw-bolder m-0 text-uppercase text-center ">
+            <strong>You May Also Like from our</strong>
           </h1>
-          <div className="row justify-content-center">{renderCakeList()}</div>
+          {/* <div className="row justify-content-center">{renderCakeList()}</div> */}
         </div>
+        <NewCollections />
       </section>
     </>
   );

@@ -36,7 +36,6 @@ export default function Cake() {
     if (localStorage.email) {
       addToCart(localStorage.email, productId);
       setShowModal1(true);
-      // window.location.reload();
     }
   };
 
