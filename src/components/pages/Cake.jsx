@@ -53,7 +53,7 @@ export default function Cake() {
               src={
                 cakes.imageLink
                   ? `http://localhost:8080/product/${cakes.productId}/download`
-                  : "/images/empty-img.png"
+                  : "/images/no-image.png"
               }
               alt={cakes.productName}
               className="d-block m-auto w-100 h-auto rounded-3"
@@ -98,19 +98,16 @@ export default function Cake() {
             </p>
             <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
               <button
-                className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0"
+                className="me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0 d-flex align-items-center"
                 // onClick={() => setLike(like ? "" : "d") }
               >
                 <FontAwesomeIcon
                   icon={faHeart}
-                  className={`like${like}`}
+                  className={`like${like} fs-5`}
                   onClick={handleAddLike}
                 />
-                <span className="m-0 fw-semibold">
-                  <small>
-                    {" "}
-                    {numLike} {numLike <= 1 ? "like" : "likes"}
-                  </small>
+                <span className="m-0 ms-2 fw-semibold" style={{ fontSize: "14px" }}>
+                  {numLike} {numLike <= 1 ? "like" : "likes"}
                 </span>
               </button>
             </div>

@@ -15,7 +15,11 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 91px;
+    padding-top: 82px;
+  }
+  .nav-logo {
+    position: relative;
+    top: -5px;
   }
   .featured-card {
     width: 180px;
@@ -47,7 +51,7 @@
     display: none;
   }
   #footer {
-    margin-top: 17px;
+    margin-top: 10px;
   }
 }
 
@@ -58,7 +62,7 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 159px;
+    padding-top: 143px;
   }
   .layered-footer {
     bottom: 151px;
@@ -81,7 +85,7 @@
     transform: translate(-42%, 0);
   }
   #footer {
-    margin-top: 13px;
+    margin-top: 5px;
   }
   .cart-mobile{
     display: none;
@@ -104,7 +108,7 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 156px;
+    padding-top: 143px;
   }
   .featured-card {
       width: 110px;
@@ -135,7 +139,7 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 207px;
+    padding-top: 192px;
   }
 }
 
@@ -158,7 +162,7 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 142px;
+    padding-top: 128px;
   }
   .nav-label {
     display: none;
@@ -167,7 +171,7 @@
     bottom: 175px;
   }
   #footer {
-    margin-top: 7px;
+    margin-top: 1px;
   }
   .cake-btn-add, 
   .cake-btn-go, 
@@ -194,7 +198,7 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 181px;
+    padding-top: 166px;
   }
 }
 
@@ -205,16 +209,16 @@
   #cake,
   #cart,
   #admin {
-    padding-top: 181px;
+    padding-top: 166px;
   }
   .nav-label {
     display: none;
   }
   .layered-footer {
-    bottom: 198px;
+    bottom: 199px;
   }
   #footer {
-    margin-top: 3px;
+    margin-top: 0px;
   }
 }
 
@@ -260,7 +264,7 @@ li:not(:last-child) .nav-link:hover {
 }
 
 .layered {
-  bottom: -1;
+  bottom: -10;
   right: 0;
 }
 
@@ -487,6 +491,10 @@ li:not(:last-child) .nav-link:hover {
 
 .cart-buy:hover {
   border: 3px solid var(--brown);
+}
+
+.cart-select {
+  width: 69px;
 }
 
 .body-delete {

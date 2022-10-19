@@ -170,7 +170,7 @@ export default function AdminProducts() {
                 </React.Fragment>
                 <div className="pt-2">
                   <p className="mb-2 fw-semibold text-center">
-                    {product?.productName.substring(0, 12)}...
+                    {product?.productName.substring(0, 10)}...
                   </p>
                   <hr className="m-0" />
                   <p className="my-1 fw-bolder text-center">
@@ -239,7 +239,7 @@ export default function AdminProducts() {
                 </React.Fragment>
                 <div className="pt-2">
                   <p className="mb-2 fw-semibold text-center">
-                    {product?.productName.substring(0, 12)}...
+                    {product?.productName.substring(0, 10)}...
                   </p>
                   <hr className="m-0" />
                   <p className="my-1 fw-bolder text-center">

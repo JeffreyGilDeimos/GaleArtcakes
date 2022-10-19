@@ -89,26 +89,23 @@ export default function Cart() {
         <div className="container cart-container p-5">
           <div className="py-md-5">
             <div className="cart-mobile">
-              <div className="m-0 cart-title d-flex align-items-center justify-content-between">
-                <h6 className="fw-bolder text-uppercase m-0">
-                  <strong></strong>
-                </h6>
-                <h6 className="fw-bolder text-uppercase ms-5 me-5 my-0">
+              <div className="m-0 cart-title d-flex align-items-center justify-content-around">
+                <h6 className="fw-bolder text-uppercase m-0 text-center" style={{ width: "120px" }}>
                   <strong>Cake</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase my-0 mx-5">
+                <h6 className="fw-bolder text-uppercase m-0 text-center" style={{ width: "140px" }}>
                   <strong>Name</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase ms-4 me-3 my-0">
+                <h6 className="fw-bolder text-uppercase m-0 text-center">
                   <strong>Unit Price</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase me-3 ms-0 my-0">
+                <h6 className="fw-bolder text-uppercase m-0 text-center">
                   <strong>Quantity</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase m-0">
+                <h6 className="fw-bolder text-uppercase m-0 text-center">
                   <strong>Total Price</strong>
                 </h6>
-                <h6 className="fw-bolder text-uppercase m-0">
+                <h6 className="fw-bolder text-uppercase m-0 text-center">
                   <strong>Action</strong>
                 </h6>
               </div>
@@ -129,27 +126,26 @@ export default function Cart() {
             {cartProducts?.map((item) => (
               <div
                 key={item.productId}
-                className="bg-white p-3 mb-4 d-flex justify-content-between align-items-center rounded-4"
+                className="incart bg-white p-3 mb-4 d-flex justify-content-between align-items-center rounded-4"
               >
                 <div className="incart-cake-lg text-center w-100 d-lg-flex align-items-center justify-content-around">
                   <img
                     src={
                       item.imageLink
                         ? `http://localhost:8080/product/${item.productId}/download`
-                        : "/images/empty-img.png"
+                        : "/images/no-image.png"
                     }
                     alt={item.productName}
-                    className="incart-cake d-block m-auto m-lg-0"
+                    className="incart-cake d-block m-auto m-lg-0 rounded-3"
                   />
 
-                  <h5 className="mt-2 mb-1 m-lg-0">
-                    {item.productName.substring(0, 12)}...
+                  <h5 className="mt-3 mb-1 m-lg-0">
+                    {item.productName.substring(0, 10)}...
                   </h5>
                   <p className="m-0">{utils.toPhp.format(item.price)}</p>
-                  <div className="d-flex align-items-center justify-content-center">
+                  <div className="cart-select d-flex align-items-center justify-content-center my-3 mx-auto m-lg-0">
                     <Form.Select
                       aria-label="QTY"
-                      style={{ marginLeft: "10px", width: "69px" }}
                       onChange={(e) =>
                         setQuantity(item.productId, e.target.value)
                       }
@@ -169,17 +165,17 @@ export default function Cart() {
                       item.price * (item.quantity ? item.quantity : 1)
                     )}
                   </p>
-                </div>
                 <FontAwesomeIcon
                   icon={faTrash}
                   type="button"
-                  className="trash fs-5 m-2"
+                  className="trash fs-5 mt-3 mt-lg-2 m-2 "
                   // onClick={() =>
                   //   deleteFromCart(activeUser.email, item.productId)
                   // }
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 />
+                </div>
 
                 {/* Modal for Delete */}
                 <div
