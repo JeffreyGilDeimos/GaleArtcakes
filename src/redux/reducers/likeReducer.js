@@ -2,7 +2,7 @@ const initialState = [];
 
 const likeReducer = (state = initialState, action) => {
     switch(action.type) {
-        case 'ADD_LIKE':
+        case 'SAVE_PRODUCT_LIKE':
             return state = action.payload;
         default:
             return state;

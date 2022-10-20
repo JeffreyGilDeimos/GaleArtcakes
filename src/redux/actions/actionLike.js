@@ -1,12 +1,29 @@
-import { put, deleteMethod } from '../../utilities/https';
+import { put, post } from '../../utilities/https';
 
-export const addLike = (body) => {
-    const url = '/like/add';
+export const getAllUsersByProduct = (productId) => {
+    const url = `/like/getUsersByProduct/${productId}`;
     return new Promise((resolve, reject) => {
-        const promise = put(url, body);
+        const promise = get(url);
         promise.then((response) => {
             resolve({
-                type: 'ADD_LIKE',
+                type: 'SAVE_PRODUCT_LIKE',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}
+
+
+
+export const addLike = (email, productId) => {
+    const url = `/like/${email}/addLike/${productId}`;
+    return new Promise((resolve, reject) => {
+        const promise = put(url);
+        promise.then((response) => {
+            resolve({
+                type: 'SAVE_PRODUCT_LIKE',
                 payload: response
             })
         }).catch((error) => {
@@ -15,13 +32,13 @@ export const addLike = (body) => {
     })
 }
 
-export const removeLike = (likeId) => {
-    const url = `/like/remove/${likeId}`;
+export const removeLike = (email) => {
+    const url = `/like/removeLike/${email}`;
     return new Promise((resolve, reject) => {
-        const promise = deleteMethod(url);
+        const promise = post(url);
         promise.then((response) => {
             resolve({
-                type: 'ADD_LIKE',
+                type: 'SAVE_PRODUCT_LIKE',
                 payload: response
             })
         }).catch((error) => {
