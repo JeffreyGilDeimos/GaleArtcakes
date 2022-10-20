@@ -57,9 +57,9 @@ export default function CartCakes() {
     <>
       <section id="cart-cake">
         <div className="container px-5 pt-5 pt-md-0 pb-0 pb-md-5">
-          <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
+          <h2 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>You May Also Like Our<br/>New Collections</strong>
-          </h1>
+          </h2>
           <div className="row justify-content-center">{renderCakeList()}</div>
         </div>
       </section>

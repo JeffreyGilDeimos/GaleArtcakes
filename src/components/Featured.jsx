@@ -5,9 +5,9 @@ export default function Featured() {
   return (
     <section className="featured-bg">
       <div className="container p-5">
-        <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
+        <h2 className="fw-bolder m-0 text-uppercase text-center pb-5">
           <strong>Featured Selections</strong>
-        </h1>
+        </h2>
         <div className="d-lg-flex justify-content-around align-items-center">
           <div className="first-feature d-flex justify-content-between align-items-center w-100">
             <div className="w-50">

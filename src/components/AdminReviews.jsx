@@ -65,9 +65,9 @@ export default function AdminReviews() {
     <section id="admin-review">
       <div className="container px-5 pt-5 pb-4 pb-lg-5">
         <div className="pb-md-5">
-          <h1 className="fw-bolder m-0 text-uppercase text-center">
+          <h2 className="fw-bolder m-0 text-uppercase text-center">
             <strong>Reviews</strong>
-          </h1>
+          </h2>
           <div className="mt-5">
             <div className="row justify-content-center">
               {/* REVIEWS */}

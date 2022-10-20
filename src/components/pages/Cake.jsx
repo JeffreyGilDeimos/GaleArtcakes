@@ -36,7 +36,7 @@ export default function Cake() {
     if (localStorage.email) {
       addToCart(localStorage.email, productId);
       setShowModal1(true);
-    }
+    } 
   };
 
   const [numLike, setNumLike] = useState(1);

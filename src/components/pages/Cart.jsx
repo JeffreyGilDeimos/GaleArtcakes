@@ -184,7 +184,7 @@ export default function Cart() {
                 </div>
 
                 {/* Modal for Delete */}
-                <div
+                {/* <div
                   className="modal fade"
                   id="staticBackdrop"
                   data-bs-backdrop="static"
@@ -219,7 +219,7 @@ export default function Cart() {
                           >
                             Close
                           </button>
-                          {/* <button
+                          <button
                             type="button"
                             className="btn btn-danger"
                             onClick={() =>
@@ -229,16 +229,16 @@ export default function Cart() {
                             data-bs-target="#staticBackdrop05"
                           >
                             Delete
-                          </button> */}
+                          </button>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                {/* <div
+                <div
                   className="modal fade"
-                  id="staticBackdrop05"
+                  id="staticBackdrop"
                   data-bs-backdrop="static"
                   data-bs-keyboard="false"
                   tabIndex="-1"
@@ -264,7 +264,7 @@ export default function Cart() {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div>
               </div>
             ))}
 
@@ -279,7 +279,7 @@ export default function Cart() {
               </Link>
               <div className="for-checkout d-md-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
-                  <h6 className="fw-bolder text-uppercase ms-4 me-3 my-0">
+                  <h6 className="fw-bolder text-uppercase me-2 m-0 my-0">
                     <strong>Total</strong>
                   </h6>
                   <h6 className="m-0">

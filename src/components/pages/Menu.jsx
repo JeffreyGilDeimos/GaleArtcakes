@@ -126,9 +126,9 @@ export default function Menu() {
       {/* <!-- ---- Varities ---- --> */}
       <section id="varities">
         <div className="container px-5 pt-5 pb-0 pb-md-5">
-          <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
+          <h2 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>{category}</strong>
-          </h1>
+          </h2>
 
           {/* <form
             className=" d-flex align-items-center col-12 col-lg-auto mb-3 mb-lg-0"

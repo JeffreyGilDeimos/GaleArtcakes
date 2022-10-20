@@ -8,7 +8,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer id="footer" className="p-4 position-relative">
+    <footer id="footer" className="py-3 px-4 position-relative">
       <div className="container">
         <div className="footer text-center d-lg-flex align-items-center justify-content-space-between">
           <p className="m-0 fw-bold text-decoration-capitalize">

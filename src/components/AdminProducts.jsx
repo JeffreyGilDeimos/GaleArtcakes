@@ -296,9 +296,9 @@ export default function AdminProducts() {
     <section id="admin-products">
       <div className="container px-5 pt-5 pb-4">
         <div className="pt-md-5">
-          <h1 className="fw-bolder m-0 text-uppercase text-center pb-5">
+          <h2 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>Upload New Product</strong>
-          </h1>
+          </h2>
 
           {/* UPLOAD NEW PRODUCT FORM */}
           <Form onSubmit={handleSubmit} className="row pb-5">
@@ -466,37 +466,37 @@ export default function AdminProducts() {
             </div>
           </Modal>
 
-          <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-md-4">
+          <h3 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-md-4">
             <strong>New Collections</strong>
-          </h2>
+          </h3>
           <div className="row justify-content-center">
             {renderFeaturedProducts("true")}
           </div>
 
-          <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
+          <h3 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Chocolate Drip Cakes</strong>
-          </h2>
+          </h3>
           <div className="row justify-content-center">
             {renderProducts("Chocolate Drip Cake")}
           </div>
 
-          <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
+          <h3 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Chocomoist Themed Cakes</strong>
-          </h2>
+          </h3>
           <div className="row justify-content-center">
             {renderProducts("Themed Cake")}
           </div>
 
-          <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
+          <h3 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Cartoon / Character Cakes</strong>
-          </h2>
+          </h3>
           <div className="row justify-content-center">
             {renderProducts("Cartoon/Character Cake")}
           </div>
 
-          <h2 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
+          <h3 className="fw-bolder m-0 text-uppercase text-center pb-4 pt-5">
             <strong>Number Cakes</strong>
-          </h2>
+          </h3>
           <div className="row justify-content-center">
             {renderProducts("Number Cake")}
           </div>
