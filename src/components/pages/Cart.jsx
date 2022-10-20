@@ -174,9 +174,9 @@ export default function Cart() {
                   icon={faTrash}
                   type="button"
                   className="trash fs-5 m-2"
-                  // onClick={() =>
-                  //   deleteFromCart(activeUser.email, item.productId)
-                  // }
+                  onClick={() =>
+                    deleteFromCart(activeUser.email, item.productId)
+                  }
                   data-bs-toggle="modal"
                   data-bs-target="#staticBackdrop"
                 />
@@ -196,7 +196,7 @@ export default function Cart() {
                       <div className="border-0">
                         <div className="modal-header border-0">
                           <h5 className="modal-title" id="staticBackdropLabel">
-                            Delete item
+                            Gale ArtCake
                           </h5>
                           <button
                             type="button"
@@ -206,19 +206,18 @@ export default function Cart() {
                           ></button>
                         </div>
                         <div className="modal-body body-delete mx-3 rounded-2 text-danger">
-                          Are you sure you want to delete this item from your
-                          cart?
+                          The item has been deleted successfully.
                         </div>
                         <div className="modal-footer border-0">
                           <button
                             type="button"
                             className="btn btn-secondary"
                             data-bs-dismiss="modal"
-                            // onClick={() => window.location.reload()}
+                            onClick={() => window.location.reload()}
                           >
                             Close
                           </button>
-                          <button
+                          {/* <button
                             type="button"
                             className="btn btn-danger"
                             onClick={() =>
@@ -228,14 +227,14 @@ export default function Cart() {
                             data-bs-target="#staticBackdrop05"
                           >
                             Delete
-                          </button>
+                          </button> */}
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
 
-                <div
+                {/* <div
                   className="modal fade"
                   id="staticBackdrop05"
                   data-bs-backdrop="static"
@@ -263,7 +262,7 @@ export default function Cart() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             ))}
 
@@ -278,8 +277,12 @@ export default function Cart() {
               </Link>
               <div className="for-checkout d-md-flex justify-content-between align-items-center">
                 <div className="d-flex align-items-center mb-2 mb-md-0 justify-content-center">
+                  <h6 className="fw-bolder text-uppercase ms-4 me-3 my-0">
+                    <strong>Total</strong>
+                  </h6>
                   <h6 className="m-0">
-                    Total ({cartLists?.length} item/s) : &nbsp;
+                    ({cartLists?.length}{" "}
+                    {cartLists?.length <= 1 ? "item" : "items"}) : &nbsp;
                   </h6>
                   <h5 className="fw-bold m-0">{utils.toPhp.format(total)}</h5>
                 </div>
