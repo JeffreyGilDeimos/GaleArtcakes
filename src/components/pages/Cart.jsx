@@ -175,9 +175,9 @@ export default function Cart() {
                     icon={faTrash}
                     type="button"
                     className="trash fs-5 mt-3 mt-lg-2 m-2 "
-                    // onClick={() =>
-                    //   deleteFromCart(activeUser.email, item.productId)
-                    // }
+                    onClick={() =>
+                      deleteFromCart(activeUser.email, item.productId)
+                    }
                     data-bs-toggle="modal"
                     data-bs-target="#staticBackdrop"
                   />
