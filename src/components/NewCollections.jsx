@@ -36,7 +36,7 @@ export default function NewCollections() {
               src={
                 item.imageLink
                   ? `http://localhost:8080/product/${item.productId}/download`
-                  : "/images/empty-img.png"
+                  : "/images/no-image.png"
               }
               alt={item.productName}
               className="img-fluid"

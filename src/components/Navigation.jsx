@@ -49,7 +49,7 @@ export default function Navigation() {
   const renderNavigation = () => {
     return (
       <Navbar id="header">
-        <div className="p-2 p-lg-3 nav-bg-color fixed-top">
+        <div className="pb-0 p-2 pb-lg-0 p-lg-3 nav-bg-color fixed-top">
           <Container className="position-relative">
             <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
               <NavLink
@@ -59,9 +59,10 @@ export default function Navigation() {
               >
                 <img
                   src="../images/Logo.png"
-                  width="160"
-                  height="65"
+                  width="140"
+                  height="55"
                   alt="Gale Logo"
+                  className="nav-logo"
                 />
               </NavLink>
               <ul className="nav col-12 col-lg-auto my-2 justify-content-center my-lg-1 text-small fw-bold">
@@ -162,7 +163,7 @@ export default function Navigation() {
             </div>
           </Container>
           <img
-            src="../images/layered.png"
+            src="../images/layered01.png"
             alt="layered"
             className="layered img-fluid w-100 position-absolute m-0"
           />

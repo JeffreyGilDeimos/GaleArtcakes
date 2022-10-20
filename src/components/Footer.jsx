@@ -36,7 +36,7 @@ export default function Footer() {
         </div>
       </div>
       <img
-        src="../images/layered-footer.png"
+        src="../images/layered-footer01.png"
         alt="layered"
         className="layered-footer img-fluid w-100 position-absolute m-0"
       />
