@@ -1,30 +1,56 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Skeleton from "react-loading-skeleton";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import * as actionProducts from "../redux/actions/actionProduct";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
-// import { cakeList } from "../utilities/enums";
 
 export default function NewCollections() {
   const { getAllProducts } = bindActionCreators(actionProducts, useDispatch());
   const productList = useSelector((state) => state.productList);
   const [activeFilter] = useState("YES");
-  // const [cakes, setCakes] = useState([]);
-
-  // useEffect(() => {
-  //   getAllProducts().then((response) => {
-  //     const allCakes = response.payload.filter(
-  //       (item) => item.featured === activeFilter
-  //     );
-  //     setCakes(allCakes);
-  //   });
-  // }, [activeFilter]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    getAllProducts();
+    setLoading(true);
+    setTimeout(() => {
+      getAllProducts();
+      setLoading(false);
+    }, 500);
   }, []);
+
+  const renderLoading = () => {
+    return (
+      <div className="row g-3 pb-5">
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+        <div className="col-md-6 col-lg-3">
+          <Skeleton height={300} />
+        </div>
+      </div>
+    );
+  };
 
   const renderCakeList = () => {
     return productList
@@ -71,7 +97,9 @@ export default function NewCollections() {
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>New Collections</strong>
           </h2>
-          <div className="row justify-content-center">{renderCakeList()}</div>
+          <div className="row justify-content-center">
+            {loading ? renderLoading() : renderCakeList()}
+          </div>
         </div>
       </section>
     </>

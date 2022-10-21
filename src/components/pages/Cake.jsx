@@ -2,25 +2,45 @@ import React, { useEffect, useState } from "react";
 import Footer from "../Footer";
 import Navigation from "../Navigation";
 import { Link, useParams } from "react-router-dom";
-import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { FcLike } from "react-icons/fc";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FcLike, FcLikePlaceholder } from "react-icons/fc";
 import Skeleton from "react-loading-skeleton";
 import * as actionCart from "../../redux/actions/actionCart";
 import * as actionProduct from "../../redux/actions/actionProduct";
+import * as actionLike from "../../redux/actions/actionLike";
 import { bindActionCreators } from "redux";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Modal } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
 
 export default function Cake() {
   const { id } = useParams();
   const [cakes, setCakes] = useState([]);
-  const [like, setLike] = useState("");
+  const [getLike, setGetLike] = useState([]);
   const [loading, setLoading] = useState(false);
   const { getProduct } = bindActionCreators(actionProduct, useDispatch());
   const { addToCart } = bindActionCreators(actionCart, useDispatch());
   const [showModal1, setShowModal1] = useState(false);
   const [showModal2, setShowModal2] = useState(false);
+  const [showModal3, setShowModal3] = useState(false);
+  const [showModal4, setShowModal4] = useState(false);
+  const { getAllUsersByProduct, addLike, removeLike } = bindActionCreators(
+    actionLike,
+    useDispatch()
+  );
+  const likeList = useSelector((state) => state.likeList);
+
+  useEffect(() => {
+    getAllUsersByProduct(id);
+  }, []);
+
+  useEffect(() => {
+    getAllUsersByProduct(id).then((response) => {
+      const liked = response.payload.filter(
+        (like) => like.email === localStorage.email
+      );
+      setGetLike(liked);
+    });
+  }, []);
 
   useEffect(() => {
     setLoading(true);
@@ -39,10 +59,43 @@ export default function Cake() {
     }
   };
 
-  const [numLike, setNumLike] = useState(1);
+  const handleAddLike = () => {
+    addLike(localStorage.email, id);
+    setShowModal3(true);
+  };
 
-  const handleAddLike = (prev) => {
-    setLike(!like);
+  const removeMyLike = () => {
+    removeLike(localStorage.email);
+    setShowModal4(true);
+  };
+
+  const closeModal = () => {
+    setShowModal1(false);
+    setShowModal2(false);
+  };
+
+  const closeModalLike = () => {
+    setShowModal3(false);
+    setShowModal4(false);
+    window.location.reload();
+  };
+
+  const renderLoading = () => {
+    return (
+      <div className="d-lg-flex py-md-5">
+        <div className="col-12 col-lg-6 pb-5 pb-lg-0 pe-lg-5">
+          <Skeleton height={400} />
+        </div>
+        <div className="col-12 col-lg-6" style={{ lineHeight: 2 }}>
+          <Skeleton height={50} width={200} />
+          <Skeleton height={75} width={300} />
+          <Skeleton height={35} width={150} />
+          <Skeleton height={75} />
+          <Skeleton height={60} width={350} />
+          <Skeleton height={50} width={200} />
+        </div>
+      </div>
+    );
   };
 
   const renderCake = () => {
@@ -91,63 +144,93 @@ export default function Cake() {
             Go to Cart
           </Link>
           <hr className="mt-4 mb-3" />
-          <div className="d-md-flex justify-content-space-between align-items-center">
-            <p className="w-100 m-0 text-center d-md-flex justify-content-start">
-              <small>
-                <em>Don't forget to give this cake a like</em>
-              </small>
-            </p>
-            <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
-              <button
-                className="mx-auto me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0 d-flex align-items-center"
-                onClick={handleAddLike}
-              >
-                {like ? (
-                  <FcLike
-                    size={20}
-                    onClick={() => setNumLike((prev) => prev - 1)}
-                  />
-                ) : (
-                  <FcLike
-                    size={20}
-                    onClick={() => setNumLike((prev) => prev + 1)}
-                  />
-                )}
-                <span
-                  className="m-0 ms-2 fw-semibold"
-                  style={{ fontSize: "14px" }}
-                >
-                  {numLike} {numLike <= 1 ? "like" : "likes"}
-                </span>
-              </button>
+          {/* DIRI-A */}
+
+          {localStorage.email ? (
+            <React.Fragment>
+              {getLike?.length < 1 ? (
+                <div className="d-md-flex justify-content-space-between align-items-center">
+                  <p className="w-100 m-0 text-center d-md-flex justify-content-start">
+                    <small>
+                      <em>Don't forget to give this Cake a like!</em>
+                    </small>
+                  </p>
+                  <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
+                    <button
+                      className="mx-auto me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0 d-flex align-items-center"
+                      onClick={handleAddLike}
+                    >
+                      <FcLikePlaceholder
+                        size={20}
+                        // onClick={() => setNumLike((prev) => prev - 1)}
+                      />
+                      <span
+                        className="m-0 ms-2 fw-semibold"
+                        style={{ fontSize: "14px" }}
+                      >
+                        {likeList?.length}{" "}
+                        {likeList?.length <= 1 ? "like" : "likes"}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                <div className="d-md-flex justify-content-space-between align-items-center">
+                  <p className="w-100 m-0 text-center d-md-flex justify-content-start">
+                    <small>
+                      <em>Thank you for giving this Cake a like!</em>
+                    </small>
+                  </p>
+                  <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
+                    <button
+                      className="mx-auto me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0 d-flex align-items-center"
+                      onClick={removeMyLike}
+                    >
+                      <FcLike
+                        size={20}
+                        // onClick={() => setNumLike((prev) => prev - 1)}
+                      />
+                      <span
+                        className="m-0 ms-2 fw-semibold"
+                        style={{ fontSize: "14px" }}
+                      >
+                        {likeList?.length}{" "}
+                        {likeList?.length <= 1 ? "like" : "likes"}
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              )}
+            </React.Fragment>
+          ) : (
+            <div className="d-md-flex justify-content-between align-items-center">
+              <p className="w-100 m-0 text-center d-md-flex justify-content-start">
+                <small>
+                  <em>Login to give this cake a like</em>
+                </small>
+              </p>
+              <div className="w-100 text-center d-md-flex justify-content-end align-items-center">
+                <button className="mx-auto me-md-2 mt-2 mt-md-0 fs-5 border-0 bg-transparent p-0 d-flex align-items-center">
+                  <NavLink to="/login" className="d-flex align-items-center">
+                    <FcLike size={20} />
+                  </NavLink>
+
+                  <span
+                    className="m-0 ms-2 fw-semibold"
+                    style={{ fontSize: "14px" }}
+                  >
+                    {likeList?.length}{" "}
+                    {likeList?.length <= 1 ? "like" : "likes"}
+                  </span>
+                </button>
+              </div>
             </div>
-          </div>
+          )}
+
+          {/* DIRI-A */}
         </div>
       </div>
     );
-  };
-
-  const renderLoading = () => {
-    return (
-      <div className="d-lg-flex py-md-5">
-        <div className="col-12 col-lg-6 pb-5 pb-lg-0 pe-lg-5">
-          <Skeleton height={400} />
-        </div>
-        <div className="col-12 col-lg-6" style={{ lineHeight: 2 }}>
-          <Skeleton height={50} width={200} />
-          <Skeleton height={75} width={300} />
-          <Skeleton height={35} width={150} />
-          <Skeleton height={75} />
-          <Skeleton height={60} width={350} />
-          <Skeleton height={50} width={200} />
-        </div>
-      </div>
-    );
-  };
-
-  const closeModal = () => {
-    setShowModal1(false);
-    setShowModal2(false);
   };
 
   return (
@@ -211,6 +294,62 @@ export default function Cake() {
                 type="button"
                 className="btn btn-secondary"
                 onClick={() => closeModal()}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        show={showModal3}
+        className="h-100 d-flex justify-content-center align-items-center"
+        id="cakeModal3"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+          <div className="modal-content">
+            <div className="modal-body mx-3 text-center">
+              Thank you for giving this Cake a like!
+            </div>
+            <div className="modal-footer border-0">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => closeModalLike()}
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </Modal>
+
+      <Modal
+        show={showModal4}
+        className="h-100 d-flex justify-content-center align-items-center"
+        id="cakeModal4"
+        data-bs-backdrop="static"
+        data-bs-keyboard="false"
+        tabIndex="-1"
+        aria-labelledby="staticBackdropLabel"
+        aria-hidden="true"
+      >
+        <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+          <div className="modal-content">
+            <div className="modal-body mx-3 text-center">
+              Your like has been removed successfully.
+            </div>
+            <div className="modal-footer border-0">
+              <button
+                type="button"
+                className="btn btn-secondary"
+                onClick={() => closeModalLike()}
               >
                 Close
               </button>
