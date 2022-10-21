@@ -60,13 +60,25 @@ export default function Cake() {
   };
 
   const handleAddLike = () => {
-    addLike(localStorage.email, id);
-    setShowModal3(true);
+    addLike(localStorage.email, id)
+      .then((response) => {
+        console.log(response, "response");
+        setShowModal3(true);
+      })
+      .catch((error) => {
+        console.log(error, "error");
+      });
   };
 
   const removeMyLike = () => {
-    removeLike(localStorage.email);
-    setShowModal4(true);
+    removeLike(localStorage.email)
+    .then((response) => {
+      console.log(response, "response");
+      setShowModal4(true);
+    })
+    .catch((error) => {
+      console.log(error, "error");
+    });
   };
 
   const closeModal = () => {
@@ -315,7 +327,7 @@ export default function Cake() {
         <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
             <div className="modal-body mx-3 text-center">
-              Thank you for giving this Cake a like!
+              Great! Thank you for giving this Cake a like.
             </div>
             <div className="modal-footer border-0">
               <button

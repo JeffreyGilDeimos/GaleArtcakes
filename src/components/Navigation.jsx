@@ -42,6 +42,8 @@ export default function Navigation() {
     setTimeout(() => {
       setLoading(false);
       localStorage.removeItem("email");
+      localStorage.removeItem("userPhoto");
+      localStorage.removeItem("userName");
       navigate("/login");
     }, 1000);
   };

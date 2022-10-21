@@ -1,10 +1,12 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import TextareaAutosize from "react-textarea-autosize";
 import { useDispatch, useSelector } from "react-redux";
 import * as actionReview from "../redux/actions/actionReview";
 import { bindActionCreators } from "redux";
+import { Modal } from "react-bootstrap";
 
 export default function Messages() {
+  const [showModal, setShowModal] = useState(false);
   const activeUser = localStorage;
   const { getAllReviews, deleteReview } = bindActionCreators(
     actionReview,
@@ -24,7 +26,11 @@ export default function Messages() {
           <div className="d-flex mb-3">
             <div className="review-head d-flex align-items-center">
               <img
-                src="https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0"
+                src={
+                  review.userPhoto
+                    ? review.userPhoto
+                    : "https://th.bing.com/th/id/R.d268b238932809e18b85a7820184220f?rik=ahExR0U%2fu2zHyQ&riu=http%3a%2f%2ficon-library.com%2fimages%2fno-profile-picture-icon%2fno-profile-picture-icon-2.jpg&ehk=4X8pLfMkepeJcdTMZ8L033nQ2hfH0gJN3qGTpg62g00%3d&risl=&pid=ImgRaw&r=0"
+                }
                 alt="dp"
                 className="review-profile rounded-circle"
               />
@@ -45,56 +51,63 @@ export default function Messages() {
             className="m-0 review w-100 h-100 border-0 p-2"
             readOnly
           />
-          {activeUser.email === review.email && (
-            <div className="for-save-btn d-flex justify-content-end">
-              <button
-                className="delete-review border-0 p-0 bg-white fs-6"
-                data-bs-toggle="modal"
-                onClick={() => deleteReview(review.reviewId)}
-                data-bs-target="#reviewModal1"
-              >
-                <small>Delete</small>
-              </button>
-              {/* <button
+          {(activeUser.email === review.email || activeUser.userName === review.email) && (
+              <div className="for-save-btn d-flex justify-content-end">
+                <button
+                  className="delete-review border-0 p-0 bg-white fs-6"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    deleteReview(review.reviewId)
+                      .then((response) => {
+                        console.log(response, "response");
+                        setShowModal(true);
+                      })
+                      .catch((error) => {
+                        console.log(error, "error");
+                      });
+                  }}
+                >
+                  <small>Delete</small>
+                </button>
+                {/* <button
                 className="save-review border-0 p-0 bg-white fs-6"
                 data-bs-toggle="modal"
                 data-bs-target="#reviewModal2"
               >
                 <small>Edit</small>
               </button> */}
-            </div>
-          )}
+              </div>
+            )}
         </div>
 
         {/* Modal for Delete */}
-        <div
-          className="modal fade"
-          id="reviewModal1"
+        <Modal
+          show={showModal}
+          className="h-100 d-flex justify-content-center align-items-center"
+          id="reviewModal"
           data-bs-backdrop="static"
           data-bs-keyboard="false"
           tabIndex="-1"
           aria-labelledby="staticBackdropLabel"
           aria-hidden="true"
         >
-          <div className="modal-dialog modal-dialog-centered">
-            <div className="modal-content p-4 border-0">
-              <div className="border border-1 rounded-3">
-                <div className="modal-body mx-3 text-center">
-                  Your review has been deleted successfully.
-                </div>
-                <div className="modal-footer border-0">
-                  <button
-                    type="button"
-                    className="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Close
-                  </button>
-                </div>
+          <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+            <div className="modal-content">
+              <div className="modal-body mx-3 text-center">
+                Your review has been deleted successfully.
+              </div>
+              <div className="modal-footer border-0">
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={() => setShowModal(false)}
+                >
+                  Close
+                </button>
               </div>
             </div>
           </div>
-        </div>
+        </Modal>
 
         {/* MODAL FOR SAVE */}
         <div

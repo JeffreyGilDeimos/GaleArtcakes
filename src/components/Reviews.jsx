@@ -28,8 +28,10 @@ export default function Reviews() {
     } else if (activeUser.email) {
       const requestBody = {
         message: input,
-        email: activeUser.email,
+        email: activeUser.userName ? activeUser.userName : activeUser.email,
+        userPhoto: activeUser.userPhoto,
       };
+      console.log(requestBody, "test");
       addReview(requestBody)
         .then((response) => {
           console.log(response, "response");
