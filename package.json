@@ -2,7 +2,7 @@
   "name": "artcakes",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://artcakes.herokuapp.com",
+  "proxy": "http://localhost:8080",
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.2.0",
     "@fortawesome/free-brands-svg-icons": "^6.2.0",

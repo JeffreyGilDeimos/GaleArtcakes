@@ -1,10 +1,11 @@
 import axios from "axios";
 
-const APIServicePath = "https://artcakes.herokuapp.com";
+// const APIServicePath = "http://localhost:8080";
 
 function getInstance(url) {
   return axios.create({
-    baseURL: APIServicePath + url,
+    // baseURL: APIServicePath + url,
+    baseURL: url,
     timeout: 120000,
   });
 }
