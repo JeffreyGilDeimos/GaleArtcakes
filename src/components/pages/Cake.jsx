@@ -9,7 +9,7 @@ import * as actionProduct from "../../redux/actions/actionProduct";
 import * as actionLike from "../../redux/actions/actionLike";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
-import { Modal } from "react-bootstrap";
+import { Modal, Carousel } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 export default function Cake() {
@@ -72,13 +72,13 @@ export default function Cake() {
 
   const removeMyLike = () => {
     removeLike(localStorage.email)
-    .then((response) => {
-      console.log(response, "response");
-      setShowModal4(true);
-    })
-    .catch((error) => {
-      console.log(error, "error");
-    });
+      .then((response) => {
+        console.log(response, "response");
+        setShowModal4(true);
+      })
+      .catch((error) => {
+        console.log(error, "error");
+      });
   };
 
   const closeModal = () => {
@@ -115,15 +115,43 @@ export default function Cake() {
       <div className="row py-md-5">
         <div className="col-lg-6">
           <div className="product p-4 m-auto rounded-4 bg-white">
-            <img
-              src={
-                cakes.imageLink
-                  ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
-                  : "/images/no-image.png"
-              }
-              alt={cakes.productName}
-              className="d-block m-auto w-100 h-auto rounded-3"
-            />
+            <div className="overflow-hidden rounded-3">
+            <Carousel fade>
+              <Carousel.Item>
+                <img
+                  src={
+                    cakes.imageLink
+                      ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
+                      : "/images/no-image.png"
+                  }
+                  alt={cakes.productName}
+                  className="cake-zoom d-block m-auto w-100 h-auto"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  src={
+                    cakes.imageLink
+                      ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
+                      : "/images/no-image.png"
+                  }
+                  alt={cakes.productName}
+                  className="cake-zoom-left d-block m-auto w-100 h-auto"
+                />
+              </Carousel.Item>
+              <Carousel.Item>
+                <img
+                  src={
+                    cakes.imageLink
+                      ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
+                      : "/images/no-image.png"
+                  }
+                  alt={cakes.productName}
+                  className="cake-zoom-right d-block m-auto w-100 h-auto"
+                />
+              </Carousel.Item>
+            </Carousel>
+            </div>
           </div>
         </div>
         <div className="col-lg-6 pt-5 pt-lg-0">

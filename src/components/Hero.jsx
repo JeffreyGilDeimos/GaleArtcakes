@@ -9,7 +9,7 @@ export default function Hero() {
           <img
             src="images/dripCakes.jpg"
             alt="Cake1"
-            className="img-fluid w-100"
+            className="cake-no-zoom img-fluid w-100"
           />
         </Carousel.Item>
         <Carousel.Item>

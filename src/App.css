@@ -411,9 +411,19 @@ li:not(:last-child) .nav-link:hover {
   background-image: linear-gradient(to bottom left, rgba(213,	122,67, 0.2), white, white, rgba(213,	122,67, 0.2));
 }
 
-.product:hover img,
+.product:hover .cake-zoom,
 .admin-product-img:hover {
   transform: scale(1.05);
+}
+
+.cake-zoom-left {
+  scale: 1.3;
+  transform: translate(10%, -10%);
+}
+
+.cake-zoom-right {
+  scale: 1.3;
+  transform: translate(-10%, -10%);
 }
 
 .cake-btn-add, 
