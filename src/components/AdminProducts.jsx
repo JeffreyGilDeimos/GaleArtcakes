@@ -115,7 +115,7 @@ export default function AdminProducts() {
       //Upload Image
       axios
         .put(
-          `https://artcakes.herokuapp.com/product/${product.productId}/upload`,
+          `http://localhost:8080/product/${product.productId}/upload`,
           formData,
           {
             headers: {
@@ -140,7 +140,7 @@ export default function AdminProducts() {
       <img
         src={
           product.imageLink
-            ? `https://artcakes.herokuapp.com/product/${product.productId}/download`
+            ? `http://localhost:8080/product/${product.productId}/download`
             : "/images/no-image.png"
         }
         alt={product.productName}

@@ -54,8 +54,15 @@ export default function Cake() {
 
   const handleAddToCart = (productId) => {
     if (localStorage.email) {
-      addToCart(localStorage.email, productId);
-      setShowModal1(true);
+      addToCart(localStorage.email, productId)
+        .then((response) => {
+          console.log(response, "response");
+          setShowModal1(true);
+        })
+        .catch((error) => {
+          console.log(error, "error");
+          setShowModal2(true);
+        });
     }
   };
 
@@ -116,41 +123,41 @@ export default function Cake() {
         <div className="col-lg-6">
           <div className="product p-4 m-auto rounded-4 bg-white">
             <div className="overflow-hidden rounded-3">
-            <Carousel fade>
-              <Carousel.Item>
-                <img
-                  src={
-                    cakes.imageLink
-                      ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
-                      : "/images/no-image.png"
-                  }
-                  alt={cakes.productName}
-                  className="cake-zoom d-block m-auto w-100 h-auto"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  src={
-                    cakes.imageLink
-                      ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
-                      : "/images/no-image.png"
-                  }
-                  alt={cakes.productName}
-                  className="cake-zoom-left d-block m-auto w-100 h-auto"
-                />
-              </Carousel.Item>
-              <Carousel.Item>
-                <img
-                  src={
-                    cakes.imageLink
-                      ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
-                      : "/images/no-image.png"
-                  }
-                  alt={cakes.productName}
-                  className="cake-zoom-right d-block m-auto w-100 h-auto"
-                />
-              </Carousel.Item>
-            </Carousel>
+              <Carousel fade>
+                <Carousel.Item>
+                  <img
+                    src={
+                      cakes.imageLink
+                        ? `http://localhost:8080/product/${cakes.productId}/download`
+                        : "/images/no-image.png"
+                    }
+                    alt={cakes.productName}
+                    className="cake-zoom d-block m-auto w-100 h-auto"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    src={
+                      cakes.imageLink
+                        ? `http://localhost:8080/product/${cakes.productId}/download`
+                        : "/images/no-image.png"
+                    }
+                    alt={cakes.productName}
+                    className="cake-zoom-left d-block m-auto w-100 h-auto"
+                  />
+                </Carousel.Item>
+                <Carousel.Item>
+                  <img
+                    src={
+                      cakes.imageLink
+                        ? `http://localhost:8080/product/${cakes.productId}/download`
+                        : "/images/no-image.png"
+                    }
+                    alt={cakes.productName}
+                    className="cake-zoom-right d-block m-auto w-100 h-auto"
+                  />
+                </Carousel.Item>
+              </Carousel>
             </div>
           </div>
         </div>
@@ -297,7 +304,7 @@ export default function Cake() {
         <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
             <div className="modal-body mx-3 text-center">
-              Cake has been added to your cart successfully.
+              Cake has been successfully added to your cart .
             </div>
             <div className="modal-footer border-0">
               <button

@@ -24,7 +24,7 @@ export default function CartCakes() {
             <img
               src={
                 item.imageLink
-                  ? `https://artcakes.herokuapp.com/product/${item.productId}/download`
+                  ? `http://localhost:8080/product/${item.productId}/download`
                   : "/images/no-image.png"
               }
               alt={item.productName}
