@@ -304,11 +304,13 @@ export default function AdminProducts() {
           <Form onSubmit={handleSubmit} className="row pb-5">
             <div className="col-lg-6 pe-lg-3">
               <div className="admin-product p-4 m-auto rounded-4 bg-white float-md-end">
-                <img
-                  src="/images/no-image-icon.png"
-                  alt="logo"
-                  className="admin-product-img d-block m-auto w-100 h-auto rounded-3"
-                />
+                <div className="overflow-hidden rounded-3">
+                  <img
+                    src="/images/no-image-icon.png"
+                    alt="logo"
+                    className="admin-product-img d-block m-auto w-100 h-auto"
+                  />
+                </div>
               </div>
             </div>
             <div className="col-lg-6 pt-5 pt-lg-0 ps-lg-3 m-auto m-lg-0">
