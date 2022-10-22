@@ -417,13 +417,13 @@ li:not(:last-child) .nav-link:hover {
 }
 
 .cake-zoom-left {
-  scale: 1.3;
-  transform: translate(10%, -10%);
+  scale: 1.35;
+  transform: translate(12%, -12%);
 }
 
 .cake-zoom-right {
-  scale: 1.3;
-  transform: translate(-10%, -10%);
+  scale: 1.35;
+  transform: translate(-12%, -12%);
 }
 
 .cake-btn-add, 
