@@ -253,7 +253,7 @@ export default function Cake() {
             <div className="d-md-flex justify-content-between align-items-center">
               <p className="w-100 m-0 text-center d-md-flex justify-content-start">
                 <small>
-                  <em>Login to give this cake a like</em>
+                  <em>*Login to add cart and to give this cake a like.</em>
                 </small>
               </p>
               <div className="w-100 text-center d-md-flex justify-content-end align-items-center">

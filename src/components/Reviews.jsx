@@ -1,4 +1,4 @@
-import { useState, React, useEffect, useRef } from "react";
+import { useState, React, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Messages from "./Messages";
@@ -15,9 +15,9 @@ export default function Reviews() {
   const inputRef = useRef(null);
   const { addReview } = bindActionCreators(actionReview, useDispatch());
 
-  useEffect(() => {
-    inputRef.current.focus();
-  });
+  // useEffect(() => {
+  //   inputRef.current.focus();
+  // });
 
   const sendMessage = (e) => {
     e.preventDefault();
@@ -70,7 +70,7 @@ export default function Reviews() {
                 name="review-input"
                 id="review-input"
                 value={input}
-                ref={inputRef}
+                // ref={inputRef}
                 onChange={(e) => setInput(e.target.value)}
                 onClick={() => checkUser()}
                 placeholder="Write your review here!"
