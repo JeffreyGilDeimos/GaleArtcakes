@@ -80,13 +80,13 @@ export default function Cart() {
     setTotal(value);
   }, [cartProducts]);
 
-  const handleCheckOut = (e) => {
-    e.preventDefault();
-    checkOut(activeUser.email).then((response) => {
-      setShowModal1(true);
-      setCartProducts(response.payload);
-    });
-  };
+  // const handleCheckOut = (e) => {
+  //   e.preventDefault();
+  //   checkOut(activeUser.email).then((response) => {
+  //     setShowModal1(true);
+  //     setCartProducts(response.payload);
+  //   });
+  // };
 
   const closeModal = (e) => {
     e.preventDefault();
@@ -108,6 +108,8 @@ export default function Cart() {
   };
 
   const handleSubmitCheckOut = async (event) => {
+    e.preventDefault();
+
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
       lineItems: lineItems(),
@@ -123,6 +125,10 @@ export default function Cart() {
     if (!error) {
       console.log("No error. Congrats!!!!!!!!!!!!!!!!!", event);
     }
+    checkOut(activeUser.email).then((response) => {
+      setShowModal1(true);
+      setCartProducts(response.payload);
+    });
   };
 
   const setQuantity = (productId, quantity) => {
