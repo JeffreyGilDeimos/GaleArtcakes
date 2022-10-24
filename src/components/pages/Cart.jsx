@@ -1,15 +1,20 @@
 import React, { useState, useEffect } from "react";
+import { loadStripe } from '@stripe/stripe-js';
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import * as actionCart from "../../redux/actions/actionCart";
+import * as actionPayment from "../../redux/actions/actionPayment";
 import { bindActionCreators } from "redux";
 import { useDispatch, useSelector } from "react-redux";
 import { Form, Modal } from "react-bootstrap";
 import Footer from "../Footer";
 import Navigation from "../Navigation";
+import RecentOrders from "./RecentOrders";
 import utils from "../../utilities/utils";
 import CartCakes from "../CartCakes";
+
+const stripePromise = loadStripe('pk_test_51LtrZ2KMROjFBQQBmg1tPfGBDvLuq2KwJoeSUnqb87j4jem2y0pS2FlZN87eZ8cSORELbdffeywCMIBN5rwNvGy000RP7auhn9');
 
 export default function Cart() {
   const [total, setTotal] = useState(0);
@@ -22,19 +27,44 @@ export default function Cart() {
     actionCart,
     useDispatch()
   );
+
+  const { getPaymentsByUser, saveOrder } = bindActionCreators(
+    actionPayment,
+    useDispatch()
+  );
+
   const cartLists = useSelector((state) => state.cartLists);
+  const paymentList = useSelector((state) => state.paymentList);
 
   useEffect(() => {
     if (!activeUser.email) {
       navigate("/login");
     }
-  });
+    // Save successfully ordered item
+    if (activeUser.email) {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const sessionId = urlParams.get('session_id')
+      // Save order
+      if (sessionId) {
+        console.log('should save order..............................');
+        saveOrder(sessionId, activeUser.email)
+        .then(() => {
+          navigate("/cart");
+        })
+        .catch((err) => {
+          navigate("/cart");
+        });
+      }
+    }
+  }, []);
 
   useEffect(() => {
     if (localStorage.email) {
       getAllProductsByUser(activeUser.email).then((response) => {
         setCartProducts(response.payload);
       });
+      getPaymentsByUser(activeUser.email);
     }
   }, []);
 
@@ -61,6 +91,36 @@ export default function Cart() {
     setShowModal1(false);
     setShowModal2(false);
     window.location.reload();
+  };
+
+  const lineItems = () => {
+    const items = [];
+
+    cartProducts?.forEach((data) => {
+      items.push({
+        price: data.priceId,
+        quantity: 1,
+      });
+    });
+    return items;
+  }
+
+  const handleSubmitCheckOut = async (event) => {
+    const stripe = await stripePromise;
+    const { error } = await stripe.redirectToCheckout({
+      lineItems: lineItems(),
+      customerEmail: activeUser ? activeUser.email : null,
+      mode: 'payment',
+      successUrl: `${window.location.href}?session_id={CHECKOUT_SESSION_ID}`,
+      cancelUrl: window.location.href,
+      shippingAddressCollection: {
+        allowedCountries: ['PH'],
+      },
+    });
+    console.log(event, stripe);
+    if (!error) {
+      console.log('No error. Congrats!!!!!!!!!!!!!!!!!', event);
+    }
   };
 
   const setQuantity = (productId, quantity) => {
@@ -291,14 +351,15 @@ export default function Cart() {
                 <button
                   className="cart-buy rounded-3 text-white text-uppercase fw-bold"
                   type="button"
-                  onClick={() => handleCheckOut()}
-                  data-bs-toggle="modal"
-                  data-bs-target="#checkOutModal"
+                  onClick={() => handleSubmitCheckOut()}
+                  // data-bs-toggle="modal"
+                  // data-bs-target="#checkOutModal"
                 >
                   Check Out
                 </button>
               </div>
             </div>
+
 
             {/* Modal for No Selected Item */}
             <Modal
@@ -358,6 +419,7 @@ export default function Cart() {
               </div>
             </Modal>
           </div>
+        <RecentOrders className="mb-3" paymentList={paymentList}/>
         </div>
       </section>
       <CartCakes />

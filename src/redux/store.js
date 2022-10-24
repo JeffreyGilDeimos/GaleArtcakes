@@ -9,6 +9,8 @@ import cartReducer from "./reducers/cartReducer";
 import productReducer from './reducers/productReducer';
 import reviewReducer from "./reducers/reviewReducer";
 import likeReducer from "./reducers/likeReducer";
+import paymentReducer from "./reducers/paymentReducer";
+import receiptReducer from "./reducers/receiptReducer";
 
 export const store = configureStore({
   reducer: {
@@ -16,6 +18,8 @@ export const store = configureStore({
     reviewList: reviewReducer,
     cartLists: cartReducer,
     likeList: likeReducer,
+    paymentList: paymentReducer,
+    receiptList: receiptReducer,
   },
   middleware: [
     thunk,

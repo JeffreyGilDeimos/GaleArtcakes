@@ -529,3 +529,11 @@ li:not(:last-child) .nav-link:hover {
 .layered-footer {
   right: 0;
 }
+
+.order-data {
+  cursor: pointer;
+  text-decoration: underline;
+}
+.order-data:hover {
+  color: var(--light-brown);
+}
