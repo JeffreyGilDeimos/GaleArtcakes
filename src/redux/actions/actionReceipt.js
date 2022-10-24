@@ -14,3 +14,18 @@ export const getReceiptData = (sessionId) => {
         })
     })
 }
+
+export const getReceiptUrl = (sessionId) => {
+    const url = `/sessions/intent/${sessionId}`;
+    return new Promise((resolve, reject) => {
+        const promise = get(url);
+        promise.then((response) => {
+            resolve({
+                type: 'GET_RECEIPT_URL',
+                payload: response
+            })
+        }).catch((error) => {
+            reject(error)
+        })
+    })
+}

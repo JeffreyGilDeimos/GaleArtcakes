@@ -11,6 +11,7 @@ import reviewReducer from "./reducers/reviewReducer";
 import likeReducer from "./reducers/likeReducer";
 import paymentReducer from "./reducers/paymentReducer";
 import receiptReducer from "./reducers/receiptReducer";
+import receiptUrlReducer from "./reducers/receiptUrlReducer";
 
 export const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ export const store = configureStore({
     likeList: likeReducer,
     paymentList: paymentReducer,
     receiptList: receiptReducer,
+    receiptUrlList: receiptUrlReducer,
   },
   middleware: [
     thunk,

@@ -10,35 +10,33 @@ import ReceiptModal from '../ReceiptModal';
 
 const RecentOrders = (props) => {
     const [showModal, setShowModal] = useState(false);
-    const [receipt, setReceipt] = useState(false);
+    const [receipt, setReceipt] = useState(null);
+    const [receiptUrl, setReceiptUrl] = useState(null);
 
-    const { getReceiptData } = bindActionCreators(
+    const { getReceiptData, getReceiptUrl } = bindActionCreators(
         actionReceipt,
         useDispatch()
       );
     const closeModal = (e) => {
         setShowModal(false);
+        setReceipt(null);
+        setReceiptUrl(null);
     };
     const handleClick = (paymentId) => {
         setShowModal(true);
         console.log(paymentId);
         getReceiptData(paymentId).then((response) => setReceipt(response.payload.data));
+        getReceiptUrl(paymentId).then((response) => setReceiptUrl(response.payload.receiptUrl));
     }
-
-    // useEffect(() => {
-    //     props.paymentList?.forEach(receipt => {
-    //         getReceiptData(receipt.paymentId)
-    //     });
-
-    // }, [])
 
   return (
     <>
         <h3 className="mb-2">Recent orders</h3>
         {
-            props.paymentList?.map(payment => (
+            props.paymentList.map(payment => (
                 <>
                     <div
+                        key={payment.paymentId}
                         className="order-data mt-2 mb-2"
                         onClick={() => handleClick(payment.paymentId)}
                     >
@@ -50,7 +48,12 @@ const RecentOrders = (props) => {
                 </>
             ))
         }
-        < ReceiptModal receipt={receipt} showModal={showModal} closeModal={closeModal}/>
+        <ReceiptModal
+            receipt={receipt}
+            showModal={showModal}
+            closeModal={closeModal}
+            receiptUrl={receiptUrl}
+        />
     </>
   )
 }

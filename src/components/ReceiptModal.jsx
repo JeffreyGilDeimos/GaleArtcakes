@@ -26,25 +26,33 @@ const ReceiptModal = (props) => {
         <div className="modal-content">
             <div className="modal-body mx-3 text-left">
             {
+                !props.receipt && <div>Loading. Please wait.... <br /> <br /></div>
+            }
+            {
                 props.receipt && props.receipt.length > 0 && props.receipt?.map((data) => (
                     <>
-                    <b>{data.description}</b>
-                    
-                    <div>
-                        Unit price:
-                            {utils.toPhp.format(
-                            data.price.unit_amount
-                        )}
+                    <div key={data.id}>
+                        <b>{data.description}</b>
+                        <div>
+                            Unit price:
+                                {utils.toPhp.format(
+                                data.price.unit_amount
+                            )}
+                        </div>
+                        <div>Quantity: {data.quantity}</div>
+                        <br />
                     </div>
-                    <div>Quantity: {data.quantity}</div>
-                    <br />
                     </>
                 ))
             }
             <div><b>Total:</b> {utils.toPhp.format(mapTotal())}</div>
             </div>
             <div className="modal-footer border-0">
-            <div className="cursor-pointer">View receipt</div>
+            { props.receiptUrl &&
+                <div className="cursor-pointer">
+                    <a href={props.receiptUrl} target="_blank">View receipt</a>
+                </div>
+            }
             <button
                 type="button"
                 className="btn btn-secondary"
