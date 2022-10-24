@@ -56,7 +56,7 @@ export default function CartCakes() {
   return (
     <>
       <section id="cart-cake">
-        <div className="container px-5 pt-5 pt-md-0 pb-0 pb-md-5">
+        <div className="container px-5 pt-0 pb-0 pb-md-5">
           <h2 className="fw-bolder m-0 text-uppercase text-center pb-5">
             <strong>
               You May Also Like Our
