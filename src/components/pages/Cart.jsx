@@ -101,7 +101,7 @@ export default function Cart() {
     cartProducts?.forEach((data) => {
       items.push({
         price: data.priceId,
-        quantity: 1,
+        quantity: data.quantity ? Number(data.quantity) : 1,
       });
     });
     return items;
@@ -135,6 +135,7 @@ export default function Cart() {
           productName: data.productName,
           imageLink: data.imageLink,
           price: data.price,
+          priceId: data.priceId,
           quantity: quantity,
         });
       } else {
