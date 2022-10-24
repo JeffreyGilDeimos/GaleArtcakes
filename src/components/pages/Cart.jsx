@@ -327,6 +327,14 @@ export default function Cart() {
 
             <br />
             <hr className="mb-4 mt-0" />
+            <div class="alert alert-info alert-dismissible fade show mb-5">
+              Use <b>4242 4242 4242 4242</b> as card info for test checkout!
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="alert"
+              ></button>
+            </div>
             <div className="cart-bottom">
               <Link
                 to={`/cakes/${5}`}
