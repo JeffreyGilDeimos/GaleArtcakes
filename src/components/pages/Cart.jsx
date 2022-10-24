@@ -53,6 +53,7 @@ export default function Cart() {
         saveOrder(sessionId, activeUser.email)
           .then(() => {
             checkOut(activeUser.email);
+            window.location.reload();
             navigate("/cart");
           })
           .catch((err) => {
