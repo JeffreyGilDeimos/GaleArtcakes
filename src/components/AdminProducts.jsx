@@ -20,6 +20,7 @@ export default function AdminProducts() {
   const [description, setDescription] = useState("");
   const [addToNewCollections, setAddToNewCollections] = useState(false);
 
+  const [showModal, setShowModal] = useState(false);
   const [showModal1, setShowModal1] = useState(false);
 
   const { getAllProducts, addProduct, deleteProduct } = bindActionCreators(
@@ -101,6 +102,7 @@ export default function AdminProducts() {
   };
 
   const closeModal = () => {
+    setShowModal(false);
     setShowModal1(false);
   };
 
@@ -182,38 +184,18 @@ export default function AdminProducts() {
                       icon={faTrash}
                       type="button"
                       className="trash fs-6"
-                      onClick={() => deleteProduct(product.productId)}
-                      data-bs-toggle="modal"
-                      data-bs-target="#AdminProductModal01"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteProduct(product.productId)
+                          .then((response) => {
+                            console.log(response, "response");
+                            setShowModal(true);
+                          })
+                          .catch((error) => {
+                            console.log(error, "error");
+                          });
+                      }}
                     />
-                  </div>
-                </div>
-              </div>
-              <div
-                className="modal fade"
-                id="AdminProductModal01"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabIndex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content p-4 border-0">
-                    <div className="border border-1 rounded-3">
-                      <div className="modal-body mx-3 text-center">
-                        Great! The product has been deleted successfully.
-                      </div>
-                      <div className="modal-footer border-0">
-                        <button
-                          type="button"
-                          className="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -251,38 +233,18 @@ export default function AdminProducts() {
                       icon={faTrash}
                       type="button"
                       className="trash fs-6"
-                      onClick={() => deleteProduct(product.productId)}
-                      data-bs-toggle="modal"
-                      data-bs-target="#AdminProductModal02"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        deleteProduct(product.productId)
+                          .then((response) => {
+                            console.log(response, "response");
+                            setShowModal(true);
+                          })
+                          .catch((error) => {
+                            console.log(error, "error");
+                          });
+                      }}
                     />
-                  </div>
-                </div>
-              </div>
-              <div
-                className="modal fade"
-                id="AdminProductModal02"
-                data-bs-backdrop="static"
-                data-bs-keyboard="false"
-                tabIndex="-1"
-                aria-labelledby="staticBackdropLabel"
-                aria-hidden="true"
-              >
-                <div className="modal-dialog modal-dialog-centered">
-                  <div className="modal-content p-4 border-0">
-                    <div className="border border-1 rounded-3">
-                      <div className="modal-body mx-3 text-center">
-                        Great! The product has been deleted successfully.
-                      </div>
-                      <div className="modal-footer border-0">
-                        <button
-                          type="button"
-                          className="btn btn-secondary"
-                          data-bs-dismiss="modal"
-                        >
-                          Close
-                        </button>
-                      </div>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -440,6 +402,34 @@ export default function AdminProducts() {
           </Form>
 
           {/* Modals */}
+          <Modal
+            show={showModal}
+            id="showModal"
+            className="h-100 d-flex justify-content-center align-items-center"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabIndex="-1"
+            aria-labelledby="staticBackdropLabel"
+            aria-hidden="true"
+          >
+            <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
+              <div className="modal-content">
+                <div className="modal-body mx-3 text-center">
+                  Great! The product has been deleted successfully.
+                </div>
+                <div className="modal-footer border-0">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => closeModal()}
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </Modal>
+
           <Modal
             show={showModal1}
             id="showModal1"
