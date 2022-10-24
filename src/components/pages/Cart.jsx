@@ -52,6 +52,7 @@ export default function Cart() {
         console.log("should save order..............................");
         saveOrder(sessionId, activeUser.email)
           .then(() => {
+            checkOut(activeUser.email);
             navigate("/cart");
           })
           .catch((err) => {
@@ -79,14 +80,6 @@ export default function Cart() {
     });
     setTotal(value);
   }, [cartProducts]);
-
-  // const handleCheckOut = (e) => {
-  //   e.preventDefault();
-  //   checkOut(activeUser.email).then((response) => {
-  //     setShowModal1(true);
-  //     setCartProducts(response.payload);
-  //   });
-  // };
 
   const closeModal = (e) => {
     e.preventDefault();
