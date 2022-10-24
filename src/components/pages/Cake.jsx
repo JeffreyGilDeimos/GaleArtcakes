@@ -128,7 +128,7 @@ export default function Cake() {
                   <img
                     src={
                       cakes.imageLink
-                        ? `http://localhost:8080/product/${cakes.productId}/download`
+                        ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
                         : "/images/no-image.png"
                     }
                     alt={cakes.productName}
@@ -139,7 +139,7 @@ export default function Cake() {
                   <img
                     src={
                       cakes.imageLink
-                        ? `http://localhost:8080/product/${cakes.productId}/download`
+                        ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
                         : "/images/no-image.png"
                     }
                     alt={cakes.productName}
@@ -150,7 +150,7 @@ export default function Cake() {
                   <img
                     src={
                       cakes.imageLink
-                        ? `http://localhost:8080/product/${cakes.productId}/download`
+                        ? `https://artcakes.herokuapp.com/product/${cakes.productId}/download`
                         : "/images/no-image.png"
                     }
                     alt={cakes.productName}

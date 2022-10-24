@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { loadStripe } from '@stripe/stripe-js';
+import { loadStripe } from "@stripe/stripe-js";
 import { Link, useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -14,7 +14,9 @@ import RecentOrders from "./RecentOrders";
 import utils from "../../utilities/utils";
 import CartCakes from "../CartCakes";
 
-const stripePromise = loadStripe('pk_test_51LtrZ2KMROjFBQQBmg1tPfGBDvLuq2KwJoeSUnqb87j4jem2y0pS2FlZN87eZ8cSORELbdffeywCMIBN5rwNvGy000RP7auhn9');
+const stripePromise = loadStripe(
+  "pk_test_51LtrZ2KMROjFBQQBmg1tPfGBDvLuq2KwJoeSUnqb87j4jem2y0pS2FlZN87eZ8cSORELbdffeywCMIBN5rwNvGy000RP7auhn9"
+);
 
 export default function Cart() {
   const [total, setTotal] = useState(0);
@@ -44,17 +46,17 @@ export default function Cart() {
     if (activeUser.email) {
       const queryString = window.location.search;
       const urlParams = new URLSearchParams(queryString);
-      const sessionId = urlParams.get('session_id')
+      const sessionId = urlParams.get("session_id");
       // Save order
       if (sessionId) {
-        console.log('should save order..............................');
+        console.log("should save order..............................");
         saveOrder(sessionId, activeUser.email)
-        .then(() => {
-          navigate("/cart");
-        })
-        .catch((err) => {
-          navigate("/cart");
-        });
+          .then(() => {
+            navigate("/cart");
+          })
+          .catch((err) => {
+            navigate("/cart");
+          });
       }
     }
   }, []);
@@ -103,23 +105,23 @@ export default function Cart() {
       });
     });
     return items;
-  }
+  };
 
   const handleSubmitCheckOut = async (event) => {
     const stripe = await stripePromise;
     const { error } = await stripe.redirectToCheckout({
       lineItems: lineItems(),
       customerEmail: activeUser ? activeUser.email : null,
-      mode: 'payment',
+      mode: "payment",
       successUrl: `${window.location.href}?session_id={CHECKOUT_SESSION_ID}`,
       cancelUrl: window.location.href,
       shippingAddressCollection: {
-        allowedCountries: ['PH'],
+        allowedCountries: ["PH"],
       },
     });
     console.log(event, stripe);
     if (!error) {
-      console.log('No error. Congrats!!!!!!!!!!!!!!!!!', event);
+      console.log("No error. Congrats!!!!!!!!!!!!!!!!!", event);
     }
   };
 
@@ -198,7 +200,7 @@ export default function Cart() {
                   <img
                     src={
                       item.imageLink
-                        ? `http://localhost:8080/product/${item.productId}/download`
+                        ? `https://artcakes.herokuapp.com/product/${item.productId}/download`
                         : "/images/no-image.png"
                     }
                     alt={item.productName}
@@ -360,7 +362,6 @@ export default function Cart() {
               </div>
             </div>
 
-
             {/* Modal for No Selected Item */}
             <Modal
               show={showModal1}
@@ -419,7 +420,7 @@ export default function Cart() {
               </div>
             </Modal>
           </div>
-        <RecentOrders className="mb-3" paymentList={paymentList}/>
+          <RecentOrders className="mb-3" paymentList={paymentList} />
         </div>
       </section>
       <CartCakes />

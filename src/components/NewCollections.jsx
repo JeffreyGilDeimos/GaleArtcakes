@@ -61,7 +61,7 @@ export default function NewCollections() {
             <img
               src={
                 item.imageLink
-                  ? `http://localhost:8080/product/${item.productId}/download`
+                  ? `https://artcakes.herokuapp.com/product/${item.productId}/download`
                   : "/images/no-image.png"
               }
               alt={item.productName}
