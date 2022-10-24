@@ -25,7 +25,8 @@
 .cake-btn-go:hover,
 .submit-review:hover,
 .cart-buy:hover,
-.cart-cake-btn:hover {
+.cart-cake-btn:hover,
+.view-receipt:hover {
   background-color: var(--brown);
 }
 
@@ -38,12 +39,17 @@
 .cart-circle:hover,
 .cart-buy, 
 .cart-cake-btn,
-.admin-btn-upload:hover {
+.admin-btn-upload:hover,
+.view-receipt {
   background-color: var(--dark-brown);
 }
 
 .socials:hover {
   color: var(--brown);
+}
+
+.order-data:hover {
+  color: var(--light-brown);
 }
 
 .cake-name, 
@@ -60,7 +66,9 @@
 
 .cake-btn-add:hover,
 .cont-shop:hover, 
-.admin-btn-upload:hover {
+.admin-btn-upload:hover,
+.view-receipt,
+.view-receipt:hover {
   color: white;
 }
 
@@ -103,7 +111,9 @@
 .cart-cake-card, 
 .cart-cake-card img,
 .cart-cake-btn,
-.socials{
+.socials,
+.order-data,
+.view-receipt {
   transition: var(--transition);
 }
 
@@ -124,7 +134,8 @@
 .trash,
 .cart-buy,
 .cart-cake-card,
-.socials  {
+.socials,
+.order-data  {
   cursor: pointer;
 }
 

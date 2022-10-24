@@ -24,20 +24,20 @@ const ReceiptModal = (props) => {
       >
         <div className="modal-dialog modal-dialog-centered m-4 rounded-3">
           <div className="modal-content">
-            <div className="modal-body mx-3 text-left">
+            <div className="modal-body mx-3 mt-2 mb-0 text-left">
               {!props.receipt && (
                 <div>
-                  Loading. Please wait.... <br /> <br />
+                  Loading. Please wait... <br /> <br />
                 </div>
               )}
               {props.receipt &&
                 props.receipt.length > 0 &&
                 props.receipt?.map((data) => (
                   <>
-                    <div key={data.id}>
-                      <b>{data.description}</b>
+                    <div className="mb-3" key={data.id}>
+                      <h5 classsName="mb-3 m-0"><strong>{data.description}</strong></h5>
                       <div>
-                        Unit price:
+                        Unit price:{" "}
                         {utils.toPhp.format(
                           parseInt(
                             data.price.unit_amount.toString().slice(0, -2)
@@ -45,19 +45,22 @@ const ReceiptModal = (props) => {
                         )}
                       </div>
                       <div>Quantity: {data.quantity}</div>
-                      <br />
                     </div>
                   </>
                 ))}
               <div>
-                <b>Total:</b>
+                <b>Total: </b>
                 {utils.toPhp.format(convertedTotal)}
               </div>
             </div>
-            <div className="modal-footer border-0">
+            <div className="modal-footer border-0 d-flex align-items-center justify-content-end">
               {props.receiptUrl && (
                 <div className="cursor-pointer">
-                  <a href={props.receiptUrl} target="_blank">
+                  <a
+                    href={props.receiptUrl}
+                    target="_blank"
+                    className="view-receipt"
+                  >
                     View receipt
                   </a>
                 </div>

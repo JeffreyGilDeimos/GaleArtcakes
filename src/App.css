@@ -530,10 +530,10 @@ li:not(:last-child) .nav-link:hover {
   right: 0;
 }
 
-.order-data {
-  cursor: pointer;
-  text-decoration: underline;
+/* ----- Footer ----- */
+.view-receipt {
+  padding: 7px 13px;
+  border-radius: 6px;
+  text-decoration: none;
 }
-.order-data:hover {
-  color: var(--light-brown);
-}
+ 

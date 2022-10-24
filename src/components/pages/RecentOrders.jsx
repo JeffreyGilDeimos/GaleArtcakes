@@ -31,19 +31,20 @@ const RecentOrders = (props) => {
 
   return (
     <>
-        <h3 className="mb-2">Recent orders</h3>
+        <h2 className="mt-5 mt-md-0 mb-3"><strong>Recent Orders</strong></h2>
         {
             props.paymentList.map(payment => (
                 <>
                     <div
                         key={payment.paymentId}
-                        className="order-data mt-2 mb-2"
+                        className="order-data my-2 mx-3"
                         onClick={() => handleClick(payment.paymentId)}
                     >
+                        <u>
                         {new Date(payment.createdDate).toDateString()}
                         {' '}
                         {new Date(payment.createdDate).toLocaleTimeString()}
-                        <FontAwesomeIcon className="ms-2 cursor-pointer" icon={faArrowAltCircleRight} />
+                        <FontAwesomeIcon className="ms-2 cursor-pointer" icon={faArrowAltCircleRight} /></u>
                     </div>
                 </>
             ))
